@@ -206,6 +206,15 @@ record(bi, "$(P)$(R)RLY6") {
 # Write functions
 
 # ///
+# /// Process this to clear an active watchdog
+# ///
+record(bo, "$(P)$(R)WatchdogReset") {
+  field(VAL, "1")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT)ww,0,1)")
+}
+
+# ///
 # /// Set the relay status
 # ///
 record(bo, "$(P)$(R)RLY1Set") {
