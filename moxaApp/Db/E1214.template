@@ -14,3 +14,22 @@
 # Feb 2019
 #
 #############################################################
+
+# ///
+# /// Generic Asyn record.
+# /// Not useful for modbus params, but we can see the 
+# /// socket connect status via the CNCT field
+# ///
+record(asyn,"$(P)$(R)Asyn") {
+  field(DTYP,"asynRecordDevice")
+  field(PORT,"$(PORT)")
+  field(ADDR,"$(ADDR)")
+}
+record(bi, "$(P)$(R)Connected") {
+  field(INP, "$(P)$(R)Asyn.CNCT CP")
+  field(ZNAM, "Disconnected")
+  field(ONAM, "Connected")
+  field(ZSV, "MAJOR")
+}
+
+
