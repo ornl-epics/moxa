@@ -32,7 +32,7 @@ record(bi, "$(P)$(R)Connected") {
   field(ZSV, "MAJOR")
 }
 
-# The following records process once at startup, or when we connect
+# The following records are processed once at startup, or when we connect
 # They use absolute modbus addressing so we don't poll these
 
 record(waveform, "$(P)$(R)ModelName") {
@@ -86,6 +86,14 @@ record(dfanout, "$(P)$(R)InfoRead") {
   field(OUTD, "$(P)$(R)FWBuildDate.PROC PP")
   field(OUTE, "$(P)$(R)FWVersion.PROC PP")
   field(OUTF, "$(P)$(R)DeviceName.PROC PP")
+}
+
+record(calcout, "$(P)$(R)InfoReadCalc") {
+  field(INPA, "$(P)$(R)Connected CP")
+  field(CALC, "A=1")
+  field(OOPT, "Transition to Non-zero")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)InfoRead.PROC PP")
 }
 
 ########################################################
