@@ -22,6 +22,11 @@
 # Build variables that are NOT used in paths should be set in
 # the CONFIG_SITE file.
 
+ASYN = /home/controls/epics/asyn/master
+MODBUS = /home/controls/epics/modbus/master
+MOXA = /home/controls/epics/moxa/master
+AUTOSAVE = /home/controls/epics/autosave/master
+
 # EPICS_BASE should appear last so earlier modules can override stuff:
 EPICS_BASE = /home/controls/epics/base/master
 
