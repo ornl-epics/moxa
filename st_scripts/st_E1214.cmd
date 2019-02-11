@@ -34,7 +34,7 @@ drvModbusAsynConfigure("$(PORT)rw", "$(IP_PORT)", 1, 1, 0,  6, 0, 200, 0)
 # Use absolute addressing for this so we are not polling
 drvModbusAsynConfigure("$(PORT)info", "$(IP_PORT)", 1, 4, -1, 30, 0, 200, 0)
 
-# Device Uptime & Watchdog:
+# Device Uptime & Watchdog Read/Write:
 drvModbusAsynConfigure("$(PORT)up", "$(IP_PORT)", 1, 4, 5020, 2, 0, 1000, 0)
 drvModbusAsynConfigure("$(PORT)wr", "$(IP_PORT)", 1, 1, 4140, 1, 0, 1000, 0)
 drvModbusAsynConfigure("$(PORT)ww", "$(IP_PORT)", 1, 5, 4140, 1, 0, 1000, 0)
