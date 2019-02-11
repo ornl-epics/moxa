@@ -23,8 +23,13 @@ modbusInterposeConfig("$(IP_PORT)", 0, 2000, 0)
 # arg 8: pollMsec 
 # arg 9: plcType
 
-DI_status:
-drvModbusAsynConfigure("$(PORT)", "$(IP_PORT)", 1, 4, 0, 1, 0, 200, 0)
+DI_All_Read:
+drvModbusAsynConfigure("$(PORT)", "$(IP_PORT)", 1, 4, 48, 1, 0, 200, 0)
 
+Relay_All_Read/Write:
+drvModbusAsynConfigure("$(PORT)", "$(IP_PORT)", 1, 4, 48, 1, 0, 200, 0)
+drvModbusAsynConfigure("$(PORT)", "$(IP_PORT)", 1, 6, 48, 1, 0, 200, 0)
 
+Device Information (used to read strings once at startup using waveforms)
+drvModbusAsynConfigure("$(PORT)", "$(IP_PORT)", 1, 4, -1, 30, 0, 200, 0)
 

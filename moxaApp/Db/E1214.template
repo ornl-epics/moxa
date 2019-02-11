@@ -32,4 +32,17 @@ record(bi, "$(P)$(R)Connected") {
   field(ZSV, "MAJOR")
 }
 
+# The following records process once at startup, or when we connect
+# They use absolute modbus addressing so we don't poll these
+
+# ///
+# /// Model name
+# ///
+record(waveform, "$(P)$(R)ModelName") {
+  field(NELM, "11")
+  field(FTVL, "CHAR")
+  field(INP, "@asyn($(PORT)info,5000,1)STRING_LOW_HIGH")
+  field(SCAN, "Passive")
+}
+
 
