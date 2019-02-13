@@ -1,1 +1,7 @@
 
+file E1214.template
+{
+pattern {P, R, PORT}
+        {mkp:, E1214:, m1}
+}
+

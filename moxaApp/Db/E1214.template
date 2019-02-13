@@ -22,8 +22,8 @@
 # ///
 record(asyn,"$(P)$(R)Asyn") {
   field(DTYP,"asynRecordDevice")
-  field(PORT,"$(PORT)")
-  field(ADDR,"$(ADDR)")
+  field(PORT,"$(PORT)ip")
+  field(ADDR,"$(ADDR=0)")
 }
 record(bi, "$(P)$(R)Connected") {
   field(INP, "$(P)$(R)Asyn.CNCT CP")
@@ -36,65 +36,106 @@ record(bi, "$(P)$(R)Connected") {
 # They use absolute modbus addressing so we don't poll these
 
 record(waveform, "$(P)$(R)ModelName") {
-  field(NELM, "11")
+  field(NELM, "50")
   field(FTVL, "CHAR")
+  field(DTYP, "asynOctetRead")
   field(INP, "@asyn($(PORT)info,5000,1)STRING_LOW_HIGH")
-  field(SCAN, "Passive")
+#  field(SCAN, "I/O Intr")
 }
+
+#record(longin, "$(P)$(R)MAC") {
+#  field(DTYP, "asynInt32")
+#  field(INP, "@asyn($(PORT)2w,5024,1)INT32_BE")
+#  field(SCAN, "Passive")
+#  field(FLNK, "$(P)$(R)MAC_2ndPart")
+#}
+#record(longin, "$(P)$(R)MAC_2ndPart") {
+#  field(DTYP, "asynInt32")
+#  field(INP, "@asyn($(PORT)2w,5025,1)INT32_BE")
+#  field(SCAN, "Passive")
+#}
 
 record(waveform, "$(P)$(R)MAC") {
-  field(NELM, "4")
-  field(FTVL, "CHAR")
-  field(INP, "@asyn($(PORT)info,5024,1)STRING_LOW_HIGH")
+  field(NELM, "2")
+  field(FTVL, "ULONG")
+  field(DTYP, "asynInt32ArrayIn")
+  field(INP, "@asyn($(PORT)3w,5024,1)INT32_BE")
   field(SCAN, "Passive")
 }
 
-record(waveform, "$(P)$(R)IP") {
-  field(NELM, "3")
-  field(FTVL, "CHAR")
-  field(INP, "@asyn($(PORT)info,5027,1)STRING_LOW_HIGH")
+# ///
+# /// Read the IP address into an int, then split up.
+# /// Remove the sign bit on the high order byte, and add it back on again
+# /// after bitshifting, so we don't end up with a negative number.
+# ///
+record(longin, "$(P)$(R)IP") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT)2w,5027,1)INT32_BE")
   field(SCAN, "Passive")
+  field(FLNK, "$(P)$(R)IP1")
+}
+record(calc, "$(P)$(R)IP1") {
+  field(INPA, "$(P)$(R)IP")
+  field(CALC, "A<0?((A&0x7F000000)>>24)|0x80:((A&0xFF000000)>>24)")
+  field(FLNK, "$(P)$(R)IP2")
+}
+record(calc, "$(P)$(R)IP2") {
+  field(INPA, "$(P)$(R)IP")
+  field(CALC, "((A&0x00FF0000)>>16)")
+  field(FLNK, "$(P)$(R)IP3")
+}
+record(calc, "$(P)$(R)IP3") {
+  field(INPA, "$(P)$(R)IP")
+  field(CALC, "((A&0x0000FF00)>>8)")
+  field(FLNK, "$(P)$(R)IP4")
+}
+record(calc, "$(P)$(R)IP4") {
+  field(INPA, "$(P)$(R)IP")
+  field(CALC, "(A&0x000000FF)")
 }
 
-record(waveform, "$(P)$(R)FWBuildDate") {
-  field(NELM, "3")
-  field(FTVL, "CHAR")
-  field(INP, "@asyn($(PORT)info,5031,1)STRING_LOW_HIGH")
-  field(SCAN, "Passive")
-}
+#record(waveform, "$(P)$(R)FWBuildDate") {
+#  field(NELM, "3")
+#  field(FTVL, "CHAR")
+#  field(DTYP, "asynOctetRead")
+#  field(INP, "@asyn($(PORT)info,31,1)STRING_LOW_HIGH")
+#  field(SCAN, "I/O Intr")
+#}
 
-record(waveform, "$(P)$(R)FWVersion") {
-  field(NELM, "3")
-  field(FTVL, "CHAR")
-  field(INP, "@asyn($(PORT)info,5029,1)STRING_LOW_HIGH")
-  field(SCAN, "Passive")
-}
+#record(waveform, "$(P)$(R)FWVersion") {
+#  field(NELM, "3")
+#  field(FTVL, "CHAR")
+#  field(DTYP, "asynOctetRead")
+#  field(INP, "@asyn($(PORT)info,29,1)STRING_LOW_HIGH")
+#  field(SCAN, "I/O Intr")
+#}
 
 record(waveform, "$(P)$(R)DeviceName") {
   field(NELM, "31")
   field(FTVL, "CHAR")
+  field(DTYP, "asynOctetRead")
   field(INP, "@asyn($(PORT)info,5040,1)STRING_LOW_HIGH")
-  field(SCAN, "Passive")
+#  field(SCAN, "I/O Intr")
 }
 
-record(dfanout, "$(P)$(R)InfoRead") {
-  field(PINI, "YES")
-  field(VAL, "1")
-  field(OUTA, "$(P)$(R)ModelName.PROC PP")
-  field(OUTB, "$(P)$(R)MAC.PROC PP")
-  field(OUTC, "$(P)$(R)IP.PROC PP")
-  field(OUTD, "$(P)$(R)FWBuildDate.PROC PP")
-  field(OUTE, "$(P)$(R)FWVersion.PROC PP")
-  field(OUTF, "$(P)$(R)DeviceName.PROC PP")
-}
+#record(dfanout, "$(P)$(R)InfoRead") {
+#  field(PINI, "YES")
+#  field(VAL, "1")
+#  field(OUTA, "$(P)$(R)ModelName.PROC PP")
+#  field(OUTB, "$(P)$(R)MAC.PROC PP")
+#  field(OUTC, "$(P)$(R)IP.PROC PP")
+#  field(OUTD, "$(P)$(R)FWBuildDate.PROC PP")
+#  field(OUTE, "$(P)$(R)FWVersion.PROC PP")
+#  field(OUTF, "$(P)$(R)DeviceName.PROC PP")
+#}
 
-record(calcout, "$(P)$(R)InfoReadCalc") {
-  field(INPA, "$(P)$(R)Connected CP")
-  field(CALC, "A=1")
-  field(OOPT, "Transition to Non-zero")
-  field(DOPT, "Use CALC")
-  field(OUT, "$(P)$(R)InfoRead.PROC PP")
-}
+#record(calcout, "$(P)$(R)InfoReadCalc") {
+#  field(INPA, "$(P)$(R)Connected CP")
+#  field(CALC, "A=1")
+#  field(OOPT, "Transition To Non-zero")
+#  field(DOPT, "Use CALC")
+#  field(OUT, "$(P)$(R)InfoRead.PROC PP")
+#}
 
 ########################################################
 # Polling functions
@@ -105,102 +146,102 @@ record(calcout, "$(P)$(R)InfoReadCalc") {
 record(longin, "$(P)$(R)Uptime") {
   field(DESC, "Device Uptime")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT)up,0,1)")
-  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT)2w,5020,1)INT32_BE")
+#  field(SCAN, "1 second")
 }
 
 # ///
 # /// Watchdog
 # ///
-record(bi, "$(P)$(R)Watchdog") {
-  field(DESC, "Watchdog")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT)wr,0,1)")
-  field(SCAN, "I/O Intr")
-  field(ZNAM, "OK")
-  field(ONAM, "Alarm")
-  field(OSV, "MAJOR")
-}
+#record(bi, "$(P)$(R)Watchdog") {
+#  field(DESC, "Watchdog")
+#  field(DTYP, "asynInt32")
+#  field(INP, "@asyn($(PORT)wr,0,1)")
+#  field(SCAN, "I/O Intr")
+#  field(ZNAM, "OK")
+#  field(ONAM, "Alarm")
+#  field(OSV, "MAJOR")
+#}
 
 # ///
 # /// All digital inputs (1-6)
 # ///
-record(mbbiDirect, "$(P)$(R)DI") {
-  field(DESC, "All DI")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT)dir,0,1)")
-  field(SCAN, "I/O Intr")
-}
-record(bi, "$(P)$(R)DI2") {
-  field(INP, "$(P)$(R)DI.B1 CP MS")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-}
-record(bi, "$(P)$(R)DI3") {
-  field(INP, "$(P)$(R)DI.B2 CP MS")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-}
-record(bi, "$(P)$(R)DI4") {
-  field(INP, "$(P)$(R)DI.B3 CP MS")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-}
-record(bi, "$(P)$(R)DI5") {
-  field(INP, "$(P)$(R)DI.B4 CP MS")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-}
-record(bi, "$(P)$(R)DI6") {
-  field(INP, "$(P)$(R)DI.B5 CP MS")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-}
-record(bi, "$(P)$(R)DI1") {
-  field(INP, "$(P)$(R)DI.B0 CP MS")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-}
+#record(mbbiDirect, "$(P)$(R)DI") {
+#  field(DESC, "All DI")
+#  field(DTYP, "asynInt32")
+#  field(INP, "@asyn($(PORT)dir,0,1)")
+#  field(SCAN, "I/O Intr")
+#}
+#record(bi, "$(P)$(R)DI2") {
+#  field(INP, "$(P)$(R)DI.B1 CP MS")
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#}
+#record(bi, "$(P)$(R)DI3") {
+#  field(INP, "$(P)$(R)DI.B2 CP MS")
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#}
+#record(bi, "$(P)$(R)DI4") {
+#  field(INP, "$(P)$(R)DI.B3 CP MS")
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#}
+#record(bi, "$(P)$(R)DI5") {
+#  field(INP, "$(P)$(R)DI.B4 CP MS")
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#}
+#record(bi, "$(P)$(R)DI6") {
+#  field(INP, "$(P)$(R)DI.B5 CP MS")
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#}
+#record(bi, "$(P)$(R)DI1") {
+#  field(INP, "$(P)$(R)DI.B0 CP MS")
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#}
 
 # ///
 # /// All relay status (1-6)
 # ///
-record(mbbiDirect, "$(P)$(R)RLY") {
-  field(DESC, "All Relays")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT)rlyr,0,1)")
-  field(SCAN, "I/O Intr")
-}
-record(bi, "$(P)$(R)RLY1") {
-  field(INP, "$(P)$(R)RLY.B0 CP MS")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-}
-record(bi, "$(P)$(R)RLY2") {
-  field(INP, "$(P)$(R)RLY.B1 CP MS")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-}
-record(bi, "$(P)$(R)RLY3") {
-  field(INP, "$(P)$(R)RLY.B2 CP MS")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-}
-record(bi, "$(P)$(R)RLY4") {
-  field(INP, "$(P)$(R)RLY.B3 CP MS")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-}
-record(bi, "$(P)$(R)RLY5") {
-  field(INP, "$(P)$(R)RLY.B4 CP MS")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-}
-record(bi, "$(P)$(R)RLY6") {
-  field(INP, "$(P)$(R)RLY.B5 CP MS")
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-}
+#record(mbbiDirect, "$(P)$(R)RLY") {
+#  field(DESC, "All Relays")
+#  field(DTYP, "asynInt32")
+#  field(INP, "@asyn($(PORT)rlyr,0,1)")
+#  field(SCAN, "I/O Intr")
+#}
+#record(bi, "$(P)$(R)RLY1") {
+#  field(INP, "$(P)$(R)RLY.B0 CP MS")
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#}
+#record(bi, "$(P)$(R)RLY2") {
+#  field(INP, "$(P)$(R)RLY.B1 CP MS")
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#}
+#record(bi, "$(P)$(R)RLY3") {
+#  field(INP, "$(P)$(R)RLY.B2 CP MS")
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#}
+#record(bi, "$(P)$(R)RLY4") {
+#  field(INP, "$(P)$(R)RLY.B3 CP MS")
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#}
+#record(bi, "$(P)$(R)RLY5") {
+#  field(INP, "$(P)$(R)RLY.B4 CP MS")
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#}
+#record(bi, "$(P)$(R)RLY6") {
+#  field(INP, "$(P)$(R)RLY.B5 CP MS")
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#}
 
 ###########################################################
 # Write functions
@@ -208,43 +249,45 @@ record(bi, "$(P)$(R)RLY6") {
 # ///
 # /// Process this to clear an active watchdog
 # ///
-record(bo, "$(P)$(R)WatchdogReset") {
-  field(VAL, "1")
-  field(DTYP, "asynInt32")
-  field(OUT, "@asyn($(PORT)ww,0,1)")
-}
+#record(bo, "$(P)$(R)WatchdogReset") {
+#  field(VAL, "1")
+#  field(DTYP, "asynInt32")
+#  field(OUT, "@asyn($(PORT)ww,0,1)")
+#}
 
 # ///
 # /// Set the relay status
 # ///
-record(bo, "$(P)$(R)RLY1Set") {
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-  field(OUT, "@asyn($(PORT)rlyw,0,1)")
-}
-record(bo, "$(P)$(R)RLY2Set") {
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-  field(OUT, "@asyn($(PORT)rlyw,1,1)")
-}
-record(bo, "$(P)$(R)RLY3Set") {
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-  field(OUT, "@asyn($(PORT)rlyw,2,1)")
-}
-record(bo, "$(P)$(R)RLY4Set") {
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-  field(OUT, "@asyn($(PORT)rlyw,3,1)")
-}
-record(bo, "$(P)$(R)RLY5Set") {
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-  field(OUT, "@asyn($(PORT)rlyw,4,1)")
-}
-record(bo, "$(P)$(R)RLY6Set") {
-  field(ZNAM, "Off")
-  field(ONAM, "On")
-  field(OUT, "@asyn($(PORT)rlyw,5,1)")
-}
+#record(bo, "$(P)$(R)RLY1Set") {
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#  field(OUT, "@asyn($(PORT)rlyw,0,1)")
+#}
+#record(bo, "$(P)$(R)RLY2Set") {
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#  field(OUT, "@asyn($(PORT)rlyw,1,1)")
+#}
+#record(bo, "$(P)$(R)RLY3Set") {
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#  field(OUT, "@asyn($(PORT)rlyw,2,1)")
+#}
+#record(bo, "$(P)$(R)RLY4Set") {
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#  field(OUT, "@asyn($(PORT)rlyw,3,1)")
+#}
+#record(bo, "$(P)$(R)RLY5Set") {
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#  field(OUT, "@asyn($(PORT)rlyw,4,1)")
+#}
+#record(bo, "$(P)$(R)RLY6Set") {
+#  field(ZNAM, "Off")
+#  field(ONAM, "On")
+#  field(OUT, "@asyn($(PORT)rlyw,5,1)")
+#}
+
+
 
