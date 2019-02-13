@@ -43,25 +43,48 @@ record(waveform, "$(P)$(R)ModelName") {
 #  field(SCAN, "I/O Intr")
 }
 
-#record(longin, "$(P)$(R)MAC") {
-#  field(DTYP, "asynInt32")
-#  field(INP, "@asyn($(PORT)2w,5024,1)INT32_BE")
-#  field(SCAN, "Passive")
-#  field(FLNK, "$(P)$(R)MAC_2ndPart")
-#}
-#record(longin, "$(P)$(R)MAC_2ndPart") {
-#  field(DTYP, "asynInt32")
-#  field(INP, "@asyn($(PORT)2w,5025,1)INT32_BE")
-#  field(SCAN, "Passive")
-#}
-
-record(waveform, "$(P)$(R)MAC") {
-  field(NELM, "2")
-  field(FTVL, "ULONG")
-  field(DTYP, "asynInt32ArrayIn")
-  field(INP, "@asyn($(PORT)3w,5024,1)INT32_BE")
+record(longin, "$(P)$(R)MAC") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT)2w,5024,1)INT32_BE")
   field(SCAN, "Passive")
+  field(FLNK, "$(P)$(R)MAC_2")
 }
+record(longin, "$(P)$(R)MAC_2") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT)2w,5025,1)INT32_BE")
+  field(SCAN, "Passive")
+  field(FLNK, "$(P)$(R)MAC1")
+}
+record(calc, "$(P)$(R)MAC1") {
+  field(INPA, "$(P)$(R)MAC")
+  field(CALC, "A<0?((A&0x7F000000)>>24)|0x80:((A&0xFF000000)>>24)")
+  field(FLNK, "$(P)$(R)MAC2")
+}
+record(calc, "$(P)$(R)MAC2") {
+  field(INPA, "$(P)$(R)MAC")
+  field(CALC, "((A&0x00FF0000)>>16)")
+  field(FLNK, "$(P)$(R)MAC3")
+}
+record(calc, "$(P)$(R)MAC3") {
+  field(INPA, "$(P)$(R)MAC")
+  field(CALC, "((A&0x0000FF00)>>8)")
+  field(FLNK, "$(P)$(R)MAC4")
+}
+record(calc, "$(P)$(R)MAC4") {
+  field(INPA, "$(P)$(R)MAC")
+  field(CALC, "(A&0x000000FF)")
+  field(FLNK, "$(P)$(R)MAC5")
+}
+record(calc, "$(P)$(R)MAC5") {
+  field(INPA, "$(P)$(R)MAC_2")
+  field(CALC, "A<0?((A&0x7F000000)>>24)|0x80:((A&0xFF000000)>>24)")
+  field(FLNK, "$(P)$(R)MAC6")
+}
+record(calc, "$(P)$(R)MAC6") {
+  field(INPA, "$(P)$(R)MAC_2")
+  field(CALC, "((A&0x00FF0000)>>16)")
+}
+
 
 # ///
 # /// Read the IP address into an int, then split up.
