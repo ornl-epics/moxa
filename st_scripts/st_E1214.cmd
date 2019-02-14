@@ -34,10 +34,16 @@ modbusInterposeConfig("$(IP_PORT)", 0, 2000, 0)
 # Use absolute addressing for this so we are not polling
 drvModbusAsynConfigure("$(PORT)info", "$(IP_PORT)", 1, 4, -1, 3, 0, 200, 0)
 
-# Device Uptime & Watchdog Read/Write:
-#drvModbusAsynConfigure("$(PORT)up", "$(IP_PORT)", 1, 4, 5020, 2, 6, 1000, 0)
-drvModbusAsynConfigure("$(PORT)2w", "$(IP_PORT)", 1, 4, -1, 2, 0, 1000, 0)
-drvModbusAsynConfigure("$(PORT)3w", "$(IP_PORT)", 1, 4, -1, 3, 0, 1000, 0)
-#drvModbusAsynConfigure("$(PORT)wr", "$(IP_PORT)", 1, 1, 4140, 1, 0, 1000, 0)
-#drvModbusAsynConfigure("$(PORT)ww", "$(IP_PORT)", 1, 5, 4140, 1, 0, 1000, 0)
+# Use separate asyn ports for each length of read. The device gives us a modbus error
+# if we try to readout outside of the defined address space, but the information
+# isn't nicely ordered in address space so we need to cherry pick different locations
+# by using absolute addressing mode.
 
+# We don't define the modbus data types here (default to 0). 
+# Define these in the record INP or OUT fields instead.
+
+# Ports used for reading
+drvModbusAsynConfigure("$(PORT)2w",  "$(IP_PORT)", 1, 4, -1, 2,  0, 1000, 0) 
+drvModbusAsynConfigure("$(PORT)3w",  "$(IP_PORT)", 1, 4, -1, 3,  0, 1000, 0)
+drvModbusAsynConfigure("$(PORT)10w", "$(IP_PORT)", 1, 4, -1, 10, 0, 1000, 0)
+drvModbusAsynConfigure("$(PORT)30w", "$(IP_PORT)", 1, 4, -1, 30, 0, 1000, 0)
