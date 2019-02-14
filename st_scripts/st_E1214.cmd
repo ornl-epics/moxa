@@ -31,14 +31,19 @@ modbusInterposeConfig("$(IP_PORT)", 0, 2000, 0)
 # We don't define the modbus data types here (default to 0). 
 # Define these in the record INP or OUT fields instead.
 
-# Ports used for reading
-drvModbusAsynConfigure("$(PORT)1w",  "$(IP_PORT)", 1, 4, -1, 1,  0, 1000, 0) 
-drvModbusAsynConfigure("$(PORT)2w",  "$(IP_PORT)", 1, 4, -1, 2,  0, 1000, 0) 
-drvModbusAsynConfigure("$(PORT)3w",  "$(IP_PORT)", 1, 4, -1, 3,  0, 1000, 0)
-drvModbusAsynConfigure("$(PORT)10w", "$(IP_PORT)", 1, 4, -1, 10, 0, 1000, 0)
-drvModbusAsynConfigure("$(PORT)30w", "$(IP_PORT)", 1, 4, -1, 30, 0, 1000, 0)
+# Ports used for reading. The port names have some structure to them:
+#  The number after the base PORT name is the number of bits or words
+#  The following letter defines the type (w=word, b=bit)
+#  The final number is the modbus function code
+drvModbusAsynConfigure("$(PORT)1w4",  "$(IP_PORT)", 1, 4, -1, 1,  0, 1000, 0) 
+drvModbusAsynConfigure("$(PORT)2w4",  "$(IP_PORT)", 1, 4, -1, 2,  0, 1000, 0) 
+drvModbusAsynConfigure("$(PORT)3w4",  "$(IP_PORT)", 1, 4, -1, 3,  0, 1000, 0)
+drvModbusAsynConfigure("$(PORT)10w4", "$(IP_PORT)", 1, 4, -1, 10, 0, 1000, 0)
+drvModbusAsynConfigure("$(PORT)30w4", "$(IP_PORT)", 1, 4, -1, 30, 0, 1000, 0)
+drvModbusAsynConfigure("$(PORT)1w3",  "$(IP_PORT)", 1, 3, -1, 1,  0, 1000, 0) 
+ 
+drvModbusAsynConfigure("$(PORT)1b1",  "$(IP_PORT)", 1, 1, -1, 1,  0, 1000, 0) 
 
-# Single bit reading 
-drvModbusAsynConfigure("$(PORT)1b",  "$(IP_PORT)", 1, 1, -1, 1,  0, 1000, 0) 
+drvModbusAsynConfigure("$(PORT)1w6",  "$(IP_PORT)", 1, 6, -1, 1,  0, 1000, 0) 
 
 epicsThreadSleep(1)

@@ -17,8 +17,8 @@ epicsEnvSet("PORT","m1")
 
 < $(MOXA)/st_scripts/st_E1214.cmd
 
-asynSetTraceMask("m11w",0,0xFF)
-asynSetTraceIOMask("m11w",0,0xFF)
+asynSetTraceMask("m11w6",0,0xFF)
+asynSetTraceIOMask("m11w6",0,0xFF)
 
 ## Load record instances
 dbLoadRecords "db/example.db"
