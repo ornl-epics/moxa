@@ -218,21 +218,21 @@ record(longin, "$(P)$(R)Uptime") {
   field(DESC, "Device Uptime")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT)2w,5020,1)INT32_BE")
-#  field(SCAN, "1 second")
+  field(SCAN, "1 second")
 }
 
 # ///
 # /// Watchdog
 # ///
-#record(bi, "$(P)$(R)Watchdog") {
-#  field(DESC, "Watchdog")
-#  field(DTYP, "asynInt32")
-#  field(INP, "@asyn($(PORT)wr,0,1)")
-#  field(SCAN, "I/O Intr")
-#  field(ZNAM, "OK")
-#  field(ONAM, "Alarm")
-#  field(OSV, "MAJOR")
-#}
+record(bi, "$(P)$(R)Watchdog") {
+  field(DESC, "Watchdog")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT)1b,4144,1)")
+  field(SCAN, "1 second")
+  field(ZNAM, "OK")
+  field(ONAM, "Alarm")
+  field(OSV, "MAJOR")
+}
 
 # ///
 # /// All digital inputs (1-6)
