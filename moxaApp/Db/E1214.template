@@ -237,42 +237,49 @@ record(bi, "$(P)$(R)Watchdog") {
 # ///
 # /// All digital inputs (1-6)
 # ///
-#record(mbbiDirect, "$(P)$(R)DI") {
-#  field(DESC, "All DI")
-#  field(DTYP, "asynInt32")
-#  field(INP, "@asyn($(PORT)dir,0,1)")
-#  field(SCAN, "I/O Intr")
-#}
-#record(bi, "$(P)$(R)DI2") {
-#  field(INP, "$(P)$(R)DI.B1 CP MS")
-#  field(ZNAM, "Off")
-#  field(ONAM, "On")
-#}
-#record(bi, "$(P)$(R)DI3") {
-#  field(INP, "$(P)$(R)DI.B2 CP MS")
-#  field(ZNAM, "Off")
-#  field(ONAM, "On")
-#}
-#record(bi, "$(P)$(R)DI4") {
-#  field(INP, "$(P)$(R)DI.B3 CP MS")
-#  field(ZNAM, "Off")
-#  field(ONAM, "On")
-#}
-#record(bi, "$(P)$(R)DI5") {
-#  field(INP, "$(P)$(R)DI.B4 CP MS")
-#  field(ZNAM, "Off")
-#  field(ONAM, "On")
-#}
-#record(bi, "$(P)$(R)DI6") {
-#  field(INP, "$(P)$(R)DI.B5 CP MS")
-#  field(ZNAM, "Off")
-#  field(ONAM, "On")
-#}
-#record(bi, "$(P)$(R)DI1") {
-#  field(INP, "$(P)$(R)DI.B0 CP MS")
-#  field(ZNAM, "Off")
-#  field(ONAM, "On")
-#}
+record(mbbiDirect, "$(P)$(R)DI") {
+  field(DESC, "All DI")
+  field(DTYP, "asynUInt32Digital")
+  field(INP, "@asynMask($(PORT)1w,48,0x003F,1)INT32_BE")
+  field(SCAN, ".1 second")
+  field(FLNK, "$(P)$(R)DI0")
+}
+record(bi, "$(P)$(R)DI0") {
+  field(INP, "$(P)$(R)DI.B0 CP MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI1")
+}
+record(bi, "$(P)$(R)DI1") {
+  field(INP, "$(P)$(R)DI.B1 CP MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI2")
+}
+record(bi, "$(P)$(R)DI2") {
+  field(INP, "$(P)$(R)DI.B2 CP MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI3")
+}
+record(bi, "$(P)$(R)DI3") {
+  field(INP, "$(P)$(R)DI.B3 CP MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI4")
+}
+record(bi, "$(P)$(R)DI4") {
+  field(INP, "$(P)$(R)DI.B4 CP MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI5")
+}
+record(bi, "$(P)$(R)DI5") {
+  field(INP, "$(P)$(R)DI.B5 CP MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+}
+
 
 # ///
 # /// All relay status (1-6)
