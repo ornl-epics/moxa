@@ -33,9 +33,14 @@ record(bi, "$(P)$(R)Connected") {
   field(ZSV, "MAJOR")
 }
 
-# The following records are processed once at startup, or when we connect
-# They use absolute modbus addressing so we don't poll these
+##############################################################
+# The following records are processed once at startup, or 
+# when we connect. They use absolute modbus addressing so we 
+# don't poll these.
 
+# ///
+# /// Model name
+# ///
 record(waveform, "$(P)$(R)ModelName") {
   field(NELM, "21")
   field(FTVL, "CHAR")
@@ -91,7 +96,6 @@ record(calc, "$(P)$(R)MAC6") {
   field(CALC, "(A&0x000000FF)")
 }
 
-
 # ///
 # /// Read the IP address into an int, then split up.
 # /// Remove the sign bit on the high order byte, and add it back on again
@@ -123,22 +127,9 @@ record(calc, "$(P)$(R)IP4") {
   field(CALC, "(A&0x000000FF)")
 }
 
-#record(waveform, "$(P)$(R)FWBuildDate") {
-#  field(NELM, "3")
-#  field(FTVL, "CHAR")
-#  field(DTYP, "asynOctetRead")
-#  field(INP, "@asyn($(PORT)info,31,1)STRING_LOW_HIGH")
-#  field(SCAN, "I/O Intr")
-#}
-
-#record(waveform, "$(P)$(R)FWVersion") {
-#  field(NELM, "3")
-#  field(FTVL, "CHAR")
-#  field(DTYP, "asynOctetRead")
-#  field(INP, "@asyn($(PORT)info,29,1)STRING_LOW_HIGH")
-#  field(SCAN, "I/O Intr")
-#}
-
+# ///
+# /// Firmware build date
+# ///
 record(longin, "$(P)$(R)FWB") {
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT)2w,5031,1)INT32_BE")
@@ -160,6 +151,9 @@ record(calc, "$(P)$(R)FWBDay") {
   field(CALC, "((A&0x0000FF00)>>8)")
 }
 
+# ///
+# /// Firmware version
+# ///
 record(longin, "$(P)$(R)FWV") {
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT)2w,5029,1)INT32_BE")
@@ -181,7 +175,9 @@ record(calc, "$(P)$(R)FWV3") {
   field(CALC, "((A&0x0000FF00)>>8)")
 }
 
-
+# ///
+# /// Device name. This can be user defined and set via the web page.
+# ///
 record(waveform, "$(P)$(R)DeviceName") {
   field(NELM, "61")
   field(FTVL, "CHAR")
@@ -190,24 +186,27 @@ record(waveform, "$(P)$(R)DeviceName") {
   field(SCAN, "Passive")
 }
 
-#record(dfanout, "$(P)$(R)InfoRead") {
-#  field(PINI, "YES")
-#  field(VAL, "1")
-#  field(OUTA, "$(P)$(R)ModelName.PROC PP")
-#  field(OUTB, "$(P)$(R)MAC.PROC PP")
-#  field(OUTC, "$(P)$(R)IP.PROC PP")
-#  field(OUTD, "$(P)$(R)FWBuildDate.PROC PP")
-#  field(OUTE, "$(P)$(R)FWVersion.PROC PP")
-#  field(OUTF, "$(P)$(R)DeviceName.PROC PP")
-#}
+# ///
+# /// Read some information once at startup, and when we reconnect.
+# ///
+record(dfanout, "$(P)$(R)InfoRead") {
+  field(PINI, "YES")
+  field(VAL, "1")
+  field(OUTA, "$(P)$(R)ModelName.PROC PP")
+  field(OUTB, "$(P)$(R)MAC.PROC PP")
+  field(OUTC, "$(P)$(R)IP.PROC PP")
+  field(OUTD, "$(P)$(R)FWB.PROC PP")
+  field(OUTE, "$(P)$(R)FWV.PROC PP")
+  field(OUTF, "$(P)$(R)DeviceName.PROC PP")
+}
 
-#record(calcout, "$(P)$(R)InfoReadCalc") {
-#  field(INPA, "$(P)$(R)Connected CP")
-#  field(CALC, "A=1")
-#  field(OOPT, "Transition To Non-zero")
-#  field(DOPT, "Use CALC")
-#  field(OUT, "$(P)$(R)InfoRead.PROC PP")
-#}
+record(calcout, "$(P)$(R)InfoReadCalc") {
+  field(INPA, "$(P)$(R)Connected CP")
+  field(CALC, "A=1")
+  field(OOPT, "Transition To Non-zero")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)InfoRead.PROC PP")
+}
 
 ########################################################
 # Polling functions
