@@ -332,12 +332,13 @@ record(bi, "$(P)$(R)RLY5") {
 
 # ///
 # /// Process this to clear an active watchdog
+# /// This has not been tested because I'm not sure how to generate a watchdog.
 # ///
-#record(bo, "$(P)$(R)WatchdogReset") {
-#  field(VAL, "1")
-#  field(DTYP, "asynInt32")
-#  field(OUT, "@asyn($(PORT)1b1,4144,1)")
-#}
+record(bo, "$(P)$(R)WatchdogReset") {
+  field(VAL, "1")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT)1b5,4144,1)")
+}
 
 # ///
 # /// Set the relay status. This can be done by
