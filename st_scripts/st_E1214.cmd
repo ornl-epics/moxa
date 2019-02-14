@@ -32,6 +32,7 @@ modbusInterposeConfig("$(IP_PORT)", 0, 2000, 0)
 # Define these in the record INP or OUT fields instead.
 
 # Ports used for reading
+drvModbusAsynConfigure("$(PORT)1w",  "$(IP_PORT)", 1, 4, -1, 1,  0, 1000, 0) 
 drvModbusAsynConfigure("$(PORT)2w",  "$(IP_PORT)", 1, 4, -1, 2,  0, 1000, 0) 
 drvModbusAsynConfigure("$(PORT)3w",  "$(IP_PORT)", 1, 4, -1, 3,  0, 1000, 0)
 drvModbusAsynConfigure("$(PORT)10w", "$(IP_PORT)", 1, 4, -1, 10, 0, 1000, 0)
