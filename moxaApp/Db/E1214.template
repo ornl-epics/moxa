@@ -8,6 +8,7 @@
 # P - base PV name
 # R - module PV name
 # PORT - asyn port name (modbus TCP)
+# IP_PORT - the low level IP port name (used for drvAsynIPPortConfigure)
 # ADDR - asyn address (defaults to 0)
 # 
 # Matt Pearson
@@ -22,7 +23,7 @@
 # ///
 record(asyn,"$(P)$(R)Asyn") {
   field(DTYP,"asynRecordDevice")
-  field(PORT,"$(PORT)ip")
+  field(PORT,"$(IP_PORT)")
   field(ADDR,"$(ADDR=0)")
 }
 record(bi, "$(P)$(R)Connected") {
@@ -43,6 +44,11 @@ record(waveform, "$(P)$(R)ModelName") {
 #  field(SCAN, "I/O Intr")
 }
 
+# ///
+# /// Read the MAC address into two ints, since it's in 6 bytes, then split up.
+# /// Remove the sign bit on the high order byte, and add it back on again
+# /// after bitshifting, so we don't end up with a negative number.
+# ///
 record(longin, "$(P)$(R)MAC") {
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT)2w,5024,1)INT32_BE")

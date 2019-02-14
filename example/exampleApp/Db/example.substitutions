@@ -1,7 +1,7 @@
 
 file E1214.template
 {
-pattern {P, R, PORT}
-        {mkp:, E1214:, m1}
+pattern {P, R, PORT, IP_PORT}
+        {mkp:, E1214:, m1, m1ip}
 }
 
