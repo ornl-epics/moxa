@@ -342,8 +342,7 @@ record(bo, "$(P)$(R)WatchdogReset") {
 
 # ///
 # /// Set the relay status. This can be done by
-# /// setting the bits (B0-B5). To turn off all the 
-# /// relays the set the VAL to 0.
+# /// setting the bits (B0-B5).
 # ///
 record(mbboDirect, "$(P)$(R)RLYSet") {
   field(DESC, "Set All Relays")
