@@ -218,7 +218,7 @@ record(longin, "$(P)$(R)Uptime") {
   field(DESC, "Device Uptime")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT)2w4,5020,1)INT32_BE")
-  field(SCAN, "1 second")
+  field(SCAN, "Passive")
   field(EGU, "s")
 }
 
@@ -229,7 +229,7 @@ record(bi, "$(P)$(R)Watchdog") {
   field(DESC, "Watchdog")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT)1b1,4144,1)")
-  field(SCAN, "1 second")
+  field(SCAN, "Passive")
   field(ZNAM, "OK")
   field(ONAM, "Alarm")
   field(OSV, "MAJOR")
@@ -242,7 +242,7 @@ record(mbbiDirect, "$(P)$(R)DI") {
   field(DESC, "All DI")
   field(DTYP, "asynUInt32Digital")
   field(INP, "@asynMask($(PORT)1w4,48,0x003F,1)INT32_BE")
-  field(SCAN, ".1 second")
+  field(SCAN, "Passive")
   field(FLNK, "$(P)$(R)DI0")
 }
 record(bi, "$(P)$(R)DI0") {
@@ -281,7 +281,6 @@ record(bi, "$(P)$(R)DI5") {
   field(ONAM, "On")
 }
 
-
 # ///
 # /// All relay status (1-6)
 # ///
@@ -289,7 +288,7 @@ record(mbbiDirect, "$(P)$(R)RLY") {
   field(DESC, "All Relays")
   field(DTYP, "asynUInt32Digital")
   field(INP, "@asynMask($(PORT)1w3,32,0x003F,1)INT32_BE")
-  field(SCAN, ".1 second")
+  field(SCAN, "Passive")
   field(FLNK, "$(P)$(R)RLY0")
 }
 record(bi, "$(P)$(R)RLY0") {
@@ -328,6 +327,22 @@ record(bi, "$(P)$(R)RLY5") {
   field(ONAM, "On")
 }
 
+record(seq, "$(P)$(R)FastPollControl") {
+  field(SCAN, ".1 second")
+  field(DOL1, "1")
+  field(DOL2, "1")
+  field(LNK1, "$(P)$(R)DI.PROC PP")
+  field(LNK2, "$(P)$(R)RLY.PROC PP")
+}
+
+record(seq, "$(P)$(R)SlowPollControl") {
+  field(SCAN, "1 second")
+  field(DOL1, "1")
+  field(DOL2, "1")
+  field(LNK1, "$(P)$(R)Watchdog.PROC PP")
+  field(LNK2, "$(P)$(R)Uptime.PROC PP")
+}
+
 ###########################################################
 # Write functions
 
@@ -353,6 +368,7 @@ record(mbboDirect, "$(P)$(R)RLYSet") {
   field(DESC, "Set All Relays")
   field(DTYP, "asynUInt32Digital")
   field(OUT, "@asynMask($(PORT)1w6,32,0x003F,1)INT32_BE")
+  field(FLNK, "$(P)$(R)RLY")
 }
 
 ############################################################
