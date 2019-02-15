@@ -351,7 +351,38 @@ record(mbboDirect, "$(P)$(R)RLYSet") {
   field(OUT, "@asynMask($(PORT)1w6,32,0x003F,1)INT32_BE")
 }
 
+############################################################
+# Communication alarm
 
+# ///
+# /// Calculate if we have a comms alarm
+# ///
+record(calcout, "$(P)$(R)AlarmCalc") {
+  field(INPA, "$(P)$(R)AlarmControl CP")
+  field(INPB, "$(P)$(R)DI.STAT CP")
+  field(INPC, "$(P)$(R)RLY.STAT CP")
+  field(INPD, "$(P)$(R)Uptime.STAT CP")
+  field(CALC, "A?(B||C||D):0")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)Alarm PP")
+}
+record(bo, "$(P)$(R)AlarmControl") {
+  field(DESC, "Alarm Control")
+  field(PINI, "YES")
+  field(VAL, "1")
+  field(ZNAM, "Disabled")
+  field(ONAM, "Enabled")
+  field(ZSV, "MINOR")
+}
+record(bo, "$(P)$(R)Alarm") {
+  field(DESC, "Comms Alarm")
+  field(PINI, "YES")
+  field(VAL, "0")
+  field(ZNAM, "Comms OK")
+  field(ONAM, "Comms Alarm")
+  field(OSV, "MAJOR")
+}
 
 
 
