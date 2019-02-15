@@ -15,10 +15,13 @@ epicsEnvSet("IP_ADDR","192.168.200.177:502")
 epicsEnvSet("IP_PORT","m1ip")
 epicsEnvSet("PORT","m1")
 
-< $(MOXA)/st_scripts/st_E1214.cmd
+< $(MOXA)/st_scripts/st_common.cmd
 
-#asynSetTraceMask("m11w6",0,0xFF)
-#asynSetTraceIOMask("m11w6",0,0xFF)
+#asynSetTraceMask("m16b1",0,0xFF)
+#asynSetTraceIOMask("m16b1",0,0xFF)
+
+#asynSetTraceMask("m1ip",0,0xFF)
+#asynSetTraceIOMask("m1ip",0,0xFF)
 
 ## Load record instances
 dbLoadRecords "db/example.db"
