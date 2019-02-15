@@ -219,6 +219,7 @@ record(longin, "$(P)$(R)Uptime") {
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT)2w4,5020,1)INT32_BE")
   field(SCAN, "1 second")
+  field(EGU, "s")
 }
 
 # ///
