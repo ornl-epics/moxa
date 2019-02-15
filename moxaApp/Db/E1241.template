@@ -1,0 +1,27 @@
+####################################################################
+#
+# Template for the Moxa E1241 module:
+#   4 analog outputs
+#
+# Macros:
+# P - base PV name
+# R - module PV name
+# PORT - asyn port name (modbus TCP)
+# IP_PORT - the low level IP port name (used for drvAsynIPPortConfigure)
+# ADDR - asyn address (defaults to 0)
+# 
+# Matt Pearson
+# Feb 2019
+#
+#####################################################################
+
+#####################################################################
+# Polling functions. The records are processed using a seq record.
+
+
+
+
+############################################################
+# Communication alarm
+
+
