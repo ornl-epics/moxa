@@ -332,11 +332,15 @@ record(bi, "$(P)$(R)RLY5") {
 # Write functions
 
 # ///
-# /// Process this to clear an active watchdog
-# /// This has not been tested because I'm not sure how to generate a watchdog.
+# /// Process this to clear an active communication watchdog.
+# /// The watchdog feature is disabled by default and has to be
+# /// enabled via the web interface. 
 # ///
 record(bo, "$(P)$(R)WatchdogReset") {
-  field(VAL, "1")
+  field(VAL, "0")
+  field(OUT, "$(P)$(R)WatchdogWrite PP")
+}
+record(bo, "$(P)$(R)WatchdogWrite") {
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT)1b5,4144,1)")
 }
@@ -362,7 +366,8 @@ record(calcout, "$(P)$(R)AlarmCalc") {
   field(INPB, "$(P)$(R)DI.STAT CP")
   field(INPC, "$(P)$(R)RLY.STAT CP")
   field(INPD, "$(P)$(R)Uptime.STAT CP")
-  field(CALC, "A?(B||C||D):0")
+  field(INPE, "$(P)$(R)Watchdog CP")
+  field(CALC, "A?(B||C||D||E):0")
   field(OOPT, "Every Time")
   field(DOPT, "Use CALC")
   field(OUT, "$(P)$(R)Alarm PP")
