@@ -36,6 +36,7 @@ record(waveform, "$(P)$(R)AO") {
   field(SCAN, "Passive")
   field(FLNK, "$(P)$(R)AO_0")
 }
+# Extract the word for channels 0 and 1
 record(subArray, "$(P)$(R)AO_0") {
   field(INP, "$(P)$(R)AO.VAL")
   field(SCAN, "Passive")
@@ -71,7 +72,7 @@ record(ai, "$(P)$(R)AO1") {
   field(PREC, "3")
   field(FLNK, "$(P)$(R)AO_1")
 }
-
+# Extract the word for channels 2 and 3
 record(subArray, "$(P)$(R)AO_1") {
   field(INP, "$(P)$(R)AO.VAL")
   field(SCAN, "Passive")
@@ -107,11 +108,25 @@ record(ai, "$(P)$(R)AO3") {
   field(PREC, "3")
 }
 
+# ///
+# /// Polling control
+# ///
+record(seq, "$(P)$(R)FastPollControl") {
+  field(SCAN, ".1 second")
+  field(DOL1, "1")
+  field(LNK1, "$(P)$(R)AO.PROC PP")
+}
+
+#####################################################################
+# Set functions.
 
 # ///
 # /// Set output values. The user can write engineering units into VAL
 # /// and we will scale and offset it so that RVAL is the desired DAC code.
 # /// The scaling is handled by the logic in AO_scaling.template.
+# /// 
+# /// A single register is used to set channels 0 and 1, similary for 
+# /// 2 and 3, so we deal with that below.
 # ///
 record(ao, "$(P)$(R)AO0Set") {
   field(DTYP, "Raw Soft Channel")
@@ -145,7 +160,6 @@ record(longout, "$(P)$(R)AO_0Set") {
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT)1w6,1024,1)INT32_BE")
 }
-
 record(ao, "$(P)$(R)AO2Set") {
   field(DTYP, "Raw Soft Channel")
   field(LINR, "LINEAR")
@@ -179,7 +193,9 @@ record(longout, "$(P)$(R)AO_1Set") {
   field(OUT, "@asyn($(PORT)1w6,1026,1)INT32_BE")
 }
 
-# Deal with scaling the raw DAC value to EGU
+#####################################################################
+# Deal with scaling the above ai and ao records
+
 substitute "AO=AO0"
 include "AO_scaling.template"
 substitute "AO=AO1"
@@ -188,17 +204,6 @@ substitute "AO=AO2"
 include "AO_scaling.template"
 substitute "AO=AO3"
 include "AO_scaling.template"
-
-
-# ///
-# /// Polling control
-# ///
-record(seq, "$(P)$(R)FastPollControl") {
-  field(SCAN, ".1 second")
-  field(DOL1, "1")
-  field(LNK1, "$(P)$(R)AO.PROC PP")
-}
-
 
 #####################################################################
 # Alarm calculation for this module

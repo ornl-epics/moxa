@@ -4,7 +4,7 @@
 # to select the range (0-10V, 0-20mA or 4-20mA) and we then
 # set the ai/ao record scaling fields appropriately.
 #
-# For each AO input the template assumes there is a ai record
+# For each $(AO) input the template assumes there is a ai record
 # with name "$(P)$(R)$(AO) and an ao record with name "$(P)$(R)$(AO)Set
 #
 # Macros:
@@ -86,6 +86,7 @@ record(stringout, "$(P)$(R)$(AO)EguSet_2") {
   field(VAL, "mA")
   field(OUT, "$(P)$(R)$(AO)Egu PP")
 }
+# Use this record for display on the screen
 record(stringout, "$(P)$(R)$(AO)Egu") {
   field(VAL, "V")
   field(OUT, "$(P)$(R)$(AO).EGU PP")
