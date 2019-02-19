@@ -208,3 +208,14 @@ include "AO_scaling.template"
 #####################################################################
 # Alarm calculation for this module
 
+record(calcout, "$(P)$(R)AlarmCalcComms") {
+  field(INPA, "$(P)$(R)AlarmCtrl CP")
+  field(INPB, "$(P)$(R)AO.STAT CP")
+  field(INPC, "$(P)$(R)Uptime.STAT CP")
+  field(INPD, "$(P)$(R)Watchdog CP")
+  field(CALC, "A?(B||C||D):0")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)Alarm PP")
+}
+
