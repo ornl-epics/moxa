@@ -15,6 +15,9 @@
 #
 #####################################################################
 
+# Include common records used by all modules
+include "ioLogikCommon.template"
+
 #####################################################################
 # Polling functions. The records are processed using a seq record.
 
@@ -22,6 +25,5 @@
 
 
 ############################################################
-# Communication alarm
-
+# Alarm calculation for this module
 

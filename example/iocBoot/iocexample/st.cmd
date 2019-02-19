@@ -11,9 +11,15 @@ cd "${TOP}"
 dbLoadDatabase "dbd/example.dbd"
 example_registerRecordDeviceDriver pdbbase
 
-epicsEnvSet("IP_ADDR","192.168.200.177:502")
-epicsEnvSet("IP_PORT","m1ip")
-epicsEnvSet("PORT","m1")
+#E1214 Unit (6 DI and 6 Relay)
+#epicsEnvSet("IP_ADDR","192.168.200.177:502")
+#epicsEnvSet("IP_PORT","m1ip")
+#epicsEnvSet("PORT","m1")
+
+#E1241 Unit (4 AO)
+epicsEnvSet("IP_ADDR","192.168.200.178:502")
+epicsEnvSet("IP_PORT","m2ip")
+epicsEnvSet("PORT","m2")
 
 < $(MOXA)/st_scripts/st_common.cmd
 
