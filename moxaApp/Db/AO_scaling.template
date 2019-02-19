@@ -40,49 +40,45 @@ record(seq, "$(P)$(R)$(AO)RangeSet") {
   field(LNK2, "$(P)$(R)$(AO)RangeSet_1.PROC PP")
   field(LNK3, "$(P)$(R)$(AO)RangeSet_2.PROC PP")
 }
-record(seq, "$(P)$(R)$(AO)RangeSet_0") {
-  field(DOL1, "0") #0V
-  field(DOL2, "0.00244002") #10V/4095
-  field(DOL3, "0") #0V
-  field(DOL4, "0.00244002") #10V/4095
-  field(LNK1, "$(P)$(R)$(AO).AOFF PP")
-  field(LNK2, "$(P)$(R)$(AO).ASLO PP")
-  field(LNK3, "$(P)$(R)$(AO)Set.AOFF NPP")
-  field(LNK4, "$(P)$(R)$(AO)Set.ASLO NPP")
-  field(FLNK, "$(P)$(R)$(AO)EguSet_0")
-}
-record(seq, "$(P)$(R)$(AO)RangeSet_1") {
-  field(DOL1, "0") #0mA
-  field(DOL2, "0.004884005") #20mA/4095
-  field(DOL3, "0") #0mA
-  field(DOL4, "0.004884005") #20mA/4095
-  field(LNK1, "$(P)$(R)$(AO).AOFF PP")
-  field(LNK2, "$(P)$(R)$(AO).ASLO PP")
-  field(LNK3, "$(P)$(R)$(AO)Set.AOFF NPP")
-  field(LNK4, "$(P)$(R)$(AO)Set.ASLO NPP")
-  field(FLNK, "$(P)$(R)$(AO)EguSet_1")
-}
-record(seq, "$(P)$(R)$(AO)RangeSet_2") {
-  field(DOL1, "4") #4mA
-  field(DOL2, "0.003907204") #16mA/4095
-  field(DOL3, "4") #4mA
-  field(DOL4, "0.003907204") #16mA/4095
-  field(LNK1, "$(P)$(R)$(AO).AOFF PP")
-  field(LNK2, "$(P)$(R)$(AO).ASLO PP")
-  field(LNK3, "$(P)$(R)$(AO)Set.AOFF NPP")
-  field(LNK4, "$(P)$(R)$(AO)Set.ASLO NPP")
-  field(FLNK, "$(P)$(R)$(AO)EguSet_2")
-}
 
-record(stringout, "$(P)$(R)$(AO)EguSet_0") {
+# ///
+# /// 0 to 10V
+# ///
+substitute "INDEX=0"
+substitute "EGU=V"
+substitute "EGU_MIN=0"
+substitute "EGU_MAX=10"
+substitute "AOFF=0"
+substitute "ASLO=0.00244002"
+include "AO_scaling_seq.template"
+
+# ///
+# /// 0 to 20mA
+# ///
+substitute "INDEX=1"
+substitute "EGU=mA"
+substitute "EGU_MIN=0"
+substitute "EGU_MAX=20"
+substitute "AOFF=0"
+substitute "ASLO=0.004884005"
+include "AO_scaling_seq.template"
+
+# ///
+# /// 4 to 20mA
+# ///
+substitute "INDEX=2"
+substitute "EGU=mA"
+substitute "EGU_MIN=4"
+substitute "EGU_MAX=20"
+substitute "AOFF=4"
+substitute "ASLO=0.003907204"
+include "AO_scaling_seq.template"
+
+record(stringout, "$(P)$(R)$(AO)EguSet_V") {
   field(VAL, "V")
   field(OUT, "$(P)$(R)$(AO)Egu PP")
 }
-record(stringout, "$(P)$(R)$(AO)EguSet_1") {
-  field(VAL, "mA")
-  field(OUT, "$(P)$(R)$(AO)Egu PP")
-}
-record(stringout, "$(P)$(R)$(AO)EguSet_2") {
+record(stringout, "$(P)$(R)$(AO)EguSet_mA") {
   field(VAL, "mA")
   field(OUT, "$(P)$(R)$(AO)Egu PP")
 }
