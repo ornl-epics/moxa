@@ -70,6 +70,27 @@ record(bi, "$(P)$(R)DI5") {
 }
 
 # ///
+# /// Control the alarm state for each DI
+# ///
+substitute "DI=DI0"
+include "DI_alarm.template"
+
+substitute "DI=DI1"
+include "DI_alarm.template"
+
+substitute "DI=DI2"
+include "DI_alarm.template"
+
+substitute "DI=DI3"
+include "DI_alarm.template"
+
+substitute "DI=DI4"
+include "DI_alarm.template"
+
+substitute "DI=DI5"
+include "DI_alarm.template"
+
+# ///
 # /// All relay status (1-6)
 # ///
 record(mbbiDirect, "$(P)$(R)RLY") {
@@ -146,13 +167,23 @@ record(mbboDirect, "$(P)$(R)RLYSet") {
 # ///
 # /// Calculate if we have a comms alarm
 # ///
-record(calcout, "$(P)$(R)AlarmCalc") {
-  field(INPA, "$(P)$(R)AlarmControl CP")
+record(calc, "$(P)$(R)AlarmCalcDI") {
+  field(INPA, "$(P)$(R)DI0.STAT CP")
+  field(INPB, "$(P)$(R)DI1.STAT CP")
+  field(INPC, "$(P)$(R)DI2.STAT CP")
+  field(INPD, "$(P)$(R)DI3.STAT CP")
+  field(INPE, "$(P)$(R)DI4.STAT CP")
+  field(INPF, "$(P)$(R)DI5.STAT CP")
+  field(CALC, "A||B||C||D||E||F")
+}
+record(calcout, "$(P)$(R)AlarmCalcComms") {
+  field(INPA, "$(P)$(R)AlarmCtrl CP")
   field(INPB, "$(P)$(R)DI.STAT CP")
   field(INPC, "$(P)$(R)RLY.STAT CP")
   field(INPD, "$(P)$(R)Uptime.STAT CP")
   field(INPE, "$(P)$(R)Watchdog CP")
-  field(CALC, "A?(B||C||D||E):0")
+  field(INPF, "$(P)$(R)AlarmCalcDI CP")
+  field(CALC, "A?(B||C||D||E||F):0")
   field(OOPT, "Every Time")
   field(DOPT, "Use CALC")
   field(OUT, "$(P)$(R)Alarm PP")

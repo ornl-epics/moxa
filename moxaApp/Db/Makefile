@@ -6,6 +6,8 @@ include $(TOP)/configure/CONFIG
 # Install databases, templates & substitutions like this
 
 DB += ioLogikCommon.template
+DB += DI_alarm.template
+
 DB += E1214.template
 DB += E1241.template
 

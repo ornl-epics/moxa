@@ -262,7 +262,7 @@ record(bo, "$(P)$(R)WatchdogWrite") {
 # Communication alarm. These are used by the alarm calc record
 # in the device specific template files.
 
-record(bo, "$(P)$(R)AlarmControl") {
+record(bo, "$(P)$(R)AlarmCtrl") {
   field(DESC, "Alarm Control")
   field(PINI, "YES")
   field(VAL, "1")
@@ -274,8 +274,8 @@ record(bo, "$(P)$(R)Alarm") {
   field(DESC, "Comms Alarm")
   field(PINI, "YES")
   field(VAL, "0")
-  field(ZNAM, "Comms OK")
-  field(ONAM, "Comms Alarm")
+  field(ZNAM, "OK")
+  field(ONAM, "Alarm")
   field(OSV, "MAJOR")
 }
 
