@@ -38,35 +38,41 @@ record(bi, "$(P)$(R)DI0") {
   field(ZNAM, "Off")
   field(ONAM, "On")
   field(FLNK, "$(P)$(R)DI1")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(bi, "$(P)$(R)DI1") {
   field(INP, "$(P)$(R)DI.B1 MS")
   field(ZNAM, "Off")
   field(ONAM, "On")
   field(FLNK, "$(P)$(R)DI2")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(bi, "$(P)$(R)DI2") {
   field(INP, "$(P)$(R)DI.B2 MS")
   field(ZNAM, "Off")
   field(ONAM, "On")
   field(FLNK, "$(P)$(R)DI3")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(bi, "$(P)$(R)DI3") {
   field(INP, "$(P)$(R)DI.B3 MS")
   field(ZNAM, "Off")
   field(ONAM, "On")
   field(FLNK, "$(P)$(R)DI4")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(bi, "$(P)$(R)DI4") {
   field(INP, "$(P)$(R)DI.B4 MS")
   field(ZNAM, "Off")
   field(ONAM, "On")
   field(FLNK, "$(P)$(R)DI5")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(bi, "$(P)$(R)DI5") {
   field(INP, "$(P)$(R)DI.B5 MS")
   field(ZNAM, "Off")
   field(ONAM, "On")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 
 # ///
@@ -105,35 +111,41 @@ record(bi, "$(P)$(R)RLY0") {
   field(ZNAM, "Off")
   field(ONAM, "On")
   field(FLNK, "$(P)$(R)RLY1")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(bi, "$(P)$(R)RLY1") {
   field(INP, "$(P)$(R)RLY.B1 MS")
   field(ZNAM, "Off")
   field(ONAM, "On")
   field(FLNK, "$(P)$(R)RLY2")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(bi, "$(P)$(R)RLY2") {
   field(INP, "$(P)$(R)RLY.B2 MS")
   field(ZNAM, "Off")
   field(ONAM, "On")
   field(FLNK, "$(P)$(R)RLY3")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(bi, "$(P)$(R)RLY3") {
   field(INP, "$(P)$(R)RLY.B3 MS")
   field(ZNAM, "Off")
   field(ONAM, "On")
   field(FLNK, "$(P)$(R)RLY4")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(bi, "$(P)$(R)RLY4") {
   field(INP, "$(P)$(R)RLY.B4 MS")
   field(ZNAM, "Off")
   field(ONAM, "On")
   field(FLNK, "$(P)$(R)RLY5")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(bi, "$(P)$(R)RLY5") {
   field(INP, "$(P)$(R)RLY.B5 MS")
   field(ZNAM, "Off")
   field(ONAM, "On")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 
 # ///
@@ -159,6 +171,7 @@ record(mbboDirect, "$(P)$(R)RLYSet") {
   field(DTYP, "asynUInt32Digital")
   field(OUT, "@asynMask($(PORT)1w6,32,0x003F,1)INT32_BE")
   field(FLNK, "$(P)$(R)RLY")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 
 ############################################################

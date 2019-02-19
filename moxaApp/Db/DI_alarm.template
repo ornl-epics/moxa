@@ -8,6 +8,7 @@
 #
 
 record(mbbo, "$(P)$(R)$(DI)AlarmCtrl") {
+  field(PINI, "YES")
   field(ZRVL, "0")
   field(ONVL, "1")
   field(TWVL, "2")
@@ -15,6 +16,8 @@ record(mbbo, "$(P)$(R)$(DI)AlarmCtrl") {
   field(ONST, "Alarm When On")
   field(TWST, "Alarm When Off")
   field(FLNK, "$(P)$(R)$(DI)AlarmSetCalc")
+  info(autosaveFields, "VAL")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(calcout, "$(P)$(R)$(DI)AlarmSetCalc") {
   field(INPA, "$(P)$(R)$(DI)AlarmCtrl")

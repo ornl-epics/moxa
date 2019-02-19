@@ -29,6 +29,7 @@ record(bi, "$(P)$(R)Connected") {
   field(ZNAM, "Disconnected")
   field(ONAM, "Connected")
   field(ZSV, "MAJOR")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 
 ##############################################################
@@ -218,6 +219,7 @@ record(longin, "$(P)$(R)Uptime") {
   field(INP, "@asyn($(PORT)2w4,5020,1)INT32_BE")
   field(SCAN, "Passive")
   field(EGU, "s")
+  info(archive, "Scan, 00:00:10, VAL")
 }
 
 # ///
@@ -231,6 +233,7 @@ record(bi, "$(P)$(R)Watchdog") {
   field(ZNAM, "OK")
   field(ONAM, "Alarm")
   field(OSV, "MAJOR")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 
 record(seq, "$(P)$(R)SlowPollControl") {
@@ -269,6 +272,8 @@ record(bo, "$(P)$(R)AlarmCtrl") {
   field(ZNAM, "Disabled")
   field(ONAM, "Enabled")
   field(ZSV, "MINOR")
+  info(autosaveFields, "VAL")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(bo, "$(P)$(R)Alarm") {
   field(DESC, "Comms Alarm")
@@ -277,6 +282,7 @@ record(bo, "$(P)$(R)Alarm") {
   field(ZNAM, "OK")
   field(ONAM, "Alarm")
   field(OSV, "MAJOR")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 
 
