@@ -141,7 +141,7 @@ record(mbboDirect, "$(P)$(R)RLYSet") {
 }
 
 ############################################################
-# Communication alarm calc
+# Alarm calculation for this module
 
 # ///
 # /// Calculate if we have a comms alarm
