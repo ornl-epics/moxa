@@ -42,6 +42,7 @@ drvModbusAsynConfigure("$(PORT)10w4", "$(IP_PORT)", 1, 4, -1, 10, 0, 1000, 0)
 drvModbusAsynConfigure("$(PORT)12w4", "$(IP_PORT)", 1, 4, -1, 12, 0, 1000, 0)
 drvModbusAsynConfigure("$(PORT)30w4", "$(IP_PORT)", 1, 4, -1, 30, 0, 1000, 0)
 drvModbusAsynConfigure("$(PORT)1w3",  "$(IP_PORT)", 1, 3, -1, 1,  0, 1000, 0) 
+drvModbusAsynConfigure("$(PORT)4w3",  "$(IP_PORT)", 1, 3, -1, 4,  0, 1000, 0) 
  
 drvModbusAsynConfigure("$(PORT)1b1",  "$(IP_PORT)", 1, 1, -1, 1,  0, 1000, 0) 
 

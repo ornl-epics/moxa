@@ -1,0 +1,94 @@
+
+###########################################################
+# Records to support scaling analog outputs. There is a menu
+# to select the range (0-10V, 0-20mA or 4-20mA) and we then
+# set the ai/ao record scaling fields appropriately.
+#
+# For each AO input the template assumes there is a ai record
+# with name "$(P)$(R)$(AO) and an ao record with name "$(P)$(R)$(AO)Set
+#
+# Macros:
+# P,R - base PV name
+# AO - the AO output (eg. AO0)
+#
+
+record(mbbo, "$(P)$(R)$(AO)Range") {
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  field(ZRST, "0 to 10V")
+  field(ONST, "0 to 20mA")
+  field(TWST, "4 to 20mA")
+  field(FLNK, "$(P)$(R)$(AO)RangeCalc")
+  info(autosaveFields, "VAL")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)$(AO)RangeCalc") {
+  field(INPA, "$(P)$(R)$(AO)Range")
+  field(CALC, "A+1")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)$(AO)RangeSet.SELN PP")
+}
+record(seq, "$(P)$(R)$(AO)RangeSet") {
+  field(SELM, "Specified")
+  field(DOL1, "1")
+  field(DOL2, "1")
+  field(DOL3, "1")
+  field(LNK1, "$(P)$(R)$(AO)RangeSet_0.PROC PP")
+  field(LNK2, "$(P)$(R)$(AO)RangeSet_1.PROC PP")
+  field(LNK3, "$(P)$(R)$(AO)RangeSet_2.PROC PP")
+}
+record(seq, "$(P)$(R)$(AO)RangeSet_0") {
+  field(DOL1, "0") #0V
+  field(DOL2, "0.00244002") #10V/4095
+  field(DOL3, "0") #0V
+  field(DOL4, "0.00244002") #10V/4095
+  field(LNK1, "$(P)$(R)$(AO).AOFF PP")
+  field(LNK2, "$(P)$(R)$(AO).ASLO PP")
+  field(LNK3, "$(P)$(R)$(AO)Set.AOFF NPP")
+  field(LNK4, "$(P)$(R)$(AO)Set.ASLO NPP")
+  field(FLNK, "$(P)$(R)$(AO)EguSet_0")
+}
+record(seq, "$(P)$(R)$(AO)RangeSet_1") {
+  field(DOL1, "0") #0mA
+  field(DOL2, "0.004884005") #20mA/4095
+  field(DOL3, "0") #0mA
+  field(DOL4, "0.004884005") #20mA/4095
+  field(LNK1, "$(P)$(R)$(AO).AOFF PP")
+  field(LNK2, "$(P)$(R)$(AO).ASLO PP")
+  field(LNK3, "$(P)$(R)$(AO)Set.AOFF NPP")
+  field(LNK4, "$(P)$(R)$(AO)Set.ASLO NPP")
+  field(FLNK, "$(P)$(R)$(AO)EguSet_1")
+}
+record(seq, "$(P)$(R)$(AO)RangeSet_2") {
+  field(DOL1, "4") #4mA
+  field(DOL2, "0.003907204") #16mA/4095
+  field(DOL3, "4") #4mA
+  field(DOL4, "0.003907204") #16mA/4095
+  field(LNK1, "$(P)$(R)$(AO).AOFF PP")
+  field(LNK2, "$(P)$(R)$(AO).ASLO PP")
+  field(LNK3, "$(P)$(R)$(AO)Set.AOFF NPP")
+  field(LNK4, "$(P)$(R)$(AO)Set.ASLO NPP")
+  field(FLNK, "$(P)$(R)$(AO)EguSet_2")
+}
+
+record(stringout, "$(P)$(R)$(AO)EguSet_0") {
+  field(VAL, "V")
+  field(OUT, "$(P)$(R)$(AO)Egu PP")
+}
+record(stringout, "$(P)$(R)$(AO)EguSet_1") {
+  field(VAL, "mA")
+  field(OUT, "$(P)$(R)$(AO)Egu PP")
+}
+record(stringout, "$(P)$(R)$(AO)EguSet_2") {
+  field(VAL, "mA")
+  field(OUT, "$(P)$(R)$(AO)Egu PP")
+}
+record(stringout, "$(P)$(R)$(AO)Egu") {
+  field(VAL, "V")
+  field(OUT, "$(P)$(R)$(AO).EGU PP")
+}
+
+
