@@ -61,6 +61,23 @@ record(bi, "$(P)$(R)DI3") {
   info(archive, "Monitor, 00:00:01, VAL")
 }
 
+# ///
+# /// Control the alarm state for each DI
+# ///
+substitute "DI=DI0"
+include "DI_alarm.template"
+
+substitute "DI=DI1"
+include "DI_alarm.template"
+
+substitute "DI=DI2"
+include "DI_alarm.template"
+
+substitute "DI=DI3"
+include "DI_alarm.template"
+
+
+
 
 # ///
 # /// Polling control
