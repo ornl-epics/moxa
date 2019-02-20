@@ -1,0 +1,85 @@
+
+###########################################################
+# Records to support scaling analog inputs. There is a menu
+# to select the range (0-10V, 0-20mA or 4-20mA) and we then
+# set the ai record scaling fields appropriately.
+#
+# For each $(AI) input the template assumes there is a ai record
+# with name "$(P)$(R)$(AI)
+#
+# Macros:
+# P,R - base PV name
+# AI - the AI output (eg. AI0)
+#
+
+record(mbbo, "$(P)$(R)$(AI)Range") {
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  field(ZRST, "0 to 10V")
+  field(ONST, "0 to 20mA")
+  field(TWST, "4 to 20mA")
+  field(FLNK, "$(P)$(R)$(AI)RangeCalc")
+  info(autosaveFields, "VAL")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)$(AI)RangeCalc") {
+  field(INPA, "$(P)$(R)$(AI)Range")
+  field(CALC, "A+1")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)$(AI)RangeSet.SELN PP")
+}
+record(seq, "$(P)$(R)$(AI)RangeSet") {
+  field(SELM, "Specified")
+  field(DOL1, "1")
+  field(DOL2, "1")
+  field(DOL3, "1")
+  field(LNK1, "$(P)$(R)$(AI)RangeSet_0.PROC PP")
+  field(LNK2, "$(P)$(R)$(AI)RangeSet_1.PROC PP")
+  field(LNK3, "$(P)$(R)$(AI)RangeSet_2.PROC PP")
+}
+
+# ///
+# /// 0 to 10V
+# ///
+substitute "INDEX=0"
+substitute "EGU=V"
+substitute "AOFF=0"
+substitute "ASLO=0.000152588"
+include "AI_scaling_seq.template"
+
+# ///
+# /// 0 to 20mA
+# ///
+substitute "INDEX=1"
+substitute "EGU=mA"
+substitute "AOFF=0"
+substitute "ASLO=0.000305176"
+include "AI_scaling_seq.template"
+
+# ///
+# /// 4 to 20mA
+# ///
+substitute "INDEX=2"
+substitute "EGU=mA"
+substitute "AOFF=4"
+substitute "ASLO=0.000244141"
+include "AI_scaling_seq.template"
+
+record(stringout, "$(P)$(R)$(AI)EguSet_V") {
+  field(VAL, "V")
+  field(OUT, "$(P)$(R)$(AI)Egu PP")
+}
+record(stringout, "$(P)$(R)$(AI)EguSet_mA") {
+  field(VAL, "mA")
+  field(OUT, "$(P)$(R)$(AI)Egu PP")
+}
+# Use this record for display on the screen
+record(stringout, "$(P)$(R)$(AI)Egu") {
+  field(VAL, "V")
+  field(OUT, "$(P)$(R)$(AI).EGU PP")
+}
+
+

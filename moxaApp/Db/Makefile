@@ -9,6 +9,8 @@ DB += ioLogikCommon.template
 DB += DI_alarm.template
 DB += AO_scaling.template
 DB += AO_scaling_seq.template
+DB += AI_scaling.template
+DB += AI_scaling_seq.template
 
 DB += E1214.template
 DB += E1241.template

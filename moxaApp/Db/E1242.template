@@ -116,7 +116,106 @@ record(bi, "$(P)$(R)DO3") {
   info(archive, "Monitor, 00:00:01, VAL")
 }
 
+# ///
+# /// Read raw ADC input values. 
+# /// 4 words of data, initially read into a waveform of 2 LONGs. 
+# /// The data is extracted into seperate analog input records, which are
+# /// used to scale to engineeing units. The scaling is handled by the 
+# /// logic in AI_scaling.template.
+# ///
+record(waveform, "$(P)$(R)AI") {
+  field(NELM, "2")
+  field(FTVL, "ULONG")
+  field(DTYP, "asynInt32ArrayIn")
+  field(INP, "@asyn($(PORT)4w4,512,1)INT32_BE")
+  field(SCAN, "Passive")
+  field(FLNK, "$(P)$(R)AI_0")
+}
+# Extract the word for channels 0 and 1
+record(subArray, "$(P)$(R)AI_0") {
+  field(INP, "$(P)$(R)AI.VAL")
+  field(SCAN, "Passive")
+  field(FTVL, "ULONG")
+  field(NELM, "1")
+  field(MALM, "2")
+  field(INDX, "0")
+  field(FLNK, "$(P)$(R)AI_0Calc")
+}
+record(calcout, "$(P)$(R)AI_0Calc") {
+  field(INPA, "$(P)$(R)AI_0")
+  field(CALC, "(A>>16)&0x0000FFFF")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)AI0.RVAL PP")
+}
+record(ai, "$(P)$(R)AI0") {
+  field(DTYP, "Raw Soft Channel")
+  field(LINR, "LINEAR")
+  field(PREC, "3")
+  field(FLNK, "$(P)$(R)AI_1Calc")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)AI_1Calc") {
+  field(INPA, "$(P)$(R)AI_0")
+  field(CALC, "(A&0x0000FFFF)")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)AI1.RVAL PP")
+}
+record(ai, "$(P)$(R)AI1") {
+  field(DTYP, "Raw Soft Channel")
+  field(LINR, "LINEAR")
+  field(PREC, "3")
+  field(FLNK, "$(P)$(R)AI_1")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+# Extract the word for channels 2 and 3
+record(subArray, "$(P)$(R)AI_1") {
+  field(INP, "$(P)$(R)AI.VAL")
+  field(SCAN, "Passive")
+  field(FTVL, "ULONG")
+  field(NELM, "1")
+  field(MALM, "2")
+  field(INDX, "1")
+  field(FLNK, "$(P)$(R)AI_2Calc")
+}
+record(calcout, "$(P)$(R)AI_2Calc") {
+  field(INPA, "$(P)$(R)AI_1")
+  field(CALC, "(A>>16)&0x0000FFFF")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)AI2.RVAL PP")
+}
+record(ai, "$(P)$(R)AI2") {
+  field(DTYP, "Raw Soft Channel")
+  field(LINR, "LINEAR")
+  field(PREC, "3")
+  field(FLNK, "$(P)$(R)AI_3Calc")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)AI_3Calc") {
+  field(INPA, "$(P)$(R)AI_1")
+  field(CALC, "(A&0x0000FFFF)")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)AI3.RVAL PP")
+}
+record(ai, "$(P)$(R)AI3") {
+  field(DTYP, "Raw Soft Channel")
+  field(LINR, "LINEAR")
+  field(PREC, "3")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
 
+# Deal with scaling the AIs
+substitute "AI=AI0"
+include "AI_scaling.template"
+substitute "AI=AI1"
+include "AI_scaling.template"
+substitute "AI=AI2"
+include "AI_scaling.template"
+substitute "AI=AI3"
+include "AI_scaling.template"
 
 
 # ///
@@ -126,8 +225,10 @@ record(seq, "$(P)$(R)FastPollControl") {
   field(SCAN, ".1 second")
   field(DOL1, "1")
   field(DOL2, "1")
+  field(DOL3, "1")
   field(LNK1, "$(P)$(R)DI.PROC PP")
   field(LNK2, "$(P)$(R)DO.PROC PP")
+  field(LNK3, "$(P)$(R)AI.PROC PP")
 }
 
 

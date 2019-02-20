@@ -1,0 +1,10 @@
+#This is used in AI_scaling.template
+
+record(seq, "$(P)$(R)$(AI)RangeSet_$(INDEX)") {
+  field(DOL1, "$(AOFF)") 
+  field(DOL2, "$(ASLO)") 
+  field(LNK1, "$(P)$(R)$(AI).AOFF PP")
+  field(LNK2, "$(P)$(R)$(AI).ASLO PP")
+  field(FLNK, "$(P)$(R)$(AI)EguSet_$(EGU)")
+}
+
