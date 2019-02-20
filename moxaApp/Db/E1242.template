@@ -23,6 +23,53 @@ include "ioLogikCommon.template"
 #####################################################################
 # Polling functions. The records are processed using a seq record.
 
+# ///
+# /// All digital inputs (1-6)
+# ///
+record(mbbiDirect, "$(P)$(R)DI") {
+  field(DESC, "All DI")
+  field(DTYP, "asynUInt32Digital")
+  field(INP, "@asynMask($(PORT)1w4,48,0x000F,1)INT32_BE")
+  field(SCAN, "Passive")
+  field(FLNK, "$(P)$(R)DI0")
+}
+record(bi, "$(P)$(R)DI0") {
+  field(INP, "$(P)$(R)DI.B0 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI1")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI1") {
+  field(INP, "$(P)$(R)DI.B1 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI2")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI2") {
+  field(INP, "$(P)$(R)DI.B2 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI3")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI3") {
+  field(INP, "$(P)$(R)DI.B3 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+
+
+# ///
+# /// Polling control
+# ///
+record(seq, "$(P)$(R)FastPollControl") {
+  field(SCAN, ".1 second")
+  field(DOL1, "1")
+  field(LNK1, "$(P)$(R)DI.PROC PP")
+}
 
 
 #####################################################################
