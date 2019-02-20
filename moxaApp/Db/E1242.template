@@ -1,0 +1,34 @@
+####################################################################
+#
+# Template for the Moxa E1242 module:
+#   4 analog inputs (voltage/current configurable by jumper). The default is voltage mode.
+#   4 digital IO (input/output configurable by jumper). The default is DO mode.
+#   4 digital inputs
+#
+# Macros:
+# P - base PV name
+# R - module PV name
+# PORT - asyn port name (modbus TCP)
+# IP_PORT - the low level IP port name (used for drvAsynIPPortConfigure)
+# ADDR - asyn address (defaults to 0)
+# 
+# Matt Pearson
+# Feb 2019
+#
+#####################################################################
+
+# Include common records used by all modules
+include "ioLogikCommon.template"
+
+#####################################################################
+# Polling functions. The records are processed using a seq record.
+
+
+
+#####################################################################
+# Set functions.
+
+
+
+#####################################################################
+# Alarm calculation for this module

@@ -12,6 +12,7 @@ DB += AO_scaling_seq.template
 
 DB += E1214.template
 DB += E1241.template
+DB += E1242.template
 
 # If <anyname>.db template is not named <anyname>*.template add
 # <anyname>_TEMPLATE = <templatename>
