@@ -48,7 +48,7 @@ record(subArray, "$(P)$(R)AO_0") {
 }
 record(calcout, "$(P)$(R)AO_0Calc") {
   field(INPA, "$(P)$(R)AO_0")
-  field(CALC, "(A&0xFFFF0000)>>16")
+  field(CALC, "(A>>16)&0xFFFF")
   field(OOPT, "Every Time")
   field(DOPT, "Use CALC")
   field(OUT, "$(P)$(R)AO0.RVAL PP")
@@ -86,7 +86,7 @@ record(subArray, "$(P)$(R)AO_1") {
 }
 record(calcout, "$(P)$(R)AO_2Calc") {
   field(INPA, "$(P)$(R)AO_1")
-  field(CALC, "(A&0xFFFF0000)>>16")
+  field(CALC, "(A>>16)&0xFFFF")
   field(OOPT, "Every Time")
   field(DOPT, "Use CALC")
   field(OUT, "$(P)$(R)AO2.RVAL PP")
