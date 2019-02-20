@@ -58,6 +58,7 @@ record(ai, "$(P)$(R)AO0") {
   field(LINR, "LINEAR")
   field(PREC, "3")
   field(FLNK, "$(P)$(R)AO_1Calc")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(calcout, "$(P)$(R)AO_1Calc") {
   field(INPA, "$(P)$(R)AO_0")
@@ -71,6 +72,7 @@ record(ai, "$(P)$(R)AO1") {
   field(LINR, "LINEAR")
   field(PREC, "3")
   field(FLNK, "$(P)$(R)AO_1")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 # Extract the word for channels 2 and 3
 record(subArray, "$(P)$(R)AO_1") {
@@ -94,6 +96,7 @@ record(ai, "$(P)$(R)AO2") {
   field(LINR, "LINEAR")
   field(PREC, "3")
   field(FLNK, "$(P)$(R)AO_3Calc")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(calcout, "$(P)$(R)AO_3Calc") {
   field(INPA, "$(P)$(R)AO_1")
@@ -106,6 +109,7 @@ record(ai, "$(P)$(R)AO3") {
   field(DTYP, "Raw Soft Channel")
   field(LINR, "LINEAR")
   field(PREC, "3")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 
 # ///
@@ -133,6 +137,7 @@ record(ao, "$(P)$(R)AO0Set") {
   field(LINR, "LINEAR")
   field(PREC, "3")
   field(FLNK, "$(P)$(R)AO0SetCalc")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(calcout, "$(P)$(R)AO0SetCalc") {
   field(INPA, "$(P)$(R)AO0Set.RVAL")
@@ -147,6 +152,7 @@ record(ao, "$(P)$(R)AO1Set") {
   field(LINR, "LINEAR")
   field(PREC, "3")
   field(FLNK, "$(P)$(R)AO1SetCalc")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(calcout, "$(P)$(R)AO1SetCalc") {
   field(INPA, "$(P)$(R)AO0.RVAL")
@@ -165,6 +171,7 @@ record(ao, "$(P)$(R)AO2Set") {
   field(LINR, "LINEAR")
   field(PREC, "3")
   field(FLNK, "$(P)$(R)AO2SetCalc")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(calcout, "$(P)$(R)AO2SetCalc") {
   field(INPA, "$(P)$(R)AO2Set.RVAL")
@@ -179,6 +186,7 @@ record(ao, "$(P)$(R)AO3Set") {
   field(LINR, "LINEAR")
   field(PREC, "3")
   field(FLNK, "$(P)$(R)AO3SetCalc")
+  info(archive, "Monitor, 00:00:01, VAL")
 }
 record(calcout, "$(P)$(R)AO3SetCalc") {
   field(INPA, "$(P)$(R)AO2.RVAL")
