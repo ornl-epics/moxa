@@ -66,17 +66,17 @@ record(longin, "$(P)$(R)MAC_2") {
 }
 record(calc, "$(P)$(R)MAC1") {
   field(INPA, "$(P)$(R)MAC")
-  field(CALC, "A<0?((A&0x7F000000)>>24)|0x80:((A&0xFF000000)>>24)")
+  field(CALC, "(A>>24)&0xFF")
   field(FLNK, "$(P)$(R)MAC2")
 }
 record(calc, "$(P)$(R)MAC2") {
   field(INPA, "$(P)$(R)MAC")
-  field(CALC, "((A&0x00FF0000)>>16)")
+  field(CALC, "(A>>16)&0x00FF")
   field(FLNK, "$(P)$(R)MAC3")
 }
 record(calc, "$(P)$(R)MAC3") {
   field(INPA, "$(P)$(R)MAC")
-  field(CALC, "((A&0x0000FF00)>>8)")
+  field(CALC, "(A>>8)&0x0000FF")
   field(FLNK, "$(P)$(R)MAC4")
 }
 record(calc, "$(P)$(R)MAC4") {
@@ -86,7 +86,7 @@ record(calc, "$(P)$(R)MAC4") {
 }
 record(calc, "$(P)$(R)MAC5") {
   field(INPA, "$(P)$(R)MAC_2")
-  field(CALC, "((A&0x0000FF00)>>8)")
+  field(CALC, "(A>>8)&0x0000FF")
   field(FLNK, "$(P)$(R)MAC6")
 }
 record(calc, "$(P)$(R)MAC6") {
@@ -107,17 +107,17 @@ record(longin, "$(P)$(R)IP") {
 }
 record(calc, "$(P)$(R)IP1") {
   field(INPA, "$(P)$(R)IP")
-  field(CALC, "A<0?((A&0x7F000000)>>24)|0x80:((A&0xFF000000)>>24)")
+  field(CALC, "(A>>24)&0xFF")
   field(FLNK, "$(P)$(R)IP2")
 }
 record(calc, "$(P)$(R)IP2") {
   field(INPA, "$(P)$(R)IP")
-  field(CALC, "((A&0x00FF0000)>>16)")
+  field(CALC, "(A>>16)&0x00FF")
   field(FLNK, "$(P)$(R)IP3")
 }
 record(calc, "$(P)$(R)IP3") {
   field(INPA, "$(P)$(R)IP")
-  field(CALC, "((A&0x0000FF00)>>8)")
+  field(CALC, "(A>>8)&0x0000FF")
   field(FLNK, "$(P)$(R)IP4")
 }
 record(calc, "$(P)$(R)IP4") {
@@ -136,17 +136,17 @@ record(longin, "$(P)$(R)FWB") {
 }
 record(calc, "$(P)$(R)FWBYear") {
   field(INPA, "$(P)$(R)FWB")
-  field(CALC, "A<0?((A&0x7F000000)>>24)|0x80:((A&0xFF000000)>>24)")
+  field(CALC, "(A>>24)&0xFF")
   field(FLNK, "$(P)$(R)FWBMonth")
 }
 record(calc, "$(P)$(R)FWBMonth") {
   field(INPA, "$(P)$(R)FWB")
-  field(CALC, "((A&0x00FF0000)>>16)")
+  field(CALC, "(A>>16)&0x00FF")
   field(FLNK, "$(P)$(R)FWBDay")
 }
 record(calc, "$(P)$(R)FWBDay") {
   field(INPA, "$(P)$(R)FWB")
-  field(CALC, "((A&0x0000FF00)>>8)")
+  field(CALC, "(A>>8)&0x0000FF")
 }
 
 # ///
@@ -160,17 +160,17 @@ record(longin, "$(P)$(R)FWV") {
 }
 record(calc, "$(P)$(R)FWV1") {
   field(INPA, "$(P)$(R)FWV")
-  field(CALC, "A<0?((A&0x7F000000)>>24)|0x80:((A&0xFF000000)>>24)")
+  field(CALC, "(A>>24)&0xFF")
   field(FLNK, "$(P)$(R)FWV2")
 }
 record(calc, "$(P)$(R)FWV2") {
   field(INPA, "$(P)$(R)FWV")
-  field(CALC, "((A&0x00FF0000)>>16)")
+  field(CALC, "(A>>16)&0x00FF")
   field(FLNK, "$(P)$(R)FWV3")
 }
 record(calc, "$(P)$(R)FWV3") {
   field(INPA, "$(P)$(R)FWV")
-  field(CALC, "((A&0x0000FF00)>>8)")
+  field(CALC, "(A>>8)&0x0000FF")
 }
 
 # ///
