@@ -83,3 +83,42 @@ record(stringout, "$(P)$(R)$(AI)Egu") {
 }
 
 
+# ///
+# /// For each AI also provide a user scaled AI
+# ///
+record(ai, "$(P)$(R)$(AI)User") {
+  field(DESC, "User scaled AI")
+  field(PREC, "4")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+# ///
+# /// User AI offset and slope
+# ///
+record(ao, "$(P)$(R)$(AI)UserOffset") {
+  field(PINI, "YES")
+  field(VAL, "0")
+  field(OUT, "$(P)$(R)$(AI)UserCalc.B PP")
+  field(PREC, "4")
+  info(autosaveFields, "VAL")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(ao, "$(P)$(R)$(AI)UserSlope") {
+  field(PINI, "YES")
+  field(VAL, "1")
+  field(OUT, "$(P)$(R)$(AI)UserCalc.C PP")
+  field(PREC, "4")
+  info(autosaveFields, "VAL")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)$(AI)UserCalc") {
+  field(INPA, "$(P)$(R)$(AI) CP MS")
+  field(CALC, "(A*C)+B")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(PREC, "4")
+  field(OUT, "$(P)$(R)$(AI)User PP")
+}
+
+
+
+
