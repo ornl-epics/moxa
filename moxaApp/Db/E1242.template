@@ -217,6 +217,15 @@ include "AI_scaling.template"
 substitute "AI=AI3"
 include "AI_scaling.template"
 
+# Support alarming on the user AIs defined in AI_scaling.template
+substitute "AI=AI0"
+include "AI_alarm.template"
+substitute "AI=AI1"
+include "AI_alarm.template"
+substitute "AI=AI2"
+include "AI_alarm.template"
+substitute "AI=AI3"
+include "AI_alarm.template"
 
 # ///
 # /// Polling control

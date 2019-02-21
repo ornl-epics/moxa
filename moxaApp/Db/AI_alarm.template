@@ -1,0 +1,71 @@
+
+###########################################################
+# Records to support analog input alarms. 
+#
+# For each $(AI) input the template assumes there is a ai record
+# with name "$(P)$(R)$(AI)User which should be defined in 
+# AI_scaling.template
+#
+# Macros:
+# P,R - base PV name
+# AI - the AI output (eg. AI0)
+#
+
+# ///
+# /// User AI alarm levels
+# ///
+record(ao, "$(P)$(R)$(AI)UserHIHI") {
+  field(PINI, "YES")
+  field(VAL, "100")
+  field(OUT, "$(P)$(R)$(AI)User.HIHI PP")
+  info(autosaveFields, "VAL")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(ao, "$(P)$(R)$(AI)UserLOLO") {
+  field(PINI, "YES")
+  field(VAL, "-100")
+  field(OUT, "$(P)$(R)$(AI)User.LOLO PP")
+  info(autosaveFields, "VAL")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+
+# ///
+# /// Control alarm settings
+# ///
+record(bo, "$(P)$(R)$(AI)UserAlarmCtrl") {
+  field(DESC, "AI Alarm Control")
+  field(PINI, "YES")
+  field(VAL, "0")
+  field(ZNAM, "Disabled")
+  field(ONAM, "Enabled")
+  field(FLNK, "$(P)$(R)$(AI)UserAlarmSetCalc")
+  info(autosaveFields, "VAL")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)$(AI)UserAlarmSetCalc") {
+  field(INPA, "$(P)$(R)$(AI)UserAlarmCtrl")
+  field(CALC, "A+1")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)$(AI)UserAlarmSet.SELN PP")
+}
+record(seq, "$(P)$(R)$(AI)UserAlarmSet") {
+  field(SELM, "Specified")
+  field(DOL1, "1")
+  field(DOL2, "1")
+  field(LNK1, "$(P)$(R)$(AI)UserAlarmSet_0.PROC PP")
+  field(LNK2, "$(P)$(R)$(AI)UserAlarmSet_1.PROC PP")
+}
+record(seq, "$(P)$(R)$(AI)UserAlarmSet_0") {
+  field(DOL1, "0")
+  field(DOL2, "0")
+  field(LNK1, "$(P)$(R)$(AI)User.LLSV PP")
+  field(LNK2, "$(P)$(R)$(AI)User.HHSV PP")
+}
+record(seq, "$(P)$(R)$(AI)UserAlarmSet_1") {
+  field(DOL1, "2")
+  field(DOL2, "2")
+  field(LNK1, "$(P)$(R)$(AI)User.LLSV PP")
+  field(LNK2, "$(P)$(R)$(AI)User.HHSV PP")
+}
+
