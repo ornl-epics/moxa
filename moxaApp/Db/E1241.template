@@ -9,6 +9,7 @@
 # PORT - asyn port name (modbus TCP)
 # IP_PORT - the low level IP port name (used for drvAsynIPPortConfigure)
 # ADDR - asyn address (defaults to 0)
+# PREC - display precision (optional, default=3)
 # 
 # Matt Pearson
 # Feb 2019
@@ -56,7 +57,7 @@ record(calcout, "$(P)$(R)AO_0Calc") {
 record(ai, "$(P)$(R)AO0") {
   field(DTYP, "Raw Soft Channel")
   field(LINR, "LINEAR")
-  field(PREC, "3")
+  field(PREC, "$(PREC=3)")
   field(FLNK, "$(P)$(R)AO_1Calc")
   info(archive, "Monitor, 00:00:01, VAL")
 }
@@ -70,7 +71,7 @@ record(calcout, "$(P)$(R)AO_1Calc") {
 record(ai, "$(P)$(R)AO1") {
   field(DTYP, "Raw Soft Channel")
   field(LINR, "LINEAR")
-  field(PREC, "3")
+  field(PREC, "$(PREC=3)")
   field(FLNK, "$(P)$(R)AO_1")
   info(archive, "Monitor, 00:00:01, VAL")
 }
@@ -94,7 +95,7 @@ record(calcout, "$(P)$(R)AO_2Calc") {
 record(ai, "$(P)$(R)AO2") {
   field(DTYP, "Raw Soft Channel")
   field(LINR, "LINEAR")
-  field(PREC, "3")
+  field(PREC, "$(PREC=3)")
   field(FLNK, "$(P)$(R)AO_3Calc")
   info(archive, "Monitor, 00:00:01, VAL")
 }
@@ -108,7 +109,7 @@ record(calcout, "$(P)$(R)AO_3Calc") {
 record(ai, "$(P)$(R)AO3") {
   field(DTYP, "Raw Soft Channel")
   field(LINR, "LINEAR")
-  field(PREC, "3")
+  field(PREC, "$(PREC=3)")
   info(archive, "Monitor, 00:00:01, VAL")
 }
 
@@ -135,7 +136,7 @@ record(seq, "$(P)$(R)FastPollControl") {
 record(ao, "$(P)$(R)AO0Set") {
   field(DTYP, "Raw Soft Channel")
   field(LINR, "LINEAR")
-  field(PREC, "3")
+  field(PREC, "$(PREC=3)")
   field(FLNK, "$(P)$(R)AO0SetCalc")
   info(archive, "Monitor, 00:00:01, VAL")
 }
@@ -150,7 +151,7 @@ record(calcout, "$(P)$(R)AO0SetCalc") {
 record(ao, "$(P)$(R)AO1Set") {
   field(DTYP, "Raw Soft Channel")
   field(LINR, "LINEAR")
-  field(PREC, "3")
+  field(PREC, "$(PREC=3)")
   field(FLNK, "$(P)$(R)AO1SetCalc")
   info(archive, "Monitor, 00:00:01, VAL")
 }
@@ -169,7 +170,7 @@ record(longout, "$(P)$(R)AO_0Set") {
 record(ao, "$(P)$(R)AO2Set") {
   field(DTYP, "Raw Soft Channel")
   field(LINR, "LINEAR")
-  field(PREC, "3")
+  field(PREC, "$(PREC=3)")
   field(FLNK, "$(P)$(R)AO2SetCalc")
   info(archive, "Monitor, 00:00:01, VAL")
 }
@@ -184,7 +185,7 @@ record(calcout, "$(P)$(R)AO2SetCalc") {
 record(ao, "$(P)$(R)AO3Set") {
   field(DTYP, "Raw Soft Channel")
   field(LINR, "LINEAR")
-  field(PREC, "3")
+  field(PREC, "$(PREC=3)")
   field(FLNK, "$(P)$(R)AO3SetCalc")
   info(archive, "Monitor, 00:00:01, VAL")
 }
