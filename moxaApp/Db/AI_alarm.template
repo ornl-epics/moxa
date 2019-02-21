@@ -9,6 +9,7 @@
 # Macros:
 # P,R - base PV name
 # AI - the AI output (eg. AI0)
+# PREC - display precision (optional, default=4)
 #
 
 # ///
@@ -17,6 +18,7 @@
 record(ao, "$(P)$(R)$(AI)UserHIHI") {
   field(PINI, "YES")
   field(VAL, "100")
+  field(PREC, "$(PREC=4)")
   field(OUT, "$(P)$(R)$(AI)User.HIHI PP")
   info(autosaveFields, "VAL")
   info(archive, "Monitor, 00:00:01, VAL")
@@ -24,6 +26,7 @@ record(ao, "$(P)$(R)$(AI)UserHIHI") {
 record(ao, "$(P)$(R)$(AI)UserLOLO") {
   field(PINI, "YES")
   field(VAL, "-100")
+  field(PREC, "$(PREC=4)")
   field(OUT, "$(P)$(R)$(AI)User.LOLO PP")
   info(autosaveFields, "VAL")
   info(archive, "Monitor, 00:00:01, VAL")
