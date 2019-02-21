@@ -262,13 +262,23 @@ record(mbboDirect, "$(P)$(R)DOSet") {
 # Alarm calculation for this module
 
 # ///
-# /// Calculate if we have a comms alarm
+# /// Calculate if we have a DI alarm
 # ///
 record(calc, "$(P)$(R)AlarmCalcDI") {
   field(INPA, "$(P)$(R)DI0.STAT CP")
   field(INPB, "$(P)$(R)DI1.STAT CP")
   field(INPC, "$(P)$(R)DI2.STAT CP")
   field(INPD, "$(P)$(R)DI3.STAT CP")
+  field(CALC, "A||B||C||D")
+}
+# ///
+# /// Calculate if we have an AI alarm
+# ///
+record(calc, "$(P)$(R)AlarmCalcAI") {
+  field(INPA, "$(P)$(R)AI0User.STAT CP")
+  field(INPB, "$(P)$(R)AI1User.STAT CP")
+  field(INPC, "$(P)$(R)AI2User.STAT CP")
+  field(INPD, "$(P)$(R)AI3User.STAT CP")
   field(CALC, "A||B||C||D")
 }
 record(calcout, "$(P)$(R)AlarmCalcComms") {
@@ -279,7 +289,8 @@ record(calcout, "$(P)$(R)AlarmCalcComms") {
   field(INPE, "$(P)$(R)Uptime.STAT CP")
   field(INPF, "$(P)$(R)Watchdog CP")
   field(INPG, "$(P)$(R)AlarmCalcDI CP")
-  field(CALC, "A?(B||C||D||E||F||G):0")
+  field(INPH, "$(P)$(R)AlarmCalcAI CP")
+  field(CALC, "A?(B||C||D||E||F||G||H):0")
   field(OOPT, "Every Time")
   field(DOPT, "Use CALC")
   field(OUT, "$(P)$(R)Alarm PP")
