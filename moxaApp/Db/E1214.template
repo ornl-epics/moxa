@@ -178,7 +178,7 @@ record(mbboDirect, "$(P)$(R)RLYSet") {
 # Alarm calculation for this module
 
 # ///
-# /// Calculate if we have a comms alarm
+# /// Calculate if we have a DI alarm
 # ///
 record(calc, "$(P)$(R)AlarmCalcDI") {
   field(INPA, "$(P)$(R)DI0.STAT CP")
@@ -189,7 +189,10 @@ record(calc, "$(P)$(R)AlarmCalcDI") {
   field(INPF, "$(P)$(R)DI5.STAT CP")
   field(CALC, "A||B||C||D||E||F")
 }
-record(calcout, "$(P)$(R)AlarmCalcComms") {
+# ///
+# /// Overall alarm calculation
+# ///
+record(calcout, "$(P)$(R)AlarmCalc") {
   field(INPA, "$(P)$(R)AlarmCtrl CP")
   field(INPB, "$(P)$(R)DI.STAT CP")
   field(INPC, "$(P)$(R)RLY.STAT CP")
