@@ -151,7 +151,7 @@ record(calcout, "$(P)$(R)AI_0Calc") {
 record(ai, "$(P)$(R)AI0") {
   field(DTYP, "Raw Soft Channel")
   field(LINR, "LINEAR")
-  field(PREC, "3")
+  field(PREC, "4")
   field(FLNK, "$(P)$(R)AI_1Calc")
   info(archive, "Monitor, 00:00:01, VAL")
 }
@@ -165,7 +165,7 @@ record(calcout, "$(P)$(R)AI_1Calc") {
 record(ai, "$(P)$(R)AI1") {
   field(DTYP, "Raw Soft Channel")
   field(LINR, "LINEAR")
-  field(PREC, "3")
+  field(PREC, "4")
   field(FLNK, "$(P)$(R)AI_1")
   info(archive, "Monitor, 00:00:01, VAL")
 }
@@ -189,7 +189,7 @@ record(calcout, "$(P)$(R)AI_2Calc") {
 record(ai, "$(P)$(R)AI2") {
   field(DTYP, "Raw Soft Channel")
   field(LINR, "LINEAR")
-  field(PREC, "3")
+  field(PREC, "4")
   field(FLNK, "$(P)$(R)AI_3Calc")
   info(archive, "Monitor, 00:00:01, VAL")
 }
@@ -203,7 +203,7 @@ record(calcout, "$(P)$(R)AI_3Calc") {
 record(ai, "$(P)$(R)AI3") {
   field(DTYP, "Raw Soft Channel")
   field(LINR, "LINEAR")
-  field(PREC, "3")
+  field(PREC, "4")
   info(archive, "Monitor, 00:00:01, VAL")
 }
 
