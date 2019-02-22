@@ -207,12 +207,32 @@ record(longout, "$(P)$(R)AO_1Set") {
 
 substitute "AO=AO0"
 include "AO_scaling.template"
+
 substitute "AO=AO1"
 include "AO_scaling.template"
+
 substitute "AO=AO2"
 include "AO_scaling.template"
+
 substitute "AO=AO3"
 include "AO_scaling.template"
+
+#####################################################################
+
+# ///
+# /// AO descriptions
+# ///
+substitute "IO=AO0"
+include "description.template"
+
+substitute "IO=AO1"
+include "description.template"
+
+substitute "IO=AO2"
+include "description.template"
+
+substitute "IO=AO3"
+include "description.template"
 
 #####################################################################
 # Alarm calculation for this module

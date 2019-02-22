@@ -117,10 +117,6 @@ include "description.template"
 substitute "IO=DI5"
 include "description.template"
 
-substitute "IO=DI6"
-include "description.template"
-
-
 
 # ///
 # /// All relay status (1-6)
