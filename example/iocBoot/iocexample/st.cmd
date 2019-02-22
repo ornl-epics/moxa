@@ -12,9 +12,9 @@ dbLoadDatabase "dbd/example.dbd"
 example_registerRecordDeviceDriver pdbbase
 
 #E1214 Unit (6 DI and 6 Relay)
-#epicsEnvSet("IP_ADDR","192.168.200.177:502")
-#epicsEnvSet("IP_PORT","m1ip")
-#epicsEnvSet("PORT","m1")
+epicsEnvSet("IP_ADDR","192.168.200.177:502")
+epicsEnvSet("IP_PORT","m1ip")
+epicsEnvSet("PORT","m1")
 
 #E1241 Unit (4 AO)
 #epicsEnvSet("IP_ADDR","192.168.200.178:502")
@@ -22,14 +22,14 @@ example_registerRecordDeviceDriver pdbbase
 #epicsEnvSet("PORT","m2")
 
 #E1241 Unit (4 DI, 4 DIO, 4 AI)
-epicsEnvSet("IP_ADDR","192.168.200.179:502")
-epicsEnvSet("IP_PORT","m3ip")
-epicsEnvSet("PORT","m3")
+#epicsEnvSet("IP_ADDR","192.168.200.179:502")
+#epicsEnvSet("IP_PORT","m3ip")
+#epicsEnvSet("PORT","m3")
 
 < $(MOXA)/st_scripts/st_common.cmd
 
-#asynSetTraceMask("m16b1",0,0xFF)
-#asynSetTraceIOMask("m16b1",0,0xFF)
+#asynSetTraceMask("m11w4",48,0xFF)
+#asynSetTraceIOMask("m11w4",48,0xFF)
 
 #asynSetTraceMask("m1ip",0,0xFF)
 #asynSetTraceIOMask("m1ip",0,0xFF)

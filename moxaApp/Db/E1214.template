@@ -97,6 +97,32 @@ substitute "DI=DI5"
 include "DI_alarm.template"
 
 # ///
+# /// DI descriptions
+# ///
+substitute "IO=DI0"
+include "description.template"
+
+substitute "IO=DI1"
+include "description.template"
+
+substitute "IO=DI2"
+include "description.template"
+
+substitute "IO=DI3"
+include "description.template"
+
+substitute "IO=DI4"
+include "description.template"
+
+substitute "IO=DI5"
+include "description.template"
+
+substitute "IO=DI6"
+include "description.template"
+
+
+
+# ///
 # /// All relay status (1-6)
 # ///
 record(mbbiDirect, "$(P)$(R)RLY") {
@@ -147,6 +173,31 @@ record(bi, "$(P)$(R)RLY5") {
   field(ONAM, "On")
   info(archive, "Monitor, 00:00:01, VAL")
 }
+
+# ///
+# /// RLY descriptions
+# ///
+substitute "IO=RLY0"
+include "description.template"
+
+substitute "IO=RLY1"
+include "description.template"
+
+substitute "IO=RLY2"
+include "description.template"
+
+substitute "IO=RLY3"
+include "description.template"
+
+substitute "IO=RLY4"
+include "description.template"
+
+substitute "IO=RLY5"
+include "description.template"
+
+substitute "IO=RLY6"
+include "description.template"
+
 
 # ///
 # /// Polling control

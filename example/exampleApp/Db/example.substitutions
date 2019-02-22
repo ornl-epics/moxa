@@ -1,9 +1,9 @@
 
-#file E1214.template
-#{
-#pattern {P, R, PORT, IP_PORT}
-#        {mkp:, E1214:, m1, m1ip}
-#}
+file E1214.template
+{
+pattern {P, R, PORT, IP_PORT}
+        {mkp:, E1214:, m1, m1ip}
+}
 
 #file E1241.template
 #{
@@ -11,11 +11,11 @@
 #        {mkp:, E1241:, m2, m2ip}
 #}
 
-file E1242.template
-{
-pattern {P, R, PORT, IP_PORT}
-        {mkp:, E1242:, m3, m3ip}
-}
+#file E1242.template
+#{
+#pattern {P, R, PORT, IP_PORT}
+#        {mkp:, E1242:, m3, m3ip}
+#}
 
 
 
