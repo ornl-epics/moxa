@@ -80,6 +80,21 @@ substitute "DI=DI3"
 include "DI_alarm.template"
 
 # ///
+# /// DI descriptions
+# ///
+substitute "IO=DI0"
+include "description.template"
+
+substitute "IO=DI1"
+include "description.template"
+
+substitute "IO=DI2"
+include "description.template"
+
+substitute "IO=DI3"
+include "description.template"
+
+# ///
 # /// All digital output status (0-3)
 # ///
 record(mbbiDirect, "$(P)$(R)DO") {
@@ -116,6 +131,21 @@ record(bi, "$(P)$(R)DO3") {
   field(ONAM, "On")
   info(archive, "Monitor, 00:00:01, VAL")
 }
+
+# ///
+# /// DO descriptions
+# ///
+substitute "IO=DO0"
+include "description.template"
+
+substitute "IO=DO1"
+include "description.template"
+
+substitute "IO=DO2"
+include "description.template"
+
+substitute "IO=DO3"
+include "description.template"
 
 # ///
 # /// Read raw ADC input values. 
@@ -221,12 +251,31 @@ include "AI_scaling.template"
 # Support alarming on the user AIs defined in AI_scaling.template
 substitute "AI=AI0"
 include "AI_alarm.template"
+
 substitute "AI=AI1"
 include "AI_alarm.template"
+
 substitute "AI=AI2"
 include "AI_alarm.template"
+
 substitute "AI=AI3"
 include "AI_alarm.template"
+
+
+# ///
+# /// AI descriptions
+# ///
+substitute "IO=AI0"
+include "description.template"
+
+substitute "IO=AI1"
+include "description.template"
+
+substitute "IO=AI2"
+include "description.template"
+
+substitute "IO=AI3"
+include "description.template"
 
 # ///
 # /// Polling control
