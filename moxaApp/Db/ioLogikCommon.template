@@ -262,8 +262,18 @@ record(bo, "$(P)$(R)WatchdogWrite") {
 }
 
 ############################################################
-# Communication alarm. These are used by the alarm calc record
+# Alarm records. These are used by the alarm calc record
 # in the device specific template files.
+
+# ///
+# /// Calculate if we have a comms alarm.
+# /// This can be used by the device specific 
+# /// templates to adjust polling rates
+# ///
+record(calcout, "$(P)$(R)CommsAlarm") {
+  field(INPA, "$(P)$(R)Uptime.SEVR CP")
+  field(CALC, "A==3")
+}
 
 record(bo, "$(P)$(R)AlarmCtrl") {
   field(DESC, "Alarm Control")
@@ -285,5 +295,33 @@ record(bo, "$(P)$(R)Alarm") {
   info(archive, "Monitor, 00:00:01, VAL")
 }
 
-
+# ///
+# /// If we have a comms alarm, adjust the fast & slow polling rates
+# ///
+record(calcout, "$(P)$(R)CommsAlarmPollCalc") {
+  field(INPA, "$(P)$(R)CommsAlarm CP")
+  field(CALC, "A?2:1")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)CommsAlarmPollCtrl.SELN PP")
+}
+record(seq, "$(P)$(R)CommsAlarmPollCtrl") {
+  field(SELM, "Specified")
+  field(DOL1, "1")
+  field(DOL2, "1")
+  field(LNK1, "$(P)$(R)CommsAlarmPollFast.PROC PP")
+  field(LNK2, "$(P)$(R)CommsAlarmPollSlow.PROC PP")
+}
+record(seq, "$(P)$(R)CommsAlarmPollFast") {
+  field(DOL1, "6") #1Hz
+  field(DOL2, "9") #10Hz
+  field(LNK1, "$(P)$(R)SlowPollControl.SCAN PP")
+  field(LNK2, "$(P)$(R)FastPollControl.SCAN PP")
+}
+record(seq, "$(P)$(R)CommsAlarmPollSlow") {
+  field(DOL1, "3") #.1Hz
+  field(DOL2, "3") #.1Hz
+  field(LNK1, "$(P)$(R)SlowPollControl.SCAN PP")
+  field(LNK2, "$(P)$(R)FastPollControl.SCAN PP")
+}
 

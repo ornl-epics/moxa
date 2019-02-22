@@ -115,6 +115,8 @@ record(ai, "$(P)$(R)AO3") {
 
 # ///
 # /// Polling control
+# /// The SCAN field may be adjusted if we have a comms alarm
+# /// by logic in the ioLogikCommon.template
 # ///
 record(seq, "$(P)$(R)FastPollControl") {
   field(SCAN, ".1 second")
