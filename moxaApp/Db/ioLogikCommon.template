@@ -271,6 +271,7 @@ record(bo, "$(P)$(R)WatchdogWrite") {
 # /// templates to adjust polling rates
 # ///
 record(calcout, "$(P)$(R)CommsAlarm") {
+  field(PINI, "YES")
   field(INPA, "$(P)$(R)Uptime.SEVR CP")
   field(CALC, "A==3")
 }
