@@ -270,11 +270,21 @@ record(bo, "$(P)$(R)WatchdogWrite") {
 # /// This can be used by the device specific 
 # /// templates to adjust polling rates
 # ///
-record(calcout, "$(P)$(R)CommsAlarm") {
+record(calcout, "$(P)$(R)CommsAlarmCalc") {
   field(PINI, "YES")
   field(INPA, "$(P)$(R)Uptime.SEVR CP")
   field(CALC, "A==3")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)CommsAlarm PP")
 }
+record(bo, "$(P)$(R)CommsAlarm") {
+  field(ZNAM, "Comms OK")
+  field(ONAM, "Comms Alarm")
+  field(OSV, "MAJOR")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+
 
 record(bo, "$(P)$(R)AlarmCtrl") {
   field(DESC, "Alarm Control")
