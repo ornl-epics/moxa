@@ -233,7 +233,16 @@ record(bi, "$(P)$(R)Watchdog") {
   field(ZNAM, "OK")
   field(ONAM, "Alarm")
   field(OSV, "MAJOR")
+  field(DISA, "0")
   info(archive, "Monitor, 00:00:01, VAL")
+}
+
+record(bo, "$(P)$(R)WatchdogPollCtrl") {
+  field(VAL, "0")
+  field(ZNAM, "Enabled")
+  field(ONAM, "Disabled")
+  field(OUT, "$(P)$(R)Watchdog.DISA PP")
+  info(autosaveFields, "VAL")
 }
 
 record(seq, "$(P)$(R)SlowPollControl") {
