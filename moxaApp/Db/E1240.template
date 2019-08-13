@@ -31,180 +31,187 @@ include "ioLogikCommon.template"
 # /// logic in AI_scaling.template.
 # ///
 record(waveform, "$(P)$(R)AI") {
-  field(NELM, "4")
-  field(FTVL, "ULONG")
-  field(DTYP, "asynInt32ArrayIn")
-  field(INP, "@asyn($(PORT)8w4,0,1)INT32_BE")
-  field(SCAN, "Passive")
-  field(FLNK, "$(P)$(R)AI_0")
+  field(NELM,	"4")
+  field(FTVL,	"ULONG")
+  field(DTYP,	"asynInt32ArrayIn")
+  field(INP,	"@asyn($(PORT)8w4,0,1)INT32_BE")
+  field(SCAN,	"Passive")
+  field(FLNK,	"$(P)$(R)AI_s0")
 }
 # Extract the word for channels 0 and 1
 record(subArray, "$(P)$(R)AI_s0") {
-  field(INP, "$(P)$(R)AI.VAL")
-  field(SCAN, "Passive")
-  field(FTVL, "ULONG")
-  field(NELM, "1")
-  field(MALM, "2")
-  field(INDX, "0")
-  field(FLNK, "$(P)$(R)AI_s0i0Calc")
+  field(INP,	"$(P)$(R)AI.VAL")
+  field(SCAN,	"Passive")
+  field(FTVL,	"ULONG")
+  field(NELM,	"1")
+  field(MALM,	"2")
+  field(INDX,	"0")
+  field(FLNK,	"$(P)$(R)AI_s0i0Calc")
 }
 record(calcout, "$(P)$(R)AI_s0i0Calc") {
-  field(INPA, "$(P)$(R)AI_s0")
-  field(CALC, "(A>>16)&0x0000FFFF")
-  field(OOPT, "Every Time")
-  field(DOPT, "Use CALC")
-  field(OUT, "$(P)$(R)AI0.RVAL PP")
+  field(INPA,	"$(P)$(R)AI_s0")
+  field(CALC,	"(A>>16)&0x0000FFFF")
+  field(OOPT,	"Every Time")
+  field(DOPT,	"Use CALC")
+  field(OUT,	"$(P)$(R)AI0.RVAL PP")
 }
 record(ai, "$(P)$(R)AI0") {
-  field(DTYP, "Raw Soft Channel")
-  field(LINR, "LINEAR")
-  field(PREC, "$(PREC=4)")
-  field(FLNK, "$(P)$(R)AI_s0i1Calc")
-  info(archive, "Monitor, 00:00:01, VAL")
+  field(DTYP,	"Raw Soft Channel")
+  field(LINR,	"LINEAR")
+  field(PREC,	"$(PREC=4)")
+  field(FLNK,	"$(P)$(R)AI_s0i1Calc")
+  info(archive,	"Monitor, 00:00:01, VAL")
 }
 record(calcout, "$(P)$(R)AI_s0i1Calc") {
-  field(INPA, "$(P)$(R)AI_s0")
-  field(CALC, "(A&0x0000FFFF)")
-  field(OOPT, "Every Time")
-  field(DOPT, "Use CALC")
-  field(OUT, "$(P)$(R)AI1.RVAL PP")
+  field(INPA,	"$(P)$(R)AI_s0")
+  field(CALC,	"(A&0x0000FFFF)")
+  field(OOPT,	"Every Time")
+  field(DOPT,	"Use CALC")
+  field(OUT,	"$(P)$(R)AI1.RVAL PP")
 }
 record(ai, "$(P)$(R)AI1") {
-  field(DTYP, "Raw Soft Channel")
-  field(LINR, "LINEAR")
-  field(PREC, "$(PREC=4)")
-  field(FLNK, "$(P)$(R)AI_s1")
-  info(archive, "Monitor, 00:00:01, VAL")
+  field(DTYP,	"Raw Soft Channel")
+  field(LINR,	"LINEAR")
+  field(PREC,	"$(PREC=4)")
+  field(FLNK,	"$(P)$(R)AI_s1")
+  info(archive,	"Monitor, 00:00:01, VAL")
 }
 # Extract the word for channels 2 and 3
 record(subArray, "$(P)$(R)AI_s1") {
-  field(INP, "$(P)$(R)AI.VAL")
-  field(SCAN, "Passive")
-  field(FTVL, "ULONG")
-  field(NELM, "1")
-  field(MALM, "2")
-  field(INDX, "1")
-  field(FLNK, "$(P)$(R)AI_s1i0Calc")
+  field(INP,	"$(P)$(R)AI.VAL")
+  field(SCAN,	"Passive")
+  field(FTVL,	"ULONG")
+  field(NELM,	"1")
+  field(MALM,	"2")
+  field(INDX,	"1")
+  field(FLNK,	"$(P)$(R)AI_s1i0Calc")
 }
 record(calcout, "$(P)$(R)AI_s1i0Calc") {
-  field(INPA, "$(P)$(R)AI_s1")
-  field(CALC, "(A>>16)&0x0000FFFF")
-  field(OOPT, "Every Time")
-  field(DOPT, "Use CALC")
-  field(OUT, "$(P)$(R)AI2.RVAL PP")
+  field(INPA,	"$(P)$(R)AI_s1")
+  field(CALC,	"(A>>16)&0x0000FFFF")
+  field(OOPT,	"Every Time")
+  field(DOPT,	"Use CALC")
+  field(OUT,	"$(P)$(R)AI2.RVAL PP")
 }
 record(ai, "$(P)$(R)AI2") {
-  field(DTYP, "Raw Soft Channel")
-  field(LINR, "LINEAR")
-  field(PREC, "$(PREC=4)")
-  field(FLNK, "$(P)$(R)AI_s1i1Calc")
-  info(archive, "Monitor, 00:00:01, VAL")
+  field(DTYP,	"Raw Soft Channel")
+  field(LINR,	"LINEAR")
+  field(PREC,	"$(PREC=4)")
+  field(FLNK,	"$(P)$(R)AI_s1i1Calc")
+  info(archive,	"Monitor, 00:00:01, VAL")
 }
 record(calcout, "$(P)$(R)AI_s1i1Calc") {
-  field(INPA, "$(P)$(R)AI_s1")
-  field(CALC, "(A&0x0000FFFF)")
-  field(OOPT, "Every Time")
-  field(DOPT, "Use CALC")
-  field(OUT, "$(P)$(R)AI3.RVAL PP")
+  field(INPA,	"$(P)$(R)AI_s1")
+  field(CALC,	"(A&0x0000FFFF)")
+  field(OOPT,	"Every Time")
+  field(DOPT,	"Use CALC")
+  field(OUT,	"$(P)$(R)AI3.RVAL PP")
 }
 record(ai, "$(P)$(R)AI3") {
-  field(DTYP, "Raw Soft Channel")
-  field(LINR, "LINEAR")
-  field(PREC, "$(PREC=4)")
-  info(archive, "Monitor, 00:00:01, VAL")
-  field(FLNK, "$(P)$(R)AI_s2")
+  field(DTYP,	"Raw Soft Channel")
+  field(LINR,	"LINEAR")
+  field(PREC,	"$(PREC=4)")
+  info(archive,	"Monitor, 00:00:01, VAL")
+  field(FLNK,	"$(P)$(R)AI_s2")
 }
 # Extract the word for channels 4 and 5
 record(subArray, "$(P)$(R)AI_s2") {
-  field(INP, "$(P)$(R)AI.VAL")
-  field(SCAN, "Passive")
-  field(FTVL, "ULONG")
-  field(NELM, "1")
-  field(MALM, "2")
-  field(INDX, "2")
-  field(FLNK, "$(P)$(R)AI_s2i0Calc")
+  field(INP,	"$(P)$(R)AI.VAL")
+  field(SCAN,	"Passive")
+  field(FTVL,	"ULONG")
+  field(NELM,	"1")
+  field(MALM,	"4")
+  field(INDX,	"2")
+  field(FLNK,	"$(P)$(R)AI_s2i0Calc")
 }
-record(calcout, "$(P)$(R)AI_4Calc") {
-  field(INPA, "$(P)$(R)AI_s2")
-  field(CALC, "(A>>16)&0x0000FFFF")
-  field(OOPT, "Every Time")
-  field(DOPT, "Use CALC")
-  field(OUT, "$(P)$(R)AI4.RVAL PP")
+record(calcout, "$(P)$(R)AI_s2i0Calc") {
+  field(INPA,	"$(P)$(R)AI_s2")
+  field(CALC,	"(A>>16)&0x0000FFFF")
+  field(OOPT,	"Every Time")
+  field(DOPT,	"Use CALC")
+  field(OUT,	"$(P)$(R)AI4.RVAL PP")
 }
 record(ai, "$(P)$(R)AI4") {
-  field(DTYP, "Raw Soft Channel")
-  field(LINR, "LINEAR")
-  field(PREC, "$(PREC=4)")
-  field(FLNK, "$(P)$(R)AI_s2i1Calc")
-  info(archive, "Monitor, 00:00:01, VAL")
+  field(DTYP,	"Raw Soft Channel")
+  field(LINR,	"LINEAR")
+  field(PREC,	"$(PREC=4)")
+  field(FLNK,	"$(P)$(R)AI_s2i1Calc")
+  info(archive,	"Monitor, 00:00:01, VAL")
 }
 record(calcout, "$(P)$(R)AI_s2i1Calc") {
-  field(INPA, "$(P)$(R)AI_s2")
-  field(CALC, "(A&0x0000FFFF)")
-  field(OOPT, "Every Time")
-  field(DOPT, "Use CALC")
-  field(OUT, "$(P)$(R)AI5.RVAL PP")
+  field(INPA,	"$(P)$(R)AI_s2")
+  field(CALC,	"(A&0x0000FFFF)")
+  field(OOPT,	"Every Time")
+  field(DOPT,	"Use CALC")
+  field(OUT,	"$(P)$(R)AI5.RVAL PP")
 }
 record(ai, "$(P)$(R)AI5") {
-  field(DTYP, "Raw Soft Channel")
-  field(LINR, "LINEAR")
-  field(PREC, "$(PREC=4)")
-  info(archive, "Monitor, 00:00:01, VAL")
-  field(FLNK, "$(P)$(R)AI_s3")
+  field(DTYP,	"Raw Soft Channel")
+  field(LINR,	"LINEAR")
+  field(PREC,	"$(PREC=4)")
+  info(archive,	"Monitor, 00:00:01, VAL")
+  field(FLNK,	"$(P)$(R)AI_s3")
 }
 # Extract the word for channels 6 and 7
 record(subArray, "$(P)$(R)AI_s3") {
-  field(INP, "$(P)$(R)AI.VAL")
-  field(SCAN, "Passive")
-  field(FTVL, "ULONG")
-  field(NELM, "1")
-  field(MALM, "2")
-  field(INDX, "3")
-  field(FLNK, "$(P)$(R)AI_s3i0Calc")
+  field(INP,	"$(P)$(R)AI.VAL")
+  field(SCAN,	"Passive")
+  field(FTVL,	"ULONG")
+  field(NELM,	"1")
+  field(MALM,	"4")
+  field(INDX,	"3")
+  field(FLNK,	"$(P)$(R)AI_s3i0Calc")
 }
 record(calcout, "$(P)$(R)AI_s3i0Calc") {
-  field(INPA, "$(P)$(R)AI_s3")
-  field(CALC, "(A>>16)&0x0000FFFF")
-  field(OOPT, "Every Time")
-  field(DOPT, "Use CALC")
-  field(OUT, "$(P)$(R)AI6.RVAL PP")
+  field(INPA,	"$(P)$(R)AI_s3")
+  field(CALC,	"(A>>16)&0x0000FFFF")
+  field(OOPT,	"Every Time")
+  field(DOPT,	"Use CALC")
+  field(OUT,	"$(P)$(R)AI6.RVAL PP")
 }
 record(ai, "$(P)$(R)AI6") {
-  field(DTYP, "Raw Soft Channel")
-  field(LINR, "LINEAR")
-  field(PREC, "$(PREC=4)")
-  field(FLNK, "$(P)$(R)AI_s3i1Calc")
-  info(archive, "Monitor, 00:00:01, VAL")
+  field(DTYP,	"Raw Soft Channel")
+  field(LINR,	"LINEAR")
+  field(PREC,	"$(PREC=4)")
+  field(FLNK,	"$(P)$(R)AI_s3i1Calc")
+  info(archive,	"Monitor, 00:00:01, VAL")
 }
 record(calcout, "$(P)$(R)AI_s3i1Calc") {
-  field(INPA, "$(P)$(R)AI_s3")
-  field(CALC, "(A&0x0000FFFF)")
-  field(OOPT, "Every Time")
-  field(DOPT, "Use CALC")
-  field(OUT, "$(P)$(R)AI7.RVAL PP")
+  field(INPA,	"$(P)$(R)AI_s3")
+  field(CALC,	"(A&0x0000FFFF)")
+  field(OOPT,	"Every Time")
+  field(DOPT,	"Use CALC")
+  field(OUT,	"$(P)$(R)AI7.RVAL PP")
 }
 record(ai, "$(P)$(R)AI7") {
-  field(DTYP, "Raw Soft Channel")
-  field(LINR, "LINEAR")
-  field(PREC, "$(PREC=4)")
-  info(archive, "Monitor, 00:00:01, VAL")
+  field(DTYP,	"Raw Soft Channel")
+  field(LINR,	"LINEAR")
+  field(PREC,	"$(PREC=4)")
+  info(archive,	"Monitor, 00:00:01, VAL")
 }
 
 # Deal with scaling the AIs
 substitute "AI=AI0"
 include "AI_scaling.template"
+
 substitute "AI=AI1"
 include "AI_scaling.template"
+
 substitute "AI=AI2"
 include "AI_scaling.template"
+
 substitute "AI=AI3"
 include "AI_scaling.template"
+
 substitute "AI=AI4"
 include "AI_scaling.template"
+
 substitute "AI=AI5"
 include "AI_scaling.template"
+
 substitute "AI=AI6"
 include "AI_scaling.template"
+
 substitute "AI=AI7"
 include "AI_scaling.template"
 
@@ -302,3 +309,4 @@ record(calcout, "$(P)$(R)AlarmCalcComms") {
   field(DOPT, "Use CALC")
   field(OUT, "$(P)$(R)Alarm PP")
 }
+
