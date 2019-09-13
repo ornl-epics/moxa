@@ -14,6 +14,7 @@
 
 record(mbbo, "$(P)$(R)$(AO)Range") {
   field(PINI, "YES")
+  field(ASG,  "$(ASG=BEAMLINE)")
   field(ZRVL, "0")
   field(ONVL, "1")
   field(TWVL, "2")
