@@ -319,7 +319,8 @@ record(bo, "$(P)$(R)Alarm") {
 # /// If we have a comms alarm, adjust the fast & slow polling rates
 # ///
 record(calcout, "$(P)$(R)CommsAlarmPollCalc") {
-  field(INPA, "$(P)$(R)CommsAlarm CP")
+  field(SCAN, "10 second")
+  field(INPA, "$(P)$(R)CommsAlarm")
   field(CALC, "A?2:1")
   field(OOPT, "Every Time")
   field(DOPT, "Use CALC")
