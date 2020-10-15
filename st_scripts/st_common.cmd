@@ -1,6 +1,6 @@
 
 ###########################################
-# Startup commands for E1214 module
+# Startup commands for E1200 Series modules
 
 # Asyn IP port 
 drvAsynIPPortConfigure("$(IP_PORT)","$(IP_ADDR)",0,0,1)
@@ -46,10 +46,10 @@ drvModbusAsynConfigure("$(PORT)30w4", "$(IP_PORT)", 1, 4, -1, 30, 0, 1000, 0)
 drvModbusAsynConfigure("$(PORT)1w3",  "$(IP_PORT)", 1, 3, -1, 1,  0, 1000, 0) 
 drvModbusAsynConfigure("$(PORT)4w3",  "$(IP_PORT)", 1, 3, -1, 4,  0, 1000, 0) 
  
-drvModbusAsynConfigure("$(PORT)1b1",  "$(IP_PORT)", 1, 1, -1, 1,  0, 1000, 0) 
+#drvModbusAsynConfigure("$(PORT)1b1",  "$(IP_PORT)", 1, 1, -1, 1,  0, 1000, 0) 
 
 # Ports used for writing. Same syntax for port name.
-drvModbusAsynConfigure("$(PORT)1b5",  "$(IP_PORT)", 1, 5, -1, 1,  0, 1000, 0) 
-drvModbusAsynConfigure("$(PORT)1w6",  "$(IP_PORT)", 1, 6, -1, 1,  0, 1000, 0) 
+#drvModbusAsynConfigure("$(PORT)1b5",  "$(IP_PORT)", 1, 5, -1, 1,  0, 1000, 0) 
+#drvModbusAsynConfigure("$(PORT)1w6",  "$(IP_PORT)", 1, 6, -1, 1,  0, 1000, 0) 
 
 epicsThreadSleep(1)
