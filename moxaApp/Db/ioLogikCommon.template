@@ -238,6 +238,7 @@ record(bi, "$(P)$(R)Watchdog") {
 }
 
 record(bo, "$(P)$(R)WatchdogPollCtrl") {
+  field(PINI, "YES")
   field(VAL, "0")
   field(ZNAM, "Enabled")
   field(ONAM, "Disabled")
