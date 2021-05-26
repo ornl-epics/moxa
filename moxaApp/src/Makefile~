@@ -1,0 +1,79 @@
+TOP=../..
+
+include $(TOP)/configure/CONFIG
+#----------------------------------------
+#  ADD MACRO DEFINITIONS BELOW HERE
+
+# xxxRecord.h will be created from xxxRecord.dbd
+DBDINC += xxxRecord
+
+# Install xxxSupport.dbd into <top>/dbd
+DBD += xxxSupport.dbd
+
+# Build an IOC support library
+LIBRARY_IOC += moxaSupport
+
+# Compile and add the code to the support library
+moxaSupport_SRCS += xxxRecord.c
+moxaSupport_SRCS += devXxxSoft.c
+
+# Link locally-provided code into the support library,
+# rather than directly into the IOC application.
+# This is required for Windows DLL builds.
+moxaSupport_SRCS += dbSubExample.c
+moxaSupport_SRCS += moxaHello.c
+moxaSupport_SRCS += initTrace.c
+
+moxaSupport_LIBS += $(EPICS_BASE_IOC_LIBS)
+
+
+# Build the IOC application
+PROD_IOC = moxa
+
+# moxa.dbd will be created and installed
+DBD += moxa.dbd
+
+# moxa.dbd will include these files:
+moxa_DBD += base.dbd
+moxa_DBD += xxxSupport.dbd
+moxa_DBD += dbSubExample.dbd
+moxa_DBD += moxaHello.dbd
+moxa_DBD += initTrace.dbd
+
+# moxa_registerRecordDeviceDriver.cpp derives from moxa.dbd
+moxa_SRCS += moxa_registerRecordDeviceDriver.cpp
+
+# Build the main IOC entry point where needed
+moxa_SRCS_DEFAULT += moxaMain.cpp
+moxa_SRCS_vxWorks += -nil-
+
+# Link in the code from our support library
+moxa_LIBS += moxaSupport
+
+# To build SNL programs, SNCSEQ must be defined
+# in the <top>/configure/RELEASE file
+ifneq ($(SNCSEQ),)
+    # Build sncExample into moxaSupport
+    sncExample_SNCFLAGS += +r
+    moxa_DBD += sncExample.dbd
+    # A .stt sequence program is *not* pre-processed:
+    moxaSupport_SRCS += sncExample.stt
+    moxaSupport_LIBS += seq pv
+    moxa_LIBS += seq pv
+
+    # Build sncProgram as a standalone program
+    PROD_HOST += sncProgram
+    sncProgram_SNCFLAGS += +m
+    # A .st sequence program *is* pre-processed:
+    sncProgram_SRCS += sncProgram.st
+    sncProgram_LIBS += seq pv
+    sncProgram_LIBS += $(EPICS_BASE_HOST_LIBS)
+endif
+
+# Finally link IOC to the EPICS Base libraries
+moxa_LIBS += $(EPICS_BASE_IOC_LIBS)
+
+include $(TOP)/configure/RULES
+#----------------------------------------
+#  ADD EXTRA GNUMAKE RULES BELOW HERE
+

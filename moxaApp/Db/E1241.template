@@ -1,0 +1,255 @@
+####################################################################
+#
+# Template for the Moxa E1241 module:
+#   4 analog outputs
+#
+# Macros:
+# P - base PV name
+# R - module PV name
+# PORT - asyn port name (modbus TCP)
+# IP_PORT - the low level IP port name (used for drvAsynIPPortConfigure)
+# ADDR - asyn address (defaults to 0)
+# PREC - display precision (optional, default=3)
+# 
+# Matt Pearson
+# Feb 2019
+#
+#####################################################################
+
+# Include common records used by all modules
+include "ioLogikCommon.template"
+
+#####################################################################
+# Polling functions. The records are processed using a seq record.
+
+# ///
+# /// Read raw ADC output values. 
+# /// 4 words of data, initially read into a waveform of 2 LONGs. 
+# /// The data is extracted into seperate analog input records, which are
+# /// used to scale to engineeing units. The scaling is handled by the 
+# /// logic in AO_scaling.template.
+# ///
+record(waveform, "$(P)$(R)AO") {
+  field(NELM, "2")
+  field(FTVL, "LONG")
+  field(DTYP, "asynInt32ArrayIn")
+  field(INP, "@asyn($(PORT)4w3,1024,1)INT32_BE")
+  field(SCAN, "Passive")
+  field(FLNK, "$(P)$(R)AO_0")
+}
+# Extract the word for channels 0 and 1
+record(subArray, "$(P)$(R)AO_0") {
+  field(INP, "$(P)$(R)AO.VAL")
+  field(SCAN, "Passive")
+  field(FTVL, "LONG")
+  field(NELM, "1")
+  field(MALM, "2")
+  field(INDX, "0")
+  field(FLNK, "$(P)$(R)AO_0Calc")
+}
+record(calcout, "$(P)$(R)AO_0Calc") {
+  field(INPA, "$(P)$(R)AO_0")
+  field(CALC, "(A>>16)&0xFFFF")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)AO0.RVAL PP")
+}
+record(ai, "$(P)$(R)AO0") {
+  field(DTYP, "Raw Soft Channel")
+  field(LINR, "LINEAR")
+  field(PREC, "$(PREC=3)")
+  field(FLNK, "$(P)$(R)AO_1Calc")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)AO_1Calc") {
+  field(INPA, "$(P)$(R)AO_0")
+  field(CALC, "(A&0xFFFF)")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)AO1.RVAL PP")
+}
+record(ai, "$(P)$(R)AO1") {
+  field(DTYP, "Raw Soft Channel")
+  field(LINR, "LINEAR")
+  field(PREC, "$(PREC=3)")
+  field(FLNK, "$(P)$(R)AO_1")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+# Extract the word for channels 2 and 3
+record(subArray, "$(P)$(R)AO_1") {
+  field(INP, "$(P)$(R)AO.VAL")
+  field(SCAN, "Passive")
+  field(FTVL, "LONG")
+  field(NELM, "1")
+  field(MALM, "2")
+  field(INDX, "1")
+  field(FLNK, "$(P)$(R)AO_2Calc")
+}
+record(calcout, "$(P)$(R)AO_2Calc") {
+  field(INPA, "$(P)$(R)AO_1")
+  field(CALC, "(A>>16)&0xFFFF")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)AO2.RVAL PP")
+}
+record(ai, "$(P)$(R)AO2") {
+  field(DTYP, "Raw Soft Channel")
+  field(LINR, "LINEAR")
+  field(PREC, "$(PREC=3)")
+  field(FLNK, "$(P)$(R)AO_3Calc")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)AO_3Calc") {
+  field(INPA, "$(P)$(R)AO_1")
+  field(CALC, "(A&0xFFFF)")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)AO3.RVAL PP")
+}
+record(ai, "$(P)$(R)AO3") {
+  field(DTYP, "Raw Soft Channel")
+  field(LINR, "LINEAR")
+  field(PREC, "$(PREC=3)")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+
+# ///
+# /// Polling control
+# /// The SCAN field may be adjusted if we have a comms alarm
+# /// by logic in the ioLogikCommon.template
+# ///
+record(seq, "$(P)$(R)FastPollControl") {
+  field(SCAN, ".1 second")
+  field(DOL1, "1")
+  field(LNK1, "$(P)$(R)AO.PROC PP")
+}
+
+#####################################################################
+# Set functions.
+
+# ///
+# /// Set output values. The user can write engineering units into VAL
+# /// and we will scale and offset it so that RVAL is the desired DAC code.
+# /// The scaling is handled by the logic in AO_scaling.template.
+# /// 
+# /// A single register is used to set channels 0 and 1, similary for 
+# /// 2 and 3, so we deal with that below.
+# ///
+record(ao, "$(P)$(R)AO0Set") {
+  field(DTYP, "Raw Soft Channel")
+  field(LINR, "LINEAR")
+  field(PREC, "$(PREC=3)")
+  field(FLNK, "$(P)$(R)AO0SetCalc")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)AO0SetCalc") {
+  field(INPA, "$(P)$(R)AO0Set.RVAL")
+  field(INPB, "$(P)$(R)AO1.RVAL")
+  field(CALC, "(((A&0xFFFF)<<16)|(B&0xFFFF))")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)AO_0Set PP")
+}
+record(ao, "$(P)$(R)AO1Set") {
+  field(DTYP, "Raw Soft Channel")
+  field(LINR, "LINEAR")
+  field(PREC, "$(PREC=3)")
+  field(FLNK, "$(P)$(R)AO1SetCalc")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)AO1SetCalc") {
+  field(INPA, "$(P)$(R)AO0.RVAL")
+  field(INPB, "$(P)$(R)AO1Set.RVAL")
+  field(CALC, "(((A&0xFFFF)<<16)|(B&0xFFFF))")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)AO_0Set PP")
+}
+record(longout, "$(P)$(R)AO_0Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT)1w6,1024,1)INT32_BE")
+}
+record(ao, "$(P)$(R)AO2Set") {
+  field(DTYP, "Raw Soft Channel")
+  field(LINR, "LINEAR")
+  field(PREC, "$(PREC=3)")
+  field(FLNK, "$(P)$(R)AO2SetCalc")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)AO2SetCalc") {
+  field(INPA, "$(P)$(R)AO2Set.RVAL")
+  field(INPB, "$(P)$(R)AO3.RVAL")
+  field(CALC, "(((A&0xFFFF)<<16)|(B&0xFFFF))")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)AO_1Set PP")
+}
+record(ao, "$(P)$(R)AO3Set") {
+  field(DTYP, "Raw Soft Channel")
+  field(LINR, "LINEAR")
+  field(PREC, "$(PREC=3)")
+  field(FLNK, "$(P)$(R)AO3SetCalc")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)AO3SetCalc") {
+  field(INPA, "$(P)$(R)AO2.RVAL")
+  field(INPB, "$(P)$(R)AO3Set.RVAL")
+  field(CALC, "(((A&0xFFFF)<<16)|(B&0xFFFF))")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)AO_1Set PP")
+}
+record(longout, "$(P)$(R)AO_1Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT)1w6,1026,1)INT32_BE")
+}
+
+#####################################################################
+# Deal with scaling the above ai and ao records
+
+substitute "AO=AO0"
+include "AO_scaling.template"
+
+substitute "AO=AO1"
+include "AO_scaling.template"
+
+substitute "AO=AO2"
+include "AO_scaling.template"
+
+substitute "AO=AO3"
+include "AO_scaling.template"
+
+#####################################################################
+
+# ///
+# /// AO descriptions
+# ///
+substitute "IO=AO0"
+include "description.template"
+
+substitute "IO=AO1"
+include "description.template"
+
+substitute "IO=AO2"
+include "description.template"
+
+substitute "IO=AO3"
+include "description.template"
+
+#####################################################################
+# Alarm calculation for this module
+
+# ///
+# /// Overall alarm calculation
+# ///
+record(calcout, "$(P)$(R)AlarmCalc") {
+  field(INPA, "$(P)$(R)AlarmCtrl CP")
+  field(INPB, "$(P)$(R)AO.STAT CP")
+  field(INPC, "$(P)$(R)Uptime.STAT CP")
+  field(INPD, "$(P)$(R)Watchdog CP")
+  field(CALC, "A?(B||C||D):0")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)Alarm PP")
+}
+

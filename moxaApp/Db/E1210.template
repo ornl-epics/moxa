@@ -1,0 +1,313 @@
+#############################################################
+#
+# Template for the Moxa E1210 module:
+#   32 DIs
+#   
+#
+# Macros:
+# P - base PV name
+# R - module PV name
+# PORT - asyn port name (modbus TCP)
+# IP_PORT - the low level IP port name (used for drvAsynIPPortConfigure)
+# ADDR - asyn address (defaults to 0)
+# 
+# Core Development:	Matt Pearson
+# 			Feb 2019
+# Expanded for E1210:	Gary Taufer
+#			Oct 2020
+#
+#############################################################
+
+# Include common records used by all modules
+include "ioLogikCommon.template"
+
+########################################################
+# Polling functions. The records are processed using a 
+# seq record.
+
+# ///
+# /// All digital inputs (0-15)
+# ///
+record(mbbiDirect, "$(P)$(R)DI") {
+  field(DESC, "All DI")
+  field(DTYP, "asynUInt32Digital")
+  field(INP, "@asynMask($(PORT)1w4,48,0xFFFF,1)INT32_BE")
+  field(SCAN, "Passive")
+  field(FLNK, "$(P)$(R)DI0")
+}
+record(bi, "$(P)$(R)DI0") {
+  field(INP, "$(P)$(R)DI.B0 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI1")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI1") {
+  field(INP, "$(P)$(R)DI.B1 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI2")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI2") {
+  field(INP, "$(P)$(R)DI.B2 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI3")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI3") {
+  field(INP, "$(P)$(R)DI.B3 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI4")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI4") {
+  field(INP, "$(P)$(R)DI.B4 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI5")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI5") {
+  field(INP, "$(P)$(R)DI.B5 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI6")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI6") {
+  field(INP, "$(P)$(R)DI.B6 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI7")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI7") {
+  field(INP, "$(P)$(R)DI.B7 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI8")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI8") {
+  field(INP, "$(P)$(R)DI.B8 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI9")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI9") {
+  field(INP, "$(P)$(R)DI.B9 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DIA")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DIA") {
+  field(INP, "$(P)$(R)DI.BA MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DIB")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DIB") {
+  field(INP, "$(P)$(R)DI.BB MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DIC")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DIC") {
+  field(INP, "$(P)$(R)DI.BC MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DID")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DID") {
+  field(INP, "$(P)$(R)DI.BD MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DIE")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DIE") {
+  field(INP, "$(P)$(R)DI.BE MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DIF")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DIF") {
+  field(INP, "$(P)$(R)DI.BF MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+
+# ///
+# /// Control the alarm state for each DI
+# ///
+substitute "DI=DI0"
+include "DI_alarm.template"
+
+substitute "DI=DI1"
+include "DI_alarm.template"
+
+substitute "DI=DI2"
+include "DI_alarm.template"
+
+substitute "DI=DI3"
+include "DI_alarm.template"
+
+substitute "DI=DI4"
+include "DI_alarm.template"
+
+substitute "DI=DI5"
+include "DI_alarm.template"
+
+substitute "DI=DI6"
+include "DI_alarm.template"
+
+substitute "DI=DI7"
+include "DI_alarm.template"
+
+substitute "DI=DI8"
+include "DI_alarm.template"
+
+substitute "DI=DI9"
+include "DI_alarm.template"
+
+substitute "DI=DIA"
+include "DI_alarm.template"
+
+substitute "DI=DIB"
+include "DI_alarm.template"
+
+substitute "DI=DIC"
+include "DI_alarm.template"
+
+substitute "DI=DID"
+include "DI_alarm.template"
+
+substitute "DI=DIE"
+include "DI_alarm.template"
+
+substitute "DI=DIF"
+include "DI_alarm.template"
+
+# ///
+# /// DI descriptions
+# ///
+substitute "IO=DI0"
+include "description.template"
+
+substitute "IO=DI1"
+include "description.template"
+
+substitute "IO=DI2"
+include "description.template"
+
+substitute "IO=DI3"
+include "description.template"
+
+substitute "IO=DI4"
+include "description.template"
+
+substitute "IO=DI5"
+include "description.template"
+
+substitute "IO=DI6"
+include "description.template"
+
+substitute "IO=DI7"
+include "description.template"
+
+substitute "IO=DI8"
+include "description.template"
+
+substitute "IO=DI9"
+include "description.template"
+
+substitute "IO=DIA"
+include "description.template"
+
+substitute "IO=DIB"
+include "description.template"
+
+substitute "IO=DIC"
+include "description.template"
+
+substitute "IO=DID"
+include "description.template"
+
+substitute "IO=DIE"
+include "description.template"
+
+substitute "IO=DIF"
+include "description.template"
+
+
+# ///
+# /// Polling control.
+# /// The SCAN field may be adjusted if we have a comms alarm
+# /// by logic in the ioLogikCommon.template
+# ///
+record(seq, "$(P)$(R)FastPollControl") {
+  field(SCAN, ".1 second")
+  field(DOL1, "1")
+  field(DOL2, "1")
+  field(LNK1, "$(P)$(R)DI.PROC PP")
+}
+
+############################################################
+# Alarm calculation for this module
+
+# ///
+# /// Calculate if we have a DI alarm
+# ///
+record(calc, "$(P)$(R)AlarmCalcDIB1") {
+  field(INPA, "$(P)$(R)DI0.STAT CP")
+  field(INPB, "$(P)$(R)DI1.STAT CP")
+  field(INPC, "$(P)$(R)DI2.STAT CP")
+  field(INPD, "$(P)$(R)DI3.STAT CP")
+  field(INPE, "$(P)$(R)DI4.STAT CP")
+  field(INPF, "$(P)$(R)DI5.STAT CP")
+  field(INPG, "$(P)$(R)DI6.STAT CP")
+  field(INPH, "$(P)$(R)DI7.STAT CP")
+  field(CALC, "A||B||C||D||E||F||G||H")
+}
+
+record(calc, "$(P)$(R)AlarmCalcDIB2") {
+  field(INPA, "$(P)$(R)DI8.STAT CP")
+  field(INPB, "$(P)$(R)DI9.STAT CP")
+  field(INPC, "$(P)$(R)DIA.STAT CP")
+  field(INPD, "$(P)$(R)DIB.STAT CP")
+  field(INPE, "$(P)$(R)DIC.STAT CP")
+  field(INPF, "$(P)$(R)DID.STAT CP")
+  field(INPG, "$(P)$(R)DIE.STAT CP")
+  field(INPH, "$(P)$(R)DIF.STAT CP")
+  field(CALC, "A||B||C||D||E||F||G||H")
+}
+
+# ///
+# /// Overall alarm calculation
+# ///
+record(calcout, "$(P)$(R)AlarmCalc") {
+  field(INPA, "$(P)$(R)AlarmCtrl CP")
+  field(INPB, "$(P)$(R)DI.STAT CP")
+  field(INPC, "$(P)$(R)Uptime.STAT CP")
+  field(INPD, "$(P)$(R)Watchdog CP")
+  field(INPE, "$(P)$(R)AlarmCalcDIB1 CP")
+  field(INPF, "$(P)$(R)AlarmCalcDIB2 CP")
+  field(CALC, "A?(B||C||D||E||F):0")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)Alarm PP")
+}
+
+
+
+

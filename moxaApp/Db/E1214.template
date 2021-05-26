@@ -1,0 +1,259 @@
+#############################################################
+#
+# Template for the Moxa E1214 module:
+#   6 DIs
+#   6 relays
+#
+# Macros:
+# P - base PV name
+# R - module PV name
+# PORT - asyn port name (modbus TCP)
+# IP_PORT - the low level IP port name (used for drvAsynIPPortConfigure)
+# ADDR - asyn address (defaults to 0)
+# 
+# Matt Pearson
+# Feb 2019
+#
+#############################################################
+
+# Include common records used by all modules
+include "ioLogikCommon.template"
+
+########################################################
+# Polling functions. The records are processed using a 
+# seq record.
+
+# ///
+# /// All digital inputs (1-6)
+# ///
+record(mbbiDirect, "$(P)$(R)DI") {
+  field(DESC, "All DI")
+  field(DTYP, "asynUInt32Digital")
+  field(INP, "@asynMask($(PORT)1w4,48,0x003F,1)INT32_BE")
+  field(SCAN, "Passive")
+  field(FLNK, "$(P)$(R)DI0")
+}
+record(bi, "$(P)$(R)DI0") {
+  field(INP, "$(P)$(R)DI.B0 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI1")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI1") {
+  field(INP, "$(P)$(R)DI.B1 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI2")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI2") {
+  field(INP, "$(P)$(R)DI.B2 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI3")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI3") {
+  field(INP, "$(P)$(R)DI.B3 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI4")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI4") {
+  field(INP, "$(P)$(R)DI.B4 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)DI5")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)DI5") {
+  field(INP, "$(P)$(R)DI.B5 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+
+# ///
+# /// Control the alarm state for each DI
+# ///
+substitute "DI=DI0"
+include "DI_alarm.template"
+
+substitute "DI=DI1"
+include "DI_alarm.template"
+
+substitute "DI=DI2"
+include "DI_alarm.template"
+
+substitute "DI=DI3"
+include "DI_alarm.template"
+
+substitute "DI=DI4"
+include "DI_alarm.template"
+
+substitute "DI=DI5"
+include "DI_alarm.template"
+
+# ///
+# /// DI descriptions
+# ///
+substitute "IO=DI0"
+include "description.template"
+
+substitute "IO=DI1"
+include "description.template"
+
+substitute "IO=DI2"
+include "description.template"
+
+substitute "IO=DI3"
+include "description.template"
+
+substitute "IO=DI4"
+include "description.template"
+
+substitute "IO=DI5"
+include "description.template"
+
+
+# ///
+# /// All relay status (1-6)
+# ///
+record(mbbiDirect, "$(P)$(R)RLY") {
+  field(DESC, "All Relays")
+  field(DTYP, "asynUInt32Digital")
+  field(INP, "@asynMask($(PORT)1w3,32,0x003F,1)INT32_BE")
+  field(SCAN, "Passive")
+  field(FLNK, "$(P)$(R)RLY0")
+}
+record(bi, "$(P)$(R)RLY0") {
+  field(INP, "$(P)$(R)RLY.B0 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)RLY1")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)RLY1") {
+  field(INP, "$(P)$(R)RLY.B1 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)RLY2")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)RLY2") {
+  field(INP, "$(P)$(R)RLY.B2 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)RLY3")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)RLY3") {
+  field(INP, "$(P)$(R)RLY.B3 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)RLY4")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)RLY4") {
+  field(INP, "$(P)$(R)RLY.B4 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(FLNK, "$(P)$(R)RLY5")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bi, "$(P)$(R)RLY5") {
+  field(INP, "$(P)$(R)RLY.B5 MS")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+
+# ///
+# /// RLY descriptions
+# ///
+substitute "IO=RLY0"
+include "description.template"
+
+substitute "IO=RLY1"
+include "description.template"
+
+substitute "IO=RLY2"
+include "description.template"
+
+substitute "IO=RLY3"
+include "description.template"
+
+substitute "IO=RLY4"
+include "description.template"
+
+substitute "IO=RLY5"
+include "description.template"
+
+substitute "IO=RLY6"
+include "description.template"
+
+
+# ///
+# /// Polling control.
+# /// The SCAN field may be adjusted if we have a comms alarm
+# /// by logic in the ioLogikCommon.template
+# ///
+record(seq, "$(P)$(R)FastPollControl") {
+  field(SCAN, ".1 second")
+  field(DOL1, "1")
+  field(DOL2, "1")
+  field(LNK1, "$(P)$(R)DI.PROC PP")
+  field(LNK2, "$(P)$(R)RLY.PROC PP")
+}
+
+###########################################################
+# Write functions
+
+# ///
+# /// Set the relay status. This can be done by
+# /// setting the bits (B0-B5).
+# ///
+record(mbboDirect, "$(P)$(R)RLYSet") {
+  field(DESC, "Set All Relays")
+  field(DTYP, "asynUInt32Digital")
+  field(OUT, "@asynMask($(PORT)1w6,32,0x003F,1)INT32_BE")
+  field(FLNK, "$(P)$(R)RLY")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+
+############################################################
+# Alarm calculation for this module
+
+# ///
+# /// Calculate if we have a DI alarm
+# ///
+record(calc, "$(P)$(R)AlarmCalcDI") {
+  field(INPA, "$(P)$(R)DI0.STAT CP")
+  field(INPB, "$(P)$(R)DI1.STAT CP")
+  field(INPC, "$(P)$(R)DI2.STAT CP")
+  field(INPD, "$(P)$(R)DI3.STAT CP")
+  field(INPE, "$(P)$(R)DI4.STAT CP")
+  field(INPF, "$(P)$(R)DI5.STAT CP")
+  field(CALC, "A||B||C||D||E||F")
+}
+# ///
+# /// Overall alarm calculation
+# ///
+record(calcout, "$(P)$(R)AlarmCalc") {
+  field(INPA, "$(P)$(R)AlarmCtrl CP")
+  field(INPB, "$(P)$(R)DI.STAT CP")
+  field(INPC, "$(P)$(R)RLY.STAT CP")
+  field(INPD, "$(P)$(R)Uptime.STAT CP")
+  field(INPE, "$(P)$(R)Watchdog CP")
+  field(INPF, "$(P)$(R)AlarmCalcDI CP")
+  field(CALC, "A?(B||C||D||E||F):0")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)Alarm PP")
+}
+
+
+
+

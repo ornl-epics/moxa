@@ -1,0 +1,349 @@
+#############################################################
+#
+# Common file to be included in the device specific template files
+#
+# Macros:
+# P - base PV name
+# R - module PV name
+# PORT - asyn port name (modbus TCP)
+# IP_PORT - the low level IP port name (used for drvAsynIPPortConfigure)
+# ADDR - asyn address (defaults to 0)
+# 
+# Matt Pearson
+# Feb 2019
+#
+#############################################################
+
+# ///
+# /// Generic Asyn record.
+# /// Not useful for modbus params, but we can see the 
+# /// socket connect status via the CNCT field
+# ///
+record(asyn,"$(P)$(R)Asyn") {
+  field(DTYP,"asynRecordDevice")
+  field(PORT,"$(IP_PORT)")
+  field(ADDR,"$(ADDR=0)")
+}
+record(bi, "$(P)$(R)Connected") {
+  field(INP, "$(P)$(R)Asyn.CNCT CP")
+  field(ZNAM, "Disconnected")
+  field(ONAM, "Connected")
+  field(ZSV, "MAJOR")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+
+##############################################################
+# The following records are processed once at startup, or 
+# when we connect.
+
+# ///
+# /// Model name
+# ///
+record(waveform, "$(P)$(R)ModelName") {
+  field(NELM, "21")
+  field(FTVL, "CHAR")
+  field(DTYP, "asynOctetRead")
+  field(INP, "@asyn($(PORT)10w4,5000,1)STRING_HIGH_LOW")
+  field(SCAN, "Passive")
+}
+
+# ///
+# /// Read the MAC address into two ints, since it's in 6 bytes, then split up.
+# /// Remove the sign bit on the high order byte, and add it back on again
+# /// after bitshifting, so we don't end up with a negative number.
+# ///
+record(longin, "$(P)$(R)MAC") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT)2w4,5024,1)INT32_BE")
+  field(SCAN, "Passive")
+  field(FLNK, "$(P)$(R)MAC_2")
+}
+record(longin, "$(P)$(R)MAC_2") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT)2w4,5025,1)INT32_BE")
+  field(SCAN, "Passive")
+  field(FLNK, "$(P)$(R)MAC1")
+}
+record(calc, "$(P)$(R)MAC1") {
+  field(INPA, "$(P)$(R)MAC")
+  field(CALC, "(A>>24)&0xFF")
+  field(FLNK, "$(P)$(R)MAC2")
+}
+record(calc, "$(P)$(R)MAC2") {
+  field(INPA, "$(P)$(R)MAC")
+  field(CALC, "(A>>16)&0x00FF")
+  field(FLNK, "$(P)$(R)MAC3")
+}
+record(calc, "$(P)$(R)MAC3") {
+  field(INPA, "$(P)$(R)MAC")
+  field(CALC, "(A>>8)&0x0000FF")
+  field(FLNK, "$(P)$(R)MAC4")
+}
+record(calc, "$(P)$(R)MAC4") {
+  field(INPA, "$(P)$(R)MAC")
+  field(CALC, "(A&0x000000FF)")
+  field(FLNK, "$(P)$(R)MAC5")
+}
+record(calc, "$(P)$(R)MAC5") {
+  field(INPA, "$(P)$(R)MAC_2")
+  field(CALC, "(A>>8)&0x0000FF")
+  field(FLNK, "$(P)$(R)MAC6")
+}
+record(calc, "$(P)$(R)MAC6") {
+  field(INPA, "$(P)$(R)MAC_2")
+  field(CALC, "(A&0x000000FF)")
+}
+
+# ///
+# /// Read the IP address into an int, then split up.
+# /// Remove the sign bit on the high order byte, and add it back on again
+# /// after bitshifting, so we don't end up with a negative number.
+# ///
+record(longin, "$(P)$(R)IP") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT)2w4,5027,1)INT32_BE")
+  field(SCAN, "Passive")
+  field(FLNK, "$(P)$(R)IP1")
+}
+record(calc, "$(P)$(R)IP1") {
+  field(INPA, "$(P)$(R)IP")
+  field(CALC, "(A>>24)&0xFF")
+  field(FLNK, "$(P)$(R)IP2")
+}
+record(calc, "$(P)$(R)IP2") {
+  field(INPA, "$(P)$(R)IP")
+  field(CALC, "(A>>16)&0x00FF")
+  field(FLNK, "$(P)$(R)IP3")
+}
+record(calc, "$(P)$(R)IP3") {
+  field(INPA, "$(P)$(R)IP")
+  field(CALC, "(A>>8)&0x0000FF")
+  field(FLNK, "$(P)$(R)IP4")
+}
+record(calc, "$(P)$(R)IP4") {
+  field(INPA, "$(P)$(R)IP")
+  field(CALC, "(A&0x000000FF)")
+}
+
+# ///
+# /// Firmware build date
+# ///
+record(longin, "$(P)$(R)FWB") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT)2w4,5031,1)INT32_BE")
+  field(SCAN, "Passive")
+  field(FLNK, "$(P)$(R)FWBYear")
+}
+record(calc, "$(P)$(R)FWBYear") {
+  field(INPA, "$(P)$(R)FWB")
+  field(CALC, "(A>>24)&0xFF")
+  field(FLNK, "$(P)$(R)FWBMonth")
+}
+record(calc, "$(P)$(R)FWBMonth") {
+  field(INPA, "$(P)$(R)FWB")
+  field(CALC, "(A>>16)&0x00FF")
+  field(FLNK, "$(P)$(R)FWBDay")
+}
+record(calc, "$(P)$(R)FWBDay") {
+  field(INPA, "$(P)$(R)FWB")
+  field(CALC, "(A>>8)&0x0000FF")
+}
+
+# ///
+# /// Firmware version
+# ///
+record(longin, "$(P)$(R)FWV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT)2w4,5029,1)INT32_BE")
+  field(SCAN, "Passive")
+  field(FLNK, "$(P)$(R)FWV1")
+}
+record(calc, "$(P)$(R)FWV1") {
+  field(INPA, "$(P)$(R)FWV")
+  field(CALC, "(A>>24)&0xFF")
+  field(FLNK, "$(P)$(R)FWV2")
+}
+record(calc, "$(P)$(R)FWV2") {
+  field(INPA, "$(P)$(R)FWV")
+  field(CALC, "(A>>16)&0x00FF")
+  field(FLNK, "$(P)$(R)FWV3")
+}
+record(calc, "$(P)$(R)FWV3") {
+  field(INPA, "$(P)$(R)FWV")
+  field(CALC, "(A>>8)&0x0000FF")
+}
+
+# ///
+# /// Device name. This can be user defined and set via the web page.
+# ///
+record(waveform, "$(P)$(R)DeviceName") {
+  field(NELM, "61")
+  field(FTVL, "CHAR")
+  field(DTYP, "asynOctetRead")
+  field(INP, "@asyn($(PORT)30w4,5040,1)STRING_HIGH_LOW")
+  field(SCAN, "Passive")
+}
+
+# ///
+# /// Read some information once at startup, and when we reconnect.
+# ///
+record(dfanout, "$(P)$(R)InfoRead") {
+  field(PINI, "YES")
+  field(VAL, "1")
+  field(OUTA, "$(P)$(R)ModelName.PROC PP")
+  field(OUTB, "$(P)$(R)MAC.PROC PP")
+  field(OUTC, "$(P)$(R)IP.PROC PP")
+  field(OUTD, "$(P)$(R)FWB.PROC PP")
+  field(OUTE, "$(P)$(R)FWV.PROC PP")
+  field(OUTF, "$(P)$(R)DeviceName.PROC PP")
+}
+
+record(calcout, "$(P)$(R)InfoReadCalc") {
+  field(INPA, "$(P)$(R)Connected CP")
+  field(CALC, "A=1")
+  field(OOPT, "Transition To Non-zero")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)InfoRead.PROC PP")
+}
+
+########################################################
+# Polling functions. The records are processed using a 
+# seq record.
+
+# ///
+# /// Device uptime
+# ///
+record(longin, "$(P)$(R)Uptime") {
+  field(DESC, "Device Uptime")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT)2w4,5020,1)INT32_BE")
+  field(SCAN, "Passive")
+  field(EGU, "s")
+  info(archive, "Scan, 00:00:10, VAL")
+}
+
+# ///
+# /// Watchdog
+# ///
+record(bi, "$(P)$(R)Watchdog") {
+  field(DESC, "Watchdog")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT)1b1,4144,1)")
+  field(SCAN, "Passive")
+  field(ZNAM, "OK")
+  field(ONAM, "Alarm")
+  field(OSV, "MAJOR")
+  field(DISA, "0")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+
+record(bo, "$(P)$(R)WatchdogPollCtrl") {
+  field(PINI, "YES")
+  field(VAL, "0")
+  field(ZNAM, "Enabled")
+  field(ONAM, "Disabled")
+  field(OUT, "$(P)$(R)Watchdog.DISA PP")
+  info(autosaveFields, "VAL")
+}
+
+record(seq, "$(P)$(R)SlowPollControl") {
+  field(SCAN, "1 second")
+  field(DOL1, "1")
+  field(DOL2, "1")
+  field(LNK1, "$(P)$(R)Watchdog.PROC PP")
+  field(LNK2, "$(P)$(R)Uptime.PROC PP")
+}
+
+###########################################################
+# Write functions
+
+# ///
+# /// Process this to clear an active communication watchdog.
+# /// The watchdog feature is disabled by default and has to be
+# /// enabled via the web interface. 
+# ///
+record(bo, "$(P)$(R)WatchdogReset") {
+  field(VAL, "0")
+  field(OUT, "$(P)$(R)WatchdogWrite PP")
+}
+record(bo, "$(P)$(R)WatchdogWrite") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT)1b5,4144,1)")
+}
+
+############################################################
+# Alarm records. These are used by the alarm calc record
+# in the device specific template files.
+
+# ///
+# /// Calculate if we have a comms alarm.
+# /// This can be used by the device specific 
+# /// templates to adjust polling rates
+# ///
+record(calcout, "$(P)$(R)CommsAlarmCalc") {
+  field(PINI, "YES")
+  field(INPA, "$(P)$(R)Uptime.SEVR CP")
+  field(CALC, "A==3")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)CommsAlarm PP")
+}
+record(bo, "$(P)$(R)CommsAlarm") {
+  field(ZNAM, "Comms OK")
+  field(ONAM, "Comms Alarm")
+  field(OSV, "MAJOR")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+
+
+record(bo, "$(P)$(R)AlarmCtrl") {
+  field(DESC, "Alarm Control")
+  field(PINI, "YES")
+  field(VAL, "1")
+  field(ZNAM, "Alarm Disabled")
+  field(ONAM, "Alarm Enabled")
+  field(ZSV, "MINOR")
+  info(autosaveFields, "VAL")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(bo, "$(P)$(R)Alarm") {
+  field(DESC, "Comms Alarm")
+  field(PINI, "YES")
+  field(VAL, "0")
+  field(ZNAM, "OK")
+  field(ONAM, "Alarm")
+  field(OSV, "MAJOR")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+
+# ///
+# /// If we have a comms alarm, adjust the fast & slow polling rates
+# ///
+record(calcout, "$(P)$(R)CommsAlarmPollCalc") {
+  field(SCAN, "10 second")
+  field(INPA, "$(P)$(R)CommsAlarm")
+  field(CALC, "A?2:1")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)CommsAlarmPollCtrl.SELN PP")
+}
+record(seq, "$(P)$(R)CommsAlarmPollCtrl") {
+  field(SELM, "Specified")
+  field(DOL1, "1")
+  field(DOL2, "1")
+  field(LNK1, "$(P)$(R)CommsAlarmPollFast.PROC PP")
+  field(LNK2, "$(P)$(R)CommsAlarmPollSlow.PROC PP")
+}
+record(seq, "$(P)$(R)CommsAlarmPollFast") {
+  field(DOL1, "6") #1Hz
+  field(DOL2, "9") #10Hz
+  field(LNK1, "$(P)$(R)SlowPollControl.SCAN PP")
+  field(LNK2, "$(P)$(R)FastPollControl.SCAN PP")
+}
+record(seq, "$(P)$(R)CommsAlarmPollSlow") {
+  field(DOL1, "3") #.1Hz
+  field(DOL2, "3") #.1Hz
+  field(LNK1, "$(P)$(R)SlowPollControl.SCAN PP")
+  field(LNK2, "$(P)$(R)FastPollControl.SCAN PP")
+}
+

@@ -1,0 +1,318 @@
+####################################################################
+#
+# Template for the Moxa E1240 module:
+#   8 analog inputs (voltage/current configurable by jumper). The default is voltage mode.
+#
+#
+# Macros:
+# P - base PV name
+# R - module PV name
+# PORT - asyn port name (modbus TCP)
+# IP_PORT - the low level IP port name (used for drvAsynIPPortConfigure)
+# ADDR - asyn address (defaults to 0)
+# PREC - display precision (optional, default=4)
+# 
+# Base Code supplied by Matt Pearson, edited by Gary Taufer
+# Aug 2019
+#
+#####################################################################
+
+# Include common records used by all modules
+include "ioLogikCommon.template"
+
+#####################################################################
+# Polling functions. The records are processed using a seq record.
+
+# ///
+# /// Read raw ADC input values. 
+# /// 4 words of data, initially read into a waveform of 2 LONGs. 
+# /// The data is extracted into seperate analog input records, which are
+# /// used to scale to engineeing units. The scaling is handled by the 
+# /// logic in AI_scaling.template.
+# ///
+record(waveform, "$(P)$(R)AI") {
+  field(NELM,	"4")
+  field(FTVL,	"ULONG")
+  field(DTYP,	"asynInt32ArrayIn")
+  field(INP,	"@asyn($(PORT)8w4,0,1)INT32_BE")
+  field(SCAN,	"Passive")
+  field(FLNK,	"$(P)$(R)AI_s0")
+}
+# Extract the word for channels 0 and 1
+record(subArray, "$(P)$(R)AI_s0") {
+  field(INP,	"$(P)$(R)AI.VAL")
+  field(SCAN,	"Passive")
+  field(FTVL,	"ULONG")
+  field(NELM,	"1")
+  field(MALM,	"2")
+  field(INDX,	"0")
+  field(FLNK,	"$(P)$(R)AI_s0i0Calc")
+}
+record(calcout, "$(P)$(R)AI_s0i0Calc") {
+  field(INPA,	"$(P)$(R)AI_s0")
+  field(CALC,	"(A>>16)&0x0000FFFF")
+  field(OOPT,	"Every Time")
+  field(DOPT,	"Use CALC")
+  field(OUT,	"$(P)$(R)AI0.RVAL PP")
+}
+record(ai, "$(P)$(R)AI0") {
+  field(DTYP,	"Raw Soft Channel")
+  field(LINR,	"LINEAR")
+  field(PREC,	"$(PREC=4)")
+  field(ADEL,	"$(ADEL=0.01)")
+  field(FLNK,	"$(P)$(R)AI_s0i1Calc")
+  info(archive,	"Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)AI_s0i1Calc") {
+  field(INPA,	"$(P)$(R)AI_s0")
+  field(CALC,	"(A&0x0000FFFF)")
+  field(OOPT,	"Every Time")
+  field(DOPT,	"Use CALC")
+  field(OUT,	"$(P)$(R)AI1.RVAL PP")
+}
+record(ai, "$(P)$(R)AI1") {
+  field(DTYP,	"Raw Soft Channel")
+  field(LINR,	"LINEAR")
+  field(PREC,	"$(PREC=4)")
+  field(ADEL,	"$(ADEL=0.01)")
+  field(FLNK,	"$(P)$(R)AI_s1")
+  info(archive,	"Monitor, 00:00:01, VAL")
+}
+# Extract the word for channels 2 and 3
+record(subArray, "$(P)$(R)AI_s1") {
+  field(INP,	"$(P)$(R)AI.VAL")
+  field(SCAN,	"Passive")
+  field(FTVL,	"ULONG")
+  field(NELM,	"1")
+  field(MALM,	"2")
+  field(INDX,	"1")
+  field(FLNK,	"$(P)$(R)AI_s1i0Calc")
+}
+record(calcout, "$(P)$(R)AI_s1i0Calc") {
+  field(INPA,	"$(P)$(R)AI_s1")
+  field(CALC,	"(A>>16)&0x0000FFFF")
+  field(OOPT,	"Every Time")
+  field(DOPT,	"Use CALC")
+  field(OUT,	"$(P)$(R)AI2.RVAL PP")
+}
+record(ai, "$(P)$(R)AI2") {
+  field(DTYP,	"Raw Soft Channel")
+  field(LINR,	"LINEAR")
+  field(PREC,	"$(PREC=4)")
+  field(ADEL,	"$(ADEL=0.01)")
+  field(FLNK,	"$(P)$(R)AI_s1i1Calc")
+  info(archive,	"Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)AI_s1i1Calc") {
+  field(INPA,	"$(P)$(R)AI_s1")
+  field(CALC,	"(A&0x0000FFFF)")
+  field(OOPT,	"Every Time")
+  field(DOPT,	"Use CALC")
+  field(OUT,	"$(P)$(R)AI3.RVAL PP")
+}
+record(ai, "$(P)$(R)AI3") {
+  field(DTYP,	"Raw Soft Channel")
+  field(LINR,	"LINEAR")
+  field(PREC,	"$(PREC=4)")
+  field(ADEL,   "$(ADEL=0.01)")
+  info(archive,	"Monitor, 00:00:01, VAL")
+  field(FLNK,	"$(P)$(R)AI_s2")
+}
+# Extract the word for channels 4 and 5
+record(subArray, "$(P)$(R)AI_s2") {
+  field(INP,	"$(P)$(R)AI.VAL")
+  field(SCAN,	"Passive")
+  field(FTVL,	"ULONG")
+  field(NELM,	"1")
+  field(MALM,	"4")
+  field(INDX,	"2")
+  field(FLNK,	"$(P)$(R)AI_s2i0Calc")
+}
+record(calcout, "$(P)$(R)AI_s2i0Calc") {
+  field(INPA,	"$(P)$(R)AI_s2")
+  field(CALC,	"(A>>16)&0x0000FFFF")
+  field(OOPT,	"Every Time")
+  field(DOPT,	"Use CALC")
+  field(OUT,	"$(P)$(R)AI4.RVAL PP")
+}
+record(ai, "$(P)$(R)AI4") {
+  field(DTYP,	"Raw Soft Channel")
+  field(LINR,	"LINEAR")
+  field(PREC,	"$(PREC=4)")
+  field(ADEL,   "$(ADEL=0.01)")
+  field(FLNK,	"$(P)$(R)AI_s2i1Calc")
+  info(archive,	"Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)AI_s2i1Calc") {
+  field(INPA,	"$(P)$(R)AI_s2")
+  field(CALC,	"(A&0x0000FFFF)")
+  field(OOPT,	"Every Time")
+  field(DOPT,	"Use CALC")
+  field(OUT,	"$(P)$(R)AI5.RVAL PP")
+}
+record(ai, "$(P)$(R)AI5") {
+  field(DTYP,	"Raw Soft Channel")
+  field(LINR,	"LINEAR")
+  field(PREC,	"$(PREC=4)")
+  field(ADEL,   "$(ADEL=0.01)")
+  info(archive,	"Monitor, 00:00:01, VAL")
+  field(FLNK,	"$(P)$(R)AI_s3")
+}
+# Extract the word for channels 6 and 7
+record(subArray, "$(P)$(R)AI_s3") {
+  field(INP,	"$(P)$(R)AI.VAL")
+  field(SCAN,	"Passive")
+  field(FTVL,	"ULONG")
+  field(NELM,	"1")
+  field(MALM,	"4")
+  field(INDX,	"3")
+  field(FLNK,	"$(P)$(R)AI_s3i0Calc")
+}
+record(calcout, "$(P)$(R)AI_s3i0Calc") {
+  field(INPA,	"$(P)$(R)AI_s3")
+  field(CALC,	"(A>>16)&0x0000FFFF")
+  field(OOPT,	"Every Time")
+  field(DOPT,	"Use CALC")
+  field(OUT,	"$(P)$(R)AI6.RVAL PP")
+}
+record(ai, "$(P)$(R)AI6") {
+  field(DTYP,	"Raw Soft Channel")
+  field(LINR,	"LINEAR")
+  field(PREC,	"$(PREC=4)")
+  field(ADEL,   "$(ADEL=0.01)")
+  field(FLNK,	"$(P)$(R)AI_s3i1Calc")
+  info(archive,	"Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)AI_s3i1Calc") {
+  field(INPA,	"$(P)$(R)AI_s3")
+  field(CALC,	"(A&0x0000FFFF)")
+  field(OOPT,	"Every Time")
+  field(DOPT,	"Use CALC")
+  field(OUT,	"$(P)$(R)AI7.RVAL PP")
+}
+record(ai, "$(P)$(R)AI7") {
+  field(DTYP,	"Raw Soft Channel")
+  field(LINR,	"LINEAR")
+  field(PREC,	"$(PREC=4)")
+  field(ADEL,   "$(ADEL=0.01)")
+  info(archive,	"Monitor, 00:00:01, VAL")
+}
+
+# Deal with scaling the AIs
+substitute "AI=AI0"
+include "AI_scaling.template"
+
+substitute "AI=AI1"
+include "AI_scaling.template"
+
+substitute "AI=AI2"
+include "AI_scaling.template"
+
+substitute "AI=AI3"
+include "AI_scaling.template"
+
+substitute "AI=AI4"
+include "AI_scaling.template"
+
+substitute "AI=AI5"
+include "AI_scaling.template"
+
+substitute "AI=AI6"
+include "AI_scaling.template"
+
+substitute "AI=AI7"
+include "AI_scaling.template"
+
+# Support alarming on the user AIs defined in AI_scaling.template
+substitute "AI=AI0"
+include "AI_alarm.template"
+
+substitute "AI=AI1"
+include "AI_alarm.template"
+
+substitute "AI=AI2"
+include "AI_alarm.template"
+
+substitute "AI=AI3"
+include "AI_alarm.template"
+
+substitute "AI=AI4"
+include "AI_alarm.template"
+
+substitute "AI=AI5"
+include "AI_alarm.template"
+
+substitute "AI=AI6"
+include "AI_alarm.template"
+
+substitute "AI=AI7"
+include "AI_alarm.template"
+
+
+# ///
+# /// AI descriptions
+# ///
+substitute "IO=AI0"
+include "description.template"
+
+substitute "IO=AI1"
+include "description.template"
+
+substitute "IO=AI2"
+include "description.template"
+
+substitute "IO=AI3"
+include "description.template"
+
+substitute "IO=AI4"
+include "description.template"
+
+substitute "IO=AI5"
+include "description.template"
+
+substitute "IO=AI6"
+include "description.template"
+
+substitute "IO=AI7"
+include "description.template"
+
+# ///
+# /// Polling control
+# /// The SCAN field may be adjusted if we have a comms alarm
+# /// by logic in the ioLogikCommon.template
+# ///
+record(seq, "$(P)$(R)FastPollControl") {
+  field(SCAN, ".1 second")
+  field(DOL1, "1")
+  field(LNK1, "$(P)$(R)AI.PROC PP")
+}
+
+
+#####################################################################
+# Alarm calculation for this module
+
+# ///
+# /// Calculate if we have an AI alarm
+# ///
+record(calc, "$(P)$(R)AlarmCalcAI") {
+  field(INPA, "$(P)$(R)AI0User.STAT CP")
+  field(INPB, "$(P)$(R)AI1User.STAT CP")
+  field(INPC, "$(P)$(R)AI2User.STAT CP")
+  field(INPD, "$(P)$(R)AI3User.STAT CP")
+  field(INPE, "$(P)$(R)AI4User.STAT CP")
+  field(INPF, "$(P)$(R)AI5User.STAT CP")
+  field(INPG, "$(P)$(R)AI6User.STAT CP")
+  field(INPH, "$(P)$(R)AI7User.STAT CP")
+  field(CALC, "A||B||C||D||F||G||H")
+}
+record(calcout, "$(P)$(R)AlarmCalcComms") {
+  field(INPA, "$(P)$(R)AlarmCtrl CP")
+  field(INPB, "$(P)$(R)AI.STAT CP")
+  field(INPC, "$(P)$(R)Uptime.STAT CP")
+  field(INPD, "$(P)$(R)AlarmCalcAI CP")
+  field(CALC, "A?(B||C||D):0")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)Alarm PP")
+}
+

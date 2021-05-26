@@ -1,0 +1,57 @@
+
+###########################################################
+# Template to control the alarm state for a digital input
+#
+# Macros:
+# P,R - base PV name
+# DI - the DI input (eg. DI0)
+#
+
+record(mbbo, "$(P)$(R)$(DI)AlarmCtrl") {
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  field(ZRST, "Alarm Disabled")
+  field(ONST, "Alarm When On")
+  field(TWST, "Alarm When Off")
+  field(FLNK, "$(P)$(R)$(DI)AlarmSetCalc")
+  info(autosaveFields, "VAL")
+  info(archive, "Monitor, 00:00:01, VAL")
+}
+record(calcout, "$(P)$(R)$(DI)AlarmSetCalc") {
+  field(INPA, "$(P)$(R)$(DI)AlarmCtrl")
+  field(CALC, "A+1")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+  field(OUT, "$(P)$(R)$(DI)AlarmSet.SELN PP")
+}
+record(seq, "$(P)$(R)$(DI)AlarmSet") {
+  field(SELM, "Specified")
+  field(DOL1, "1")
+  field(DOL2, "1")
+  field(DOL3, "1")
+  field(LNK1, "$(P)$(R)$(DI)AlarmSet_0.PROC PP")
+  field(LNK2, "$(P)$(R)$(DI)AlarmSet_1.PROC PP")
+  field(LNK3, "$(P)$(R)$(DI)AlarmSet_2.PROC PP")
+}
+record(seq, "$(P)$(R)$(DI)AlarmSet_0") {
+  field(DOL1, "0")
+  field(DOL2, "0")
+  field(LNK1, "$(P)$(R)$(DI).ZSV PP")
+  field(LNK2, "$(P)$(R)$(DI).OSV PP")
+}
+record(seq, "$(P)$(R)$(DI)AlarmSet_1") {
+  field(DOL1, "0")
+  field(DOL2, "2")
+  field(LNK1, "$(P)$(R)$(DI).ZSV PP")
+  field(LNK2, "$(P)$(R)$(DI).OSV PP")
+}
+record(seq, "$(P)$(R)$(DI)AlarmSet_2") {
+  field(DOL1, "2")
+  field(DOL2, "0")
+  field(LNK1, "$(P)$(R)$(DI).ZSV PP")
+  field(LNK2, "$(P)$(R)$(DI).OSV PP")
+}
+
+###########################################################

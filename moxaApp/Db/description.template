@@ -1,0 +1,14 @@
+##############################################################
+# Template that provides a user settable description for any
+# type of IO. 
+#
+# Macros:
+# P,R - base PV name
+# IO - the IO part of the PV name (eg. AI0, RLY0, DI0 etc.)
+#
+
+record(stringout, "$(P)$(R)$(IO)Desc") {
+  field(PINI, "YES")
+  info(autosaveFields, "VAL")
+}
+

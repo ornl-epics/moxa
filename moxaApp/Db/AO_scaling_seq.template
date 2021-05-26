@@ -1,0 +1,18 @@
+#This is used in AO_scaling.template
+
+record(seq, "$(P)$(R)$(AO)RangeSet_$(INDEX)") {
+  field(DOL1, "$(AOFF)") 
+  field(DOL2, "$(ASLO)") 
+  field(DOL3, "$(AOFF)") 
+  field(DOL4, "$(ASLO)") 
+  field(DOL5, "$(EGU_MIN)")
+  field(DOL6, "$(EGU_MAX)")
+  field(LNK1, "$(P)$(R)$(AO).AOFF PP")
+  field(LNK2, "$(P)$(R)$(AO).ASLO PP")
+  field(LNK3, "$(P)$(R)$(AO)Set.AOFF NPP")
+  field(LNK4, "$(P)$(R)$(AO)Set.ASLO NPP")
+  field(LNK5, "$(P)$(R)$(AO)Set.DRVL NPP")
+  field(LNK6, "$(P)$(R)$(AO)Set.DRVH NPP")
+  field(FLNK, "$(P)$(R)$(AO)EguSet_$(EGU)")
+}
+
