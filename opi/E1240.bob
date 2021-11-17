@@ -1,0 +1,2558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>$(TAB)</name>
+  <width>1050</width>
+  <height>800</height>
+  <actions>
+  </actions>
+  <widget type="group" version="2.0.0">
+    <name>Analog Inputs</name>
+    <x>5</x>
+    <y>5</y>
+    <width>1000</width>
+    <height>320</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <actions>
+    </actions>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>AI 0</text>
+      <x>10</x>
+      <y>40</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>AI 1</text>
+      <x>10</x>
+      <y>70</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>AI 2</text>
+      <x>10</x>
+      <y>100</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>AI 3</text>
+      <x>10</x>
+      <y>130</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Raw ADC</text>
+      <x>61</x>
+      <y>15</y>
+      <width>70</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Scaled Value</text>
+      <x>129</x>
+      <y>15</y>
+      <width>81</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Units</text>
+      <x>210</x>
+      <y>15</y>
+      <width>50</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Range</text>
+      <x>265</x>
+      <y>15</y>
+      <width>110</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>User Value</text>
+      <x>400</x>
+      <y>15</y>
+      <width>70</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Offset</text>
+      <x>475</x>
+      <y>15</y>
+      <width>70</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Slope</text>
+      <x>550</x>
+      <y>15</y>
+      <width>70</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Alarm</text>
+      <x>620</x>
+      <y>15</y>
+      <width>51</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Low Limit</text>
+      <x>665</x>
+      <y>15</y>
+      <width>70</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>High Limit</text>
+      <x>740</x>
+      <y>15</y>
+      <width>70</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Description</text>
+      <x>825</x>
+      <y>15</y>
+      <width>120</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>AI 4</text>
+      <x>10</x>
+      <y>160</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_3</name>
+      <text>AI 5</text>
+      <x>10</x>
+      <y>190</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_4</name>
+      <text>AI 6</text>
+      <x>10</x>
+      <y>220</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_5</name>
+      <text>AI 7</text>
+      <x>10</x>
+      <y>250</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI0 Raw</name>
+      <pv_name>$(P)$(R)AI0.RVAL</pv_name>
+      <x>61</x>
+      <y>40</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI1 Raw</name>
+      <pv_name>$(P)$(R)AI1.RVAL</pv_name>
+      <x>61</x>
+      <y>70</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI2 Raw</name>
+      <pv_name>$(P)$(R)AI2.RVAL</pv_name>
+      <x>61</x>
+      <y>100</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI3 Raw</name>
+      <pv_name>$(P)$(R)AI3.RVAL</pv_name>
+      <x>61</x>
+      <y>130</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI4 Raw</name>
+      <pv_name>$(P)$(R)AI4.RVAL</pv_name>
+      <x>61</x>
+      <y>160</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI5 Raw</name>
+      <pv_name>$(P)$(R)AI5.RVAL</pv_name>
+      <x>61</x>
+      <y>190</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI6 Raw</name>
+      <pv_name>$(P)$(R)AI6.RVAL</pv_name>
+      <x>61</x>
+      <y>220</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI7 Raw</name>
+      <pv_name>$(P)$(R)AI7.RVAL</pv_name>
+      <x>61</x>
+      <y>250</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI0 Scaled</name>
+      <pv_name>$(P)$(R)AI0</pv_name>
+      <x>135</x>
+      <y>40</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI1 Scaled</name>
+      <pv_name>$(P)$(R)AI1</pv_name>
+      <x>135</x>
+      <y>70</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI2 Scaled</name>
+      <pv_name>$(P)$(R)AI2</pv_name>
+      <x>135</x>
+      <y>100</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI3 Scaled</name>
+      <pv_name>$(P)$(R)AI3</pv_name>
+      <x>135</x>
+      <y>130</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI4 Scaled</name>
+      <pv_name>$(P)$(R)AI4</pv_name>
+      <x>135</x>
+      <y>160</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI5 Scaled</name>
+      <pv_name>$(P)$(R)AI5</pv_name>
+      <x>135</x>
+      <y>190</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI6 Scaled</name>
+      <pv_name>$(P)$(R)AI6</pv_name>
+      <x>135</x>
+      <y>220</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI7 Scaled</name>
+      <pv_name>$(P)$(R)AI7</pv_name>
+      <x>135</x>
+      <y>250</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI0 Units</name>
+      <pv_name>$(P)$(R)AI0Egu</pv_name>
+      <x>210</x>
+      <y>40</y>
+      <width>50</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI1 Units</name>
+      <pv_name>$(P)$(R)AI1Egu</pv_name>
+      <x>210</x>
+      <y>70</y>
+      <width>50</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI2 Units</name>
+      <pv_name>$(P)$(R)AI2Egu</pv_name>
+      <x>210</x>
+      <y>100</y>
+      <width>50</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI3 Units</name>
+      <pv_name>$(P)$(R)AI3Egu</pv_name>
+      <x>210</x>
+      <y>130</y>
+      <width>50</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI4 Units</name>
+      <pv_name>$(P)$(R)AI4Egu</pv_name>
+      <x>210</x>
+      <y>160</y>
+      <width>50</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI5 Units</name>
+      <pv_name>$(P)$(R)AI5Egu</pv_name>
+      <x>210</x>
+      <y>190</y>
+      <width>50</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI6 Units</name>
+      <pv_name>$(P)$(R)AI6Egu</pv_name>
+      <x>210</x>
+      <y>220</y>
+      <width>50</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI7 Units</name>
+      <pv_name>$(P)$(R)AI7Egu</pv_name>
+      <x>210</x>
+      <y>250</y>
+      <width>50</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>AI0 Range</name>
+      <pv_name>$(P)$(R)AI0Range</pv_name>
+      <x>265</x>
+      <y>40</y>
+      <width>110</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>AI1 Range</name>
+      <pv_name>$(P)$(R)AI1Range</pv_name>
+      <x>265</x>
+      <y>70</y>
+      <width>110</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>AI2 Range</name>
+      <pv_name>$(P)$(R)AI2Range</pv_name>
+      <x>265</x>
+      <y>100</y>
+      <width>110</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>AI3 Range</name>
+      <pv_name>$(P)$(R)AI3Range</pv_name>
+      <x>265</x>
+      <y>130</y>
+      <width>110</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>AI4 Range</name>
+      <pv_name>$(P)$(R)AI4Range</pv_name>
+      <x>265</x>
+      <y>160</y>
+      <width>110</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>AI5 Range</name>
+      <pv_name>$(P)$(R)AI5Range</pv_name>
+      <x>265</x>
+      <y>190</y>
+      <width>110</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>AI6 Range</name>
+      <pv_name>$(P)$(R)AI6Range</pv_name>
+      <x>265</x>
+      <y>220</y>
+      <width>110</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>AI7 Range</name>
+      <pv_name>$(P)$(R)AI7Range</pv_name>
+      <x>265</x>
+      <y>250</y>
+      <width>110</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI0 User</name>
+      <pv_name>$(P)$(R)AI0User</pv_name>
+      <x>400</x>
+      <y>40</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI1 User</name>
+      <pv_name>$(P)$(R)AI1User</pv_name>
+      <x>400</x>
+      <y>70</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI2 User</name>
+      <pv_name>$(P)$(R)AI2User</pv_name>
+      <x>400</x>
+      <y>100</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI3 User</name>
+      <pv_name>$(P)$(R)AI3User</pv_name>
+      <x>400</x>
+      <y>130</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI4 User</name>
+      <pv_name>$(P)$(R)AI4User</pv_name>
+      <x>400</x>
+      <y>160</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI5 User</name>
+      <pv_name>$(P)$(R)AI5User</pv_name>
+      <x>400</x>
+      <y>190</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI6 User</name>
+      <pv_name>$(P)$(R)AI6User</pv_name>
+      <x>400</x>
+      <y>220</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI7 User</name>
+      <pv_name>$(P)$(R)AI7User</pv_name>
+      <x>400</x>
+      <y>250</y>
+      <width>70</width>
+      <height>26</height>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI0 Offset</name>
+      <pv_name>$(P)$(R)AI0UserOffset</pv_name>
+      <x>475</x>
+      <y>40</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI1 Offset</name>
+      <pv_name>$(P)$(R)AI1UserOffset</pv_name>
+      <x>475</x>
+      <y>70</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI2 Offset</name>
+      <pv_name>$(P)$(R)AI2UserOffset</pv_name>
+      <x>475</x>
+      <y>100</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI3 Offset</name>
+      <pv_name>$(P)$(R)AI3UserOffset</pv_name>
+      <x>475</x>
+      <y>130</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI4 Offset</name>
+      <pv_name>$(P)$(R)AI4UserOffset</pv_name>
+      <x>475</x>
+      <y>160</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI5 Offset</name>
+      <pv_name>$(P)$(R)AI5UserOffset</pv_name>
+      <x>475</x>
+      <y>190</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI6 Offset</name>
+      <pv_name>$(P)$(R)AI6UserOffset</pv_name>
+      <x>475</x>
+      <y>220</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI7 Offset</name>
+      <pv_name>$(P)$(R)AI7UserOffset</pv_name>
+      <x>475</x>
+      <y>250</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI0 Slope</name>
+      <pv_name>$(P)$(R)AI0UserSlope</pv_name>
+      <x>550</x>
+      <y>40</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI1 Slope</name>
+      <pv_name>$(P)$(R)AI1UserSlope</pv_name>
+      <x>550</x>
+      <y>70</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI2 Slope</name>
+      <pv_name>$(P)$(R)AI2UserSlope</pv_name>
+      <x>550</x>
+      <y>100</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI3 Slope</name>
+      <pv_name>$(P)$(R)AI3UserSlope</pv_name>
+      <x>550</x>
+      <y>130</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI4 Slope</name>
+      <pv_name>$(P)$(R)AI4UserSlope</pv_name>
+      <x>550</x>
+      <y>160</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI5 Slope</name>
+      <pv_name>$(P)$(R)AI5UserSlope</pv_name>
+      <x>550</x>
+      <y>190</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI6 Slope</name>
+      <pv_name>$(P)$(R)AI6UserSlope</pv_name>
+      <x>550</x>
+      <y>220</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI7 Slope</name>
+      <pv_name>$(P)$(R)AI7UserSlope</pv_name>
+      <x>550</x>
+      <y>250</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>AI0 Alarm</name>
+      <pv_name>$(P)$(R)AI0UserAlarmCtrl</pv_name>
+      <label></label>
+      <x>636</x>
+      <y>40</y>
+      <width>19</width>
+      <height>26</height>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>AI1 Alarm</name>
+      <pv_name>$(P)$(R)AI1UserAlarmCtrl</pv_name>
+      <label></label>
+      <x>636</x>
+      <y>70</y>
+      <width>20</width>
+      <height>26</height>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>AI2 Alarm</name>
+      <pv_name>$(P)$(R)AI2UserAlarmCtrl</pv_name>
+      <label></label>
+      <x>636</x>
+      <y>100</y>
+      <width>20</width>
+      <height>26</height>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>AI3 Alarm</name>
+      <pv_name>$(P)$(R)AI3UserAlarmCtrl</pv_name>
+      <label></label>
+      <x>636</x>
+      <y>130</y>
+      <width>20</width>
+      <height>26</height>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>AI4 Alarm</name>
+      <pv_name>$(P)$(R)AI4UserAlarmCtrl</pv_name>
+      <label></label>
+      <x>636</x>
+      <y>160</y>
+      <width>19</width>
+      <height>26</height>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>AI5 Alarm</name>
+      <pv_name>$(P)$(R)AI5UserAlarmCtrl</pv_name>
+      <label></label>
+      <x>636</x>
+      <y>190</y>
+      <width>20</width>
+      <height>26</height>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>AI6 Alarm</name>
+      <pv_name>$(P)$(R)AI6UserAlarmCtrl</pv_name>
+      <label></label>
+      <x>636</x>
+      <y>220</y>
+      <width>20</width>
+      <height>26</height>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>AI7 Alarm</name>
+      <pv_name>$(P)$(R)AI7UserAlarmCtrl</pv_name>
+      <label></label>
+      <x>636</x>
+      <y>250</y>
+      <width>20</width>
+      <height>26</height>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI0 Low Limit</name>
+      <pv_name>$(P)$(R)AI0UserLOLO</pv_name>
+      <x>665</x>
+      <y>40</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI1 Low Limit</name>
+      <pv_name>$(P)$(R)AI1UserLOLO</pv_name>
+      <x>665</x>
+      <y>70</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI2 Low Limit</name>
+      <pv_name>$(P)$(R)AI2UserLOLO</pv_name>
+      <x>665</x>
+      <y>100</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI3 Low Limit</name>
+      <pv_name>$(P)$(R)AI3UserLOLO</pv_name>
+      <x>665</x>
+      <y>130</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI4 Low Limit</name>
+      <pv_name>$(P)$(R)AI4UserLOLO</pv_name>
+      <x>665</x>
+      <y>160</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI5 Low Limit</name>
+      <pv_name>$(P)$(R)AI5UserLOLO</pv_name>
+      <x>665</x>
+      <y>190</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI6 Low Limit</name>
+      <pv_name>$(P)$(R)AI6UserLOLO</pv_name>
+      <x>665</x>
+      <y>220</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI7 Low Limit</name>
+      <pv_name>$(P)$(R)AI7UserLOLO</pv_name>
+      <x>665</x>
+      <y>250</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI0 High Limit</name>
+      <pv_name>$(P)$(R)AI0UserHIHI</pv_name>
+      <x>740</x>
+      <y>40</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI1 High Limit</name>
+      <pv_name>$(P)$(R)AI1UserHIHI</pv_name>
+      <x>740</x>
+      <y>70</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI2 High Limit</name>
+      <pv_name>$(P)$(R)AI2UserHIHI</pv_name>
+      <x>740</x>
+      <y>100</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI3 High Limit</name>
+      <pv_name>$(P)$(R)AI3UserHIHI</pv_name>
+      <x>740</x>
+      <y>130</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI4 High Limit</name>
+      <pv_name>$(P)$(R)AI4UserHIHI</pv_name>
+      <x>740</x>
+      <y>160</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI5 High Limit</name>
+      <pv_name>$(P)$(R)AI5UserHIHI</pv_name>
+      <x>740</x>
+      <y>190</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI6 High Limit</name>
+      <pv_name>$(P)$(R)AI6UserHIHI</pv_name>
+      <x>740</x>
+      <y>220</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI7 High Limit</name>
+      <pv_name>$(P)$(R)AI7UserHIHI</pv_name>
+      <x>740</x>
+      <y>250</y>
+      <width>70</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI0 Desc</name>
+      <pv_name>$(P)$(R)AI0Desc</pv_name>
+      <x>825</x>
+      <y>40</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI1 Desc</name>
+      <pv_name>$(P)$(R)AI1Desc</pv_name>
+      <x>825</x>
+      <y>70</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI2 Desc</name>
+      <pv_name>$(P)$(R)AI2Desc</pv_name>
+      <x>825</x>
+      <y>100</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI3 Desc</name>
+      <pv_name>$(P)$(R)AI3Desc</pv_name>
+      <x>825</x>
+      <y>130</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI4 Desc</name>
+      <pv_name>$(P)$(R)AI4Desc</pv_name>
+      <x>825</x>
+      <y>160</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI5 Desc</name>
+      <pv_name>$(P)$(R)AI5Desc</pv_name>
+      <x>825</x>
+      <y>190</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI6 Desc</name>
+      <pv_name>$(P)$(R)AI6Desc</pv_name>
+      <x>825</x>
+      <y>220</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>AI7 Desc</name>
+      <pv_name>$(P)$(R)AI7Desc</pv_name>
+      <x>825</x>
+      <y>250</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Device Information</name>
+    <x>5</x>
+    <y>330</y>
+    <width>476</width>
+    <height>316</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <actions>
+    </actions>
+    <widget type="textupdate" version="2.0.0">
+      <name>Uptime</name>
+      <pv_name>$(P)$(R)Uptime</pv_name>
+      <x>180</x>
+      <y>10</y>
+      <width>235</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Socket</name>
+      <pv_name>$(P)$(R)Connected</pv_name>
+      <x>180</x>
+      <y>40</y>
+      <width>235</width>
+      <height>26</height>
+      <format>6</format>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <tooltip>This is the TCP socket connected status.
+This can take 15 minutes to disconnect on Linux.
+$(pv_name)
+$(pv_value)</tooltip>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Device</name>
+      <pv_name>$(P)$(R)DeviceName</pv_name>
+      <x>180</x>
+      <y>70</y>
+      <width>235</width>
+      <height>26</height>
+      <format>6</format>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Model</name>
+      <pv_name>$(P)$(R)ModelName</pv_name>
+      <x>180</x>
+      <y>100</y>
+      <width>235</width>
+      <height>26</height>
+      <format>6</format>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>FW.1</name>
+      <pv_name>$(P)$(R)FWV1</pv_name>
+      <x>180</x>
+      <y>130</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>FW.2</name>
+      <pv_name>$(P)$(R)FWV2</pv_name>
+      <x>220</x>
+      <y>130</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>FW.3</name>
+      <pv_name>$(P)$(R)FWV3</pv_name>
+      <x>260</x>
+      <y>130</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Build.1</name>
+      <pv_name>$(P)$(R)FWBYear</pv_name>
+      <x>180</x>
+      <y>160</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Build.2</name>
+      <pv_name>$(P)$(R)FWBMonth</pv_name>
+      <x>220</x>
+      <y>160</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Build.3</name>
+      <pv_name>$(P)$(R)FWBDay</pv_name>
+      <x>260</x>
+      <y>160</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>IP.1</name>
+      <pv_name>$(P)$(R)IP1</pv_name>
+      <x>180</x>
+      <y>190</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>IP.2</name>
+      <pv_name>$(P)$(R)IP2</pv_name>
+      <x>220</x>
+      <y>190</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>IP.3</name>
+      <pv_name>$(P)$(R)IP3</pv_name>
+      <x>260</x>
+      <y>190</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>IP.4</name>
+      <pv_name>$(P)$(R)IP4</pv_name>
+      <x>300</x>
+      <y>190</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>MAC.0</name>
+      <pv_name>$(P)$(R)MAC1</pv_name>
+      <x>180</x>
+      <y>220</y>
+      <width>35</width>
+      <height>26</height>
+      <format>4</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>MAC.1</name>
+      <pv_name>$(P)$(R)MAC2</pv_name>
+      <x>220</x>
+      <y>220</y>
+      <width>35</width>
+      <height>26</height>
+      <format>4</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>MAC.2</name>
+      <pv_name>$(P)$(R)MAC3</pv_name>
+      <x>260</x>
+      <y>220</y>
+      <width>35</width>
+      <height>26</height>
+      <format>4</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>MAC.3</name>
+      <pv_name>$(P)$(R)MAC4</pv_name>
+      <x>300</x>
+      <y>220</y>
+      <width>35</width>
+      <height>26</height>
+      <format>4</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>MAC.4</name>
+      <pv_name>$(P)$(R)MAC5</pv_name>
+      <x>340</x>
+      <y>220</y>
+      <width>35</width>
+      <height>26</height>
+      <format>4</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>MAC.5</name>
+      <pv_name>$(P)$(R)MAC6</pv_name>
+      <x>380</x>
+      <y>220</y>
+      <width>35</width>
+      <height>26</height>
+      <format>4</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Slow Poll</name>
+      <pv_name>$(P)$(R)SlowPollControl.SCAN</pv_name>
+      <x>260</x>
+      <y>250</y>
+      <width>75</width>
+      <height>26</height>
+      <format>6</format>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Fast Poll</name>
+      <pv_name>$(P)$(R)FastPollControl.SCAN</pv_name>
+      <x>180</x>
+      <y>250</y>
+      <width>75</width>
+      <height>26</height>
+      <format>6</format>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Device Uptime</text>
+      <x>15</x>
+      <y>10</y>
+      <width>158</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Socket Connected Status</text>
+      <x>15</x>
+      <y>40</y>
+      <width>158</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Device Name</text>
+      <x>15</x>
+      <y>70</y>
+      <width>158</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Model Name</text>
+      <x>15</x>
+      <y>100</y>
+      <width>158</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Firmware Version</text>
+      <x>15</x>
+      <y>130</y>
+      <width>158</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Build (Y/M/D)</text>
+      <x>40</x>
+      <y>160</y>
+      <width>134</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>IP Address</text>
+      <x>15</x>
+      <y>190</y>
+      <width>158</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>MAC Address</text>
+      <x>15</x>
+      <y>220</y>
+      <width>158</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Fast &amp; Slow Poll Delay</text>
+      <x>15</x>
+      <y>250</y>
+      <width>158</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Alarm</name>
+    <x>750</x>
+    <y>330</y>
+    <width>281</width>
+    <height>316</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <actions>
+    </actions>
+    <widget type="textupdate" version="2.0.0">
+      <name>Alarm</name>
+      <pv_name>$(P)$(R)Alarm</pv_name>
+      <x>130</x>
+      <y>15</y>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Alarm Control</name>
+      <pv_name>$(P)$(R)AlarmCtrl</pv_name>
+      <x>130</x>
+      <y>45</y>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Comm Alarm</name>
+      <pv_name>$(P)$(R)CommsAlarm</pv_name>
+      <x>130</x>
+      <y>80</y>
+      <height>26</height>
+      <format>6</format>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>AI Status</name>
+      <pv_name>$(P)$(R)AI.STAT</pv_name>
+      <x>130</x>
+      <y>113</y>
+      <height>26</height>
+      <format>6</format>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Alarm</text>
+      <x>25</x>
+      <y>15</y>
+      <width>101</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Alarm Control</text>
+      <x>10</x>
+      <y>45</y>
+      <width>116</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_2</name>
+      <text>Comms Alarm</text>
+      <x>20</x>
+      <y>80</y>
+      <width>106</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_2</name>
+      <text> AI Read Status</text>
+      <x>10</x>
+      <y>113</y>
+      <width>116</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Notes</name>
+    <x>480</x>
+    <y>330</y>
+    <width>271</width>
+    <height>316</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <actions>
+    </actions>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>1) The update rate for the anlog inputs depends on how many are enabled. Unused channels can be disabled via the device web server, which will mean the other channels are updated faster (up to 10Hz).
+
+2) The range setting only changes the software scaling. The device needs jumpers changed to actually change the operating mode of each input (voltage or current) </text>
+      <x>16</x>
+      <y>15</y>
+      <width>205</width>
+      <height>241</height>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+</display>

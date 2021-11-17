@@ -1,0 +1,1822 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>$(TAB)</name>
+  <width>830</width>
+  <height>650</height>
+  <actions>
+  </actions>
+  <widget type="group" version="2.0.0">
+    <name>Digital Inputs Bank 1</name>
+    <x>5</x>
+    <y>5</y>
+    <width>405</width>
+    <height>310</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <actions>
+    </actions>
+    <widget type="label" version="2.0.0">
+      <name>Description</name>
+      <text>Description</text>
+      <x>241</x>
+      <y>10</y>
+      <width>120</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Alarm State</name>
+      <text>Alarm State Control</text>
+      <x>96</x>
+      <y>10</y>
+      <width>136</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DI 0</name>
+      <text>DI 0</text>
+      <x>1</x>
+      <y>35</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>DI0</name>
+      <pv_name>$(P)$(R)DI0</pv_name>
+      <bit>0</bit>
+      <x>53</x>
+      <y>37</y>
+      <width>22</width>
+      <height>22</height>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DI0</name>
+      <pv_name>$(P)$(R)DI0AlarmCtrl</pv_name>
+      <x>96</x>
+      <y>35</y>
+      <width>136</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DI0</name>
+      <pv_name>$(P)$(R)DI0Desc</pv_name>
+      <x>241</x>
+      <y>35</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DI1</name>
+      <text>DI 1</text>
+      <x>1</x>
+      <y>65</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>DI1</name>
+      <pv_name>$(P)$(R)DI1</pv_name>
+      <bit>0</bit>
+      <x>53</x>
+      <y>67</y>
+      <width>22</width>
+      <height>22</height>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DI1</name>
+      <pv_name>$(P)$(R)DI1AlarmCtrl</pv_name>
+      <x>96</x>
+      <y>65</y>
+      <width>136</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DI1</name>
+      <pv_name>$(P)$(R)DI1Desc</pv_name>
+      <x>241</x>
+      <y>65</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DI2</name>
+      <text>DI 2</text>
+      <x>1</x>
+      <y>95</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>DI2</name>
+      <pv_name>$(P)$(R)DI2</pv_name>
+      <bit>0</bit>
+      <x>53</x>
+      <y>97</y>
+      <width>22</width>
+      <height>22</height>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DI2</name>
+      <pv_name>$(P)$(R)DI2AlarmCtrl</pv_name>
+      <x>96</x>
+      <y>95</y>
+      <width>136</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DI2</name>
+      <pv_name>$(P)$(R)DI2Desc</pv_name>
+      <x>241</x>
+      <y>95</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DI3</name>
+      <text>DI 3</text>
+      <x>1</x>
+      <y>125</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>DI3</name>
+      <pv_name>$(P)$(R)DI3</pv_name>
+      <bit>0</bit>
+      <x>53</x>
+      <y>127</y>
+      <width>22</width>
+      <height>22</height>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DI3</name>
+      <pv_name>$(P)$(R)DI3AlarmCtrl</pv_name>
+      <x>96</x>
+      <y>125</y>
+      <width>136</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DI5</name>
+      <pv_name>$(P)$(R)DI5Desc</pv_name>
+      <x>241</x>
+      <y>185</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DI4</name>
+      <text>DI 4</text>
+      <x>1</x>
+      <y>155</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>DI4</name>
+      <pv_name>$(P)$(R)DI4</pv_name>
+      <bit>0</bit>
+      <x>53</x>
+      <y>157</y>
+      <width>22</width>
+      <height>22</height>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DI4</name>
+      <pv_name>$(P)$(R)DI4AlarmCtrl</pv_name>
+      <x>96</x>
+      <y>155</y>
+      <width>136</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DI4</name>
+      <pv_name>$(P)$(R)DI4Desc</pv_name>
+      <x>241</x>
+      <y>155</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DI5</name>
+      <text>DI 5</text>
+      <x>1</x>
+      <y>185</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>DI5</name>
+      <pv_name>$(P)$(R)DI5</pv_name>
+      <bit>0</bit>
+      <x>53</x>
+      <y>187</y>
+      <width>22</width>
+      <height>22</height>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DI5</name>
+      <pv_name>$(P)$(R)DI5AlarmCtrl</pv_name>
+      <x>96</x>
+      <y>185</y>
+      <width>136</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DI3</name>
+      <pv_name>$(P)$(R)DI3Desc</pv_name>
+      <x>241</x>
+      <y>125</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DI6</name>
+      <text>DI 6</text>
+      <x>1</x>
+      <y>215</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>DI6</name>
+      <pv_name>$(P)$(R)DI6</pv_name>
+      <bit>0</bit>
+      <x>53</x>
+      <y>217</y>
+      <width>22</width>
+      <height>22</height>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DI6</name>
+      <pv_name>$(P)$(R)DI6AlarmCtrl</pv_name>
+      <x>96</x>
+      <y>215</y>
+      <width>136</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DI6</name>
+      <pv_name>$(P)$(R)DI6Desc</pv_name>
+      <x>241</x>
+      <y>215</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DI7</name>
+      <text>DI 7</text>
+      <x>1</x>
+      <y>245</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>DI7</name>
+      <pv_name>$(P)$(R)DI7</pv_name>
+      <bit>0</bit>
+      <x>53</x>
+      <y>247</y>
+      <width>22</width>
+      <height>22</height>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DI7</name>
+      <pv_name>$(P)$(R)DI7AlarmCtrl</pv_name>
+      <x>96</x>
+      <y>245</y>
+      <width>136</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DI7</name>
+      <pv_name>$(P)$(R)DI7Desc</pv_name>
+      <x>241</x>
+      <y>245</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Digital Inputs Bank 2</name>
+    <x>410</x>
+    <y>5</y>
+    <width>405</width>
+    <height>310</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <actions>
+    </actions>
+    <widget type="label" version="2.0.0">
+      <name>Description_1</name>
+      <text>Description</text>
+      <x>241</x>
+      <y>10</y>
+      <width>120</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Alarm State_1</name>
+      <text>Alarm State Control</text>
+      <x>96</x>
+      <y>10</y>
+      <width>136</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DI8</name>
+      <text>DI 8</text>
+      <x>1</x>
+      <y>35</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>DI8</name>
+      <pv_name>$(P)$(R)DI8</pv_name>
+      <bit>0</bit>
+      <x>53</x>
+      <y>37</y>
+      <width>22</width>
+      <height>22</height>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DI8</name>
+      <pv_name>$(P)$(R)DI8AlarmCtrl</pv_name>
+      <x>96</x>
+      <y>35</y>
+      <width>136</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DI8</name>
+      <pv_name>$(P)$(R)DI8Desc</pv_name>
+      <x>241</x>
+      <y>35</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DI9</name>
+      <text>DI 9</text>
+      <x>1</x>
+      <y>65</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>DI9</name>
+      <pv_name>$(P)$(R)DI9</pv_name>
+      <bit>0</bit>
+      <x>53</x>
+      <y>67</y>
+      <width>22</width>
+      <height>22</height>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DI9</name>
+      <pv_name>$(P)$(R)DI9AlarmCtrl</pv_name>
+      <x>96</x>
+      <y>65</y>
+      <width>136</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DI9</name>
+      <pv_name>$(P)$(R)DI9Desc</pv_name>
+      <x>241</x>
+      <y>65</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DI10</name>
+      <text>DI 10</text>
+      <x>1</x>
+      <y>95</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>DI10</name>
+      <pv_name>$(P)$(R)DIA</pv_name>
+      <bit>0</bit>
+      <x>53</x>
+      <y>97</y>
+      <width>22</width>
+      <height>22</height>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DI10</name>
+      <pv_name>$(P)$(R)DIAAlarmCtrl</pv_name>
+      <x>96</x>
+      <y>95</y>
+      <width>136</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DI10</name>
+      <pv_name>$(P)$(R)DIADesc</pv_name>
+      <x>241</x>
+      <y>95</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DI11</name>
+      <text>DI 11</text>
+      <x>1</x>
+      <y>125</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>DI11</name>
+      <pv_name>$(P)$(R)DIB</pv_name>
+      <bit>0</bit>
+      <x>53</x>
+      <y>127</y>
+      <width>22</width>
+      <height>22</height>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DI11</name>
+      <pv_name>$(P)$(R)DIBAlarmCtrl</pv_name>
+      <x>96</x>
+      <y>125</y>
+      <width>136</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DI13</name>
+      <pv_name>$(P)$(R)DIDDesc</pv_name>
+      <x>241</x>
+      <y>185</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DI12</name>
+      <text>DI 12</text>
+      <x>1</x>
+      <y>155</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>DI12</name>
+      <pv_name>$(P)$(R)DIC</pv_name>
+      <bit>0</bit>
+      <x>53</x>
+      <y>157</y>
+      <width>22</width>
+      <height>22</height>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DI12</name>
+      <pv_name>$(P)$(R)DICAlarmCtrl</pv_name>
+      <x>96</x>
+      <y>155</y>
+      <width>136</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DI12</name>
+      <pv_name>$(P)$(R)DICDesc</pv_name>
+      <x>241</x>
+      <y>155</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DI13</name>
+      <text>DI 13</text>
+      <x>1</x>
+      <y>185</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>DI13</name>
+      <pv_name>$(P)$(R)DID</pv_name>
+      <bit>0</bit>
+      <x>53</x>
+      <y>187</y>
+      <width>22</width>
+      <height>22</height>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DI13</name>
+      <pv_name>$(P)$(R)DIDAlarmCtrl</pv_name>
+      <x>96</x>
+      <y>185</y>
+      <width>136</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DI11</name>
+      <pv_name>$(P)$(R)DIBDesc</pv_name>
+      <x>241</x>
+      <y>125</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DI14</name>
+      <text>DI 14</text>
+      <x>1</x>
+      <y>215</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>DI14</name>
+      <pv_name>$(P)$(R)DIE</pv_name>
+      <bit>0</bit>
+      <x>53</x>
+      <y>217</y>
+      <width>22</width>
+      <height>22</height>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DI14</name>
+      <pv_name>$(P)$(R)DIEAlarmCtrl</pv_name>
+      <x>96</x>
+      <y>215</y>
+      <width>136</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DI14</name>
+      <pv_name>$(P)$(R)DIEDesc</pv_name>
+      <x>241</x>
+      <y>215</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DI15</name>
+      <text>DI 15</text>
+      <x>1</x>
+      <y>245</y>
+      <width>43</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>DI15</name>
+      <pv_name>$(P)$(R)DIF</pv_name>
+      <bit>0</bit>
+      <x>53</x>
+      <y>247</y>
+      <width>22</width>
+      <height>22</height>
+      <line_color>
+        <color red="150" green="150" blue="150">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>DI15</name>
+      <pv_name>$(P)$(R)DIFAlarmCtrl</pv_name>
+      <x>96</x>
+      <y>245</y>
+      <width>136</width>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DI15</name>
+      <pv_name>$(P)$(R)DIFDesc</pv_name>
+      <x>241</x>
+      <y>245</y>
+      <width>120</width>
+      <height>26</height>
+      <background_color>
+        <color name="WritePV_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>6</format>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Device Information</name>
+    <x>5</x>
+    <y>315</y>
+    <width>541</width>
+    <height>311</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <actions>
+    </actions>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Device Uptime</text>
+      <x>15</x>
+      <y>10</y>
+      <width>158</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(P)$(R)Uptime</pv_name>
+      <x>180</x>
+      <y>10</y>
+      <width>235</width>
+      <height>26</height>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Socket Connected Status</text>
+      <x>15</x>
+      <y>40</y>
+      <width>158</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(P)$(R)Connected</pv_name>
+      <x>180</x>
+      <y>40</y>
+      <width>235</width>
+      <height>26</height>
+      <format>6</format>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <tooltip>This is the TCP socket connected status.
+This can take 15 minutes to disconnect on Linux.
+$(pv_name)
+$(pv_value)</tooltip>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Device Name</text>
+      <x>15</x>
+      <y>70</y>
+      <width>158</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(P)$(R)DeviceName</pv_name>
+      <x>180</x>
+      <y>70</y>
+      <width>235</width>
+      <height>26</height>
+      <format>6</format>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Model Name</text>
+      <x>15</x>
+      <y>100</y>
+      <width>158</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(P)$(R)ModelName</pv_name>
+      <x>180</x>
+      <y>100</y>
+      <width>235</width>
+      <height>26</height>
+      <format>6</format>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Firmware Version</text>
+      <x>15</x>
+      <y>130</y>
+      <width>158</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(P)$(R)FWV1</pv_name>
+      <x>180</x>
+      <y>130</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(P)$(R)FWV2</pv_name>
+      <x>220</x>
+      <y>130</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(P)$(R)FWV3</pv_name>
+      <x>260</x>
+      <y>130</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Build (Y/M/D)</text>
+      <x>40</x>
+      <y>160</y>
+      <width>134</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(P)$(R)FWBYear</pv_name>
+      <x>180</x>
+      <y>160</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P)$(R)FWBMonth</pv_name>
+      <x>220</x>
+      <y>160</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_2</name>
+      <pv_name>$(P)$(R)FWBDay</pv_name>
+      <x>260</x>
+      <y>160</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>IP Address</text>
+      <x>15</x>
+      <y>190</y>
+      <width>158</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(P)$(R)IP1</pv_name>
+      <x>180</x>
+      <y>190</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P)$(R)IP2</pv_name>
+      <x>220</x>
+      <y>190</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_2</name>
+      <pv_name>$(P)$(R)IP3</pv_name>
+      <x>260</x>
+      <y>190</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_2</name>
+      <pv_name>$(P)$(R)IP4</pv_name>
+      <x>300</x>
+      <y>190</y>
+      <width>35</width>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>MAC Address</text>
+      <x>15</x>
+      <y>220</y>
+      <width>158</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(P)$(R)MAC1</pv_name>
+      <x>180</x>
+      <y>220</y>
+      <width>35</width>
+      <height>26</height>
+      <format>4</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P)$(R)MAC2</pv_name>
+      <x>220</x>
+      <y>220</y>
+      <width>35</width>
+      <height>26</height>
+      <format>4</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_2</name>
+      <pv_name>$(P)$(R)MAC3</pv_name>
+      <x>260</x>
+      <y>220</y>
+      <width>35</width>
+      <height>26</height>
+      <format>4</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_3</name>
+      <pv_name>$(P)$(R)MAC4</pv_name>
+      <x>300</x>
+      <y>220</y>
+      <width>35</width>
+      <height>26</height>
+      <format>4</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_3</name>
+      <pv_name>$(P)$(R)MAC5</pv_name>
+      <x>340</x>
+      <y>220</y>
+      <width>35</width>
+      <height>26</height>
+      <format>4</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_3</name>
+      <pv_name>$(P)$(R)MAC6</pv_name>
+      <x>380</x>
+      <y>220</y>
+      <width>35</width>
+      <height>26</height>
+      <format>4</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_8</name>
+      <text>Fast &amp; Slow Poll Delay</text>
+      <x>15</x>
+      <y>250</y>
+      <width>158</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_20</name>
+      <pv_name>$(P)$(R)FastPollControl.SCAN</pv_name>
+      <x>180</x>
+      <y>250</y>
+      <width>75</width>
+      <height>26</height>
+      <format>6</format>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_21</name>
+      <pv_name>$(P)$(R)SlowPollControl.SCAN</pv_name>
+      <x>260</x>
+      <y>250</y>
+      <width>75</width>
+      <height>26</height>
+      <format>6</format>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Alarm</name>
+    <x>545</x>
+    <y>315</y>
+    <width>271</width>
+    <height>311</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <actions>
+    </actions>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Alarm</text>
+      <x>45</x>
+      <y>10</y>
+      <width>71</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(P)$(R)Alarm</pv_name>
+      <x>120</x>
+      <y>10</y>
+      <height>26</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Alarm Control</text>
+      <x>10</x>
+      <y>40</y>
+      <width>106</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Menu Button</name>
+      <pv_name>$(P)$(R)AlarmCtrl</pv_name>
+      <x>120</x>
+      <y>40</y>
+      <height>26</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_2</name>
+      <text>Comms Alarm</text>
+      <x>10</x>
+      <y>80</y>
+      <width>106</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P)$(R)CommsAlarm</pv_name>
+      <x>120</x>
+      <y>80</y>
+      <height>26</height>
+      <format>6</format>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_2</name>
+      <text>DI Read Status</text>
+      <x>10</x>
+      <y>110</y>
+      <width>106</width>
+      <height>26</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P)$(R)DI.STAT</pv_name>
+      <x>120</x>
+      <y>110</y>
+      <height>26</height>
+      <format>6</format>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+</display>
